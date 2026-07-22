@@ -46,19 +46,19 @@ export default function ContactPage() {
       <section className="relative overflow-hidden bg-deep">
         <div className="grid-lines pointer-events-none absolute inset-0" />
         <div className="pointer-events-none absolute -left-32 top-0 h-96 w-96 rounded-full bg-aqua/15 blur-3xl" />
-        <div className="relative z-10 mx-auto max-w-7xl px-6 pb-32 pt-24 sm:pb-36">
+        <div className="relative z-10 mx-auto max-w-7xl px-6 pb-20 pt-16 sm:pb-24">
           <Reveal>
             <p className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.3em] text-foam">
               <span className="h-px w-8 bg-aqua" /> Get in Touch
             </p>
           </Reveal>
           <Reveal delay={120}>
-            <h1 className="font-display mt-5 max-w-3xl text-4xl font-extrabold leading-[1.08] tracking-tight text-white sm:text-6xl">
+            <h1 className="font-display mt-5 max-w-3xl text-4xl font-extrabold leading-[1.08] tracking-tight text-white sm:text-5xl">
               Let&apos;s Talk <span className="text-gradient">Water</span>
             </h1>
           </Reveal>
           <Reveal delay={240}>
-            <p className="mt-6 max-w-2xl text-base leading-relaxed text-mist/85 sm:text-lg">
+            <p className="mt-5 max-w-2xl text-base leading-relaxed text-mist/85 sm:text-lg">
               Orders, bulk quotes, dispenser service or partnerships — the Limah Fresh team answers fast.
             </p>
           </Reveal>
@@ -151,11 +151,13 @@ export default function ContactPage() {
             </div>
           </Reveal>
         </div>
+      </section>
 
-        {/* WhatsApp strip */}
-        <div className="mx-auto max-w-7xl px-6">
-          <Reveal className="mt-16" direction="scale">
-            <div className="wave-dots flex flex-col items-center justify-between gap-6 rounded-[2rem] bg-gradient-to-r from-[#128C7E] to-[#25D366] p-10 text-center sm:p-12 lg:flex-row lg:text-left">
+      {/* WhatsApp strip — full width */}
+      <section>
+        <Reveal direction="scale">
+          <div className="wave-dots overflow-hidden bg-gradient-to-r from-[#128C7E] to-[#25D366] p-10 text-center shadow-2xl shadow-[#25D366]/25 sm:p-14">
+            <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 lg:flex-row lg:text-left">
               <div className="flex items-center gap-5">
                 <span className="hidden h-16 w-16 items-center justify-center rounded-2xl bg-white/15 text-white sm:flex">
                   <WhatsAppIcon className="h-9 w-9" />
@@ -178,8 +180,8 @@ export default function ContactPage() {
                 <WhatsAppIcon className="h-4 w-4" /> Start a Chat
               </a>
             </div>
-          </Reveal>
-        </div>
+          </div>
+        </Reveal>
       </section>
     </>
   );

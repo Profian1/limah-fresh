@@ -5,6 +5,7 @@ import "./globals.css";
 import { SITE } from "@/lib/site";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { MobileNav } from "@/components/layout/MobileNav";
 import { WhatsAppFloat } from "@/components/layout/WhatsAppFloat";
 import { QuoteProvider } from "@/components/quote/QuoteProvider";
 
@@ -34,11 +35,12 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" className={`${inter.variable} ${sora.variable}`}>
-      <body className="antialiased">
+      <body className="antialiased pb-16 md:pb-0">
         <QuoteProvider>
           <Header />
           <main>{children}</main>
           <Footer />
+          <MobileNav />
           <WhatsAppFloat />
         </QuoteProvider>
       </body>

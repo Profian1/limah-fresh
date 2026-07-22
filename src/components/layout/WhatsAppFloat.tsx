@@ -8,7 +8,7 @@ export function WhatsAppFloat() {
       target="_blank"
       rel="noreferrer"
       aria-label="Chat with Limah Fresh on WhatsApp"
-      className="group fixed bottom-6 right-6 z-[70] flex items-center gap-0"
+      className="group fixed bottom-28 right-4 z-[70] flex items-center gap-0 md:bottom-6 md:right-6"
     >
       <span className="pointer-events-none mr-3 hidden translate-x-2 rounded-full bg-white px-4 py-2 text-xs font-bold text-navy opacity-0 shadow-xl shadow-navy/10 ring-1 ring-mist transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100 sm:block">
         Order on WhatsApp

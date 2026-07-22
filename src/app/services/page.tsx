@@ -7,6 +7,7 @@ import {
   ClipboardList,
   Droplet,
   Droplets,
+  Gift,
   PhoneCall,
   Sparkles,
   Truck,
@@ -30,19 +31,19 @@ function PageHero() {
     <section className="relative overflow-hidden bg-deep">
       <Image src={PHOTOS.tanker} alt="" fill priority className="object-cover opacity-35" sizes="100vw" />
       <div className="absolute inset-0 bg-gradient-to-r from-deep/95 via-navy/85 to-brand/40" />
-      <div className="relative z-10 mx-auto max-w-7xl px-6 pb-32 pt-24 sm:pb-36">
+      <div className="relative z-10 mx-auto max-w-7xl px-6 pb-20 pt-16 sm:pb-24">
         <Reveal>
           <p className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.3em] text-foam">
             <span className="h-px w-8 bg-aqua" /> B2B & Industrial Services
           </p>
         </Reveal>
         <Reveal delay={120}>
-          <h1 className="font-display mt-5 max-w-3xl text-4xl font-extrabold leading-[1.08] tracking-tight text-white sm:text-6xl">
+          <h1 className="font-display mt-5 max-w-3xl text-4xl font-extrabold leading-[1.08] tracking-tight text-white sm:text-5xl">
             Bulk Water &amp; <span className="text-gradient">Care Services</span>
           </h1>
         </Reveal>
         <Reveal delay={240}>
-          <p className="mt-6 max-w-2xl text-base leading-relaxed text-mist/85 sm:text-lg">
+          <p className="mt-5 max-w-2xl text-base leading-relaxed text-mist/85 sm:text-lg">
             From 10,000-litre bowser drops to full dispenser care — the services Kenya&apos;s institutions
             rely on, run by one accountable team.
           </p>
@@ -300,9 +301,9 @@ function Contracts() {
                   {plan.points.map((pt) => (
                     <li
                       key={pt}
-                      className={`flex items-start gap-2.5 text-sm ${plan.featured ? "text-mist/90" : "text-slate-700"}`}
+                      className={`flex items-start gap-2.5 text-sm ${plan.featured ? "text-foam" : "text-slate-700"}`}
                     >
-                      <CheckCircle2 className={`mt-0.5 h-[18px] w-[18px] shrink-0 ${plan.featured ? "text-sky" : "text-aqua"}`} />
+                      <CheckCircle2 className={`mt-0.5 h-[18px] w-[18px] shrink-0 ${plan.featured ? "text-white" : "text-aqua"}`} />
                       <span className="font-medium">{pt}</span>
                     </li>
                   ))}
@@ -344,6 +345,82 @@ function Contracts() {
   );
 }
 
+/* ----------------------------- branded water ----------------------------- */
+
+function BrandedWater() {
+  const features = [
+    "Weddings, corporate summits, birthdays, and thank-you gifts",
+    "Company-branded water for offices, hotels, clinics, and sites",
+    "Sizes: 500ml, 1L, 5L, 10L, and 20L",
+    "Custom label design and premium packaging included",
+  ];
+  return (
+    <section className="bg-ice py-24" id="branded">
+      <div className="mx-auto max-w-7xl px-6">
+        <div className="grid items-center gap-14 lg:grid-cols-2">
+          <Reveal direction="left">
+            <span className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-brand to-aqua px-4 py-2 text-[11px] font-bold uppercase tracking-[0.2em] text-white shadow-lg shadow-aqua/25">
+              <Gift className="h-3.5 w-3.5" /> Service 04
+            </span>
+            <h2 className="font-display mt-5 text-3xl font-extrabold tracking-tight text-navy sm:text-5xl">
+              Custom Branded <span className="text-gradient-deep">Water Bottles</span>
+            </h2>
+            <p className="mt-5 text-[15px] leading-relaxed text-slate-700">
+              We print your logo, name, or event message on premium purified water bottles — from 500ml event
+              bottles to 20L home and office containers. Every label is designed to match your brand identity,
+              with professional packaging that leaves a lasting impression.
+            </p>
+            <ul className="mt-7 space-y-3.5">
+              {features.map((f) => (
+                <li key={f} className="flex items-start gap-3 text-sm text-slate-700">
+                  <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-aqua" />
+                  <span className="font-medium">{f}</span>
+                </li>
+              ))}
+            </ul>
+            <div className="mt-9 flex flex-wrap gap-3">
+              <QuoteButton
+                service="bulk_bottled"
+                className="btn-sheen inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-brand to-aqua px-7 py-3.5 text-sm font-bold text-white shadow-xl shadow-aqua/25 transition hover:-translate-y-0.5"
+              >
+                <Gift className="h-4 w-4" /> Request Branded Water Quote
+              </QuoteButton>
+              <a
+                href={waLink("Hello Limah Fresh, I would like to inquire about custom branded water bottles for an event/business.")}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 rounded-full border border-mist bg-white px-7 py-3.5 text-sm font-bold text-navy transition hover:border-aqua hover:bg-mist/40"
+              >
+                <WhatsAppIcon className="h-4 w-4" /> WhatsApp an Inquiry
+              </a>
+            </div>
+          </Reveal>
+          <Reveal direction="right">
+            <div className="flex items-center justify-center">
+              <div className="relative flex flex-wrap items-center justify-center gap-4">
+                {["pet-sm", "pet-md", "pet-lg", "bottle-md"].map((art, i) => (
+                  <div
+                    key={art}
+                    className="flex h-36 w-36 items-center justify-center rounded-3xl border border-mist bg-white p-4 shadow-lg shadow-navy/5 transition-all duration-500 hover:-translate-y-2 hover:shadow-xl"
+                    style={{ transform: `rotate(${(i - 1.5) * 6}deg)` }}
+                  >
+                    <Droplet className="h-14 w-14 text-aqua/30" />
+                  </div>
+                ))}
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="glass-dark rounded-2xl px-6 py-3">
+                    <p className="font-display text-lg font-extrabold text-white">Your Brand Here</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </Reveal>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export default function ServicesPage() {
   return (
     <>
@@ -351,6 +428,7 @@ export default function ServicesPage() {
       <Bowser />
       <Maintenance />
       <Contracts />
+      <BrandedWater />
     </>
   );
 }

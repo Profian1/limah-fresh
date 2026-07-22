@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Clock, Mail, MapPin, Phone, ShieldCheck } from "lucide-react";
+import { Clock, Mail, MapPin, Phone } from "lucide-react";
 import { Logo } from "@/components/art/Logo";
 import { WhatsAppIcon } from "@/components/art/icons";
 import { NAV_LINKS, SITE, waLink, generalInquiryMessage } from "@/lib/site";
@@ -18,7 +18,7 @@ export function Footer() {
       <div className="pointer-events-none absolute -left-32 top-1/3 h-96 w-96 rounded-full bg-brand/20 blur-3xl" />
       <div className="pointer-events-none absolute -right-32 bottom-0 h-96 w-96 rounded-full bg-aqua/15 blur-3xl" />
 
-      <div className="relative mx-auto max-w-7xl px-6 pb-10 pt-16">
+      <div className="relative mx-auto max-w-7xl px-6 pb-28 pt-16 md:pb-10">
         <div className="grid gap-12 lg:grid-cols-[1.4fr_1fr_1fr_1.3fr]">
           <div>
             <Logo dark />
@@ -103,16 +103,9 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-14 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-6 text-xs text-mist/55 md:flex-row">
+        <div className="mt-14 border-t border-white/10 pt-6 text-center text-xs text-mist/55">
           <p>
             © {new Date().getFullYear()} {SITE.company} — {SITE.slogan}. All rights reserved.
-          </p>
-          <p className="flex items-center gap-2">
-            <ShieldCheck className="h-4 w-4 text-aqua" />
-            KEBS Diamond Mark of Quality · KRA Excise Licensed · Ministry of Health Certified
-          </p>
-          <p className="rounded-full bg-white/5 px-3 py-1.5 font-semibold text-foam/80 ring-1 ring-white/10">
-            M-Pesa Express checkout — coming soon
           </p>
         </div>
       </div>

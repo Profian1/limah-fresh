@@ -1,12 +1,8 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
 import {
-  ArrowRight,
   Award,
-  BadgeCheck,
   CalendarDays,
-  FileCheck2,
   Filter,
   FlaskConical,
   Globe2,
@@ -18,12 +14,11 @@ import {
 import { PHOTOS, SITE } from "@/lib/site";
 import { Reveal } from "@/components/ui/Reveal";
 import { WaveDivider } from "@/components/art/WaveDivider";
-import { QuoteButton } from "@/components/quote/QuoteButton";
 
 export const metadata: Metadata = {
-  title: "About Us & Quality Assurance",
+  title: "About Us",
   description:
-    "Limah E.A. Limited — incorporated November 20, 2013. Our 4-step purification: micro-filtration, reverse osmosis, ozonation and UV sterilization. KEBS Diamond Mark, KRA Excise licensed, Ministry of Health certified.",
+    "Limah E.A. Limited — incorporated November 20, 2013. Our 4-step purification: micro-filtration, reverse osmosis, ozonation and UV sterilization.",
 };
 
 function PageHero() {
@@ -31,19 +26,19 @@ function PageHero() {
     <section className="relative overflow-hidden bg-deep">
       <Image src={PHOTOS.ripple} alt="" fill priority className="object-cover opacity-40" sizes="100vw" />
       <div className="absolute inset-0 bg-gradient-to-r from-deep/95 via-navy/85 to-brand/40" />
-      <div className="relative z-10 mx-auto max-w-7xl px-6 pb-32 pt-24 sm:pb-36">
+      <div className="relative z-10 mx-auto max-w-7xl px-6 pb-20 pt-16 sm:pb-24">
         <Reveal>
           <p className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.3em] text-foam">
             <span className="h-px w-8 bg-aqua" /> About {SITE.company}
           </p>
         </Reveal>
         <Reveal delay={120}>
-          <h1 className="font-display mt-5 max-w-3xl text-4xl font-extrabold leading-[1.08] tracking-tight text-white sm:text-6xl">
+          <h1 className="font-display mt-5 max-w-3xl text-4xl font-extrabold leading-[1.08] tracking-tight text-white sm:text-5xl">
             Water You Can Trust, <span className="text-gradient">Bottle After Bottle</span>
           </h1>
         </Reveal>
         <Reveal delay={240}>
-          <p className="mt-6 max-w-2xl text-base leading-relaxed text-mist/85 sm:text-lg">
+          <p className="mt-5 max-w-2xl text-base leading-relaxed text-mist/85 sm:text-lg">
             Since 2013 we have been on a single mission — solving clean water supply challenges across Kenya
             and Africa, one purified litre at a time.
           </p>
@@ -232,85 +227,6 @@ function Minerals() {
   );
 }
 
-function Compliance() {
-  const cards = [
-    {
-      icon: ShieldCheck,
-      title: "KEBS Diamond Mark of Quality",
-      text: "Our flagship certification. Every bottle carries a tamper-proof seal — if the seal is broken, do not accept the bottle.",
-    },
-    {
-      icon: BadgeCheck,
-      title: "KRA Excise License",
-      text: "Licensed by the Kenya Revenue Authority for the production and distribution of bottled drinking water.",
-    },
-    {
-      icon: FileCheck2,
-      title: "Ministry of Health Certified",
-      text: "Valid Food Handling Certificate and Public Health approvals covering our plant, staff and processes.",
-    },
-    {
-      icon: FlaskConical,
-      title: "Quarterly Micro Testing",
-      text: "Independent microbiological analysis every quarter guarantees each batch meets drinking-water standards.",
-    },
-  ];
-  return (
-    <section className="bg-white py-24">
-      <div className="mx-auto max-w-7xl px-6">
-        <Reveal className="mb-14 text-center">
-          <p className="text-xs font-bold uppercase tracking-[0.3em] text-aqua">Regulatory Approvals</p>
-          <h2 className="font-display mt-3 text-3xl font-extrabold tracking-tight text-navy sm:text-5xl">
-            Certified, Licensed, <span className="text-gradient-deep">Verified</span>
-          </h2>
-        </Reveal>
-        <div className="grid gap-6 sm:grid-cols-2">
-          {cards.map((c, i) => (
-            <Reveal key={c.title} delay={i * 110}>
-              <div className="group flex h-full items-start gap-5 rounded-3xl border border-mist bg-gradient-to-br from-ice to-white p-8 transition-all duration-500 hover:-translate-y-1 hover:border-aqua/50 hover:shadow-xl hover:shadow-aqua/10">
-                <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-navy to-brand text-foam shadow-lg shadow-navy/25 transition group-hover:scale-110">
-                  <c.icon className="h-7 w-7" />
-                </span>
-                <div>
-                  <h3 className="font-display text-lg font-bold text-navy">{c.title}</h3>
-                  <p className="mt-2 text-[13.5px] leading-relaxed text-slate-600">{c.text}</p>
-                </div>
-              </div>
-            </Reveal>
-          ))}
-        </div>
-
-        <Reveal className="mt-16" direction="scale">
-          <div className="wave-dots flex flex-col items-center justify-between gap-6 rounded-[2rem] bg-gradient-to-r from-navy to-brand p-10 text-center sm:p-12 lg:flex-row lg:text-left">
-            <div>
-              <h3 className="font-display text-2xl font-extrabold text-white sm:text-3xl">
-                Taste the difference purity makes.
-              </h3>
-              <p className="mt-2 text-sm text-mist/85">
-                Order your first bottle today — or talk to us about a contract for your office.
-              </p>
-            </div>
-            <div className="flex flex-wrap justify-center gap-3">
-              <Link
-                href="/products"
-                className="btn-sheen inline-flex items-center gap-2 rounded-full bg-white px-7 py-3.5 text-sm font-bold text-navy shadow-xl shadow-navy/20 transition hover:-translate-y-0.5"
-              >
-                Browse Products <ArrowRight className="h-4 w-4" />
-              </Link>
-              <QuoteButton
-                service="delivery_contract"
-                className="inline-flex items-center gap-2 rounded-full border border-white/40 bg-white/10 px-7 py-3.5 text-sm font-bold text-white transition hover:bg-white/20"
-              >
-                Request Contract Quote
-              </QuoteButton>
-            </div>
-          </div>
-        </Reveal>
-      </div>
-    </section>
-  );
-}
-
 export default function AboutPage() {
   return (
     <>
@@ -318,7 +234,6 @@ export default function AboutPage() {
       <Story />
       <Purification />
       <Minerals />
-      <Compliance />
     </>
   );
 }

@@ -1,0 +1,131 @@
+📄 Product Requirements Document (PRD)
+Project Name: Limah Fresh E-Commerce Showcase & Catalog Website
+
+Company: Limah E.A. Limited  
+PDF
+
+Slogan: "Ensuring you love and enjoy your environment" / "Pure Drinking Water"  
+PDF
++ 1
+
+Primary Goal: Build a responsive, high-converting website with an e-commerce look and feel that showcases products and services, driving inquiries via WhatsApp direct ordering and Quote Requests, while keeping the backend structure ready for future M-Pesa API checkout integration.  
+PDF
++ 1
+
+1. Target Audience
+B2C (Residential/Homes): Households ordering 5L, 10L, and 18.9L refill bottles or water dispensers.  
+PDF
++ 1
+
+B2B (Corporate & Institutional): Offices, hospitals, schools, government bodies (e.g., KNEC, Posta Kenya, KAA) requiring bulk bowser water delivery, dispenser maintenance, and regular bottle refills.  
+PDF
+
+2. Key Features & Functionality
+E-Commerce Aesthetic UI: Clean product grids, badge labels (e.g., "KEBS Certified"), volume selectors, and product detail cards.  
+PDF
+
+WhatsApp Direct Ordering: Clicking "Order via WhatsApp" opens WhatsApp with a pre-filled message format (e.g., "Hello Limah Fresh, I would like to order [Product Name], Quantity: [X], Location: [Location]").
+
+"Request a Quote" System: Dynamic modal form for bulk bowser orders, custom water dispenser contracts, or dispenser maintenance.  
+PDF
+
+Trust & Compliance Badges: Prominent display of KEBS Diamond Mark of Quality, KRA Excise Licensing, and Ministry of Health Certifications.  
+PDF
+
+Future-Proofing: Codebase architecture prepared for M-Pesa Express API integration in Phase 2.
+
+3. Site Map & 5-Page Architecture
+                 ┌────────────────────────────────┐
+                 │       Header & Navigation      │
+                 └───────────────┬────────────────┘
+                                 │
+     ┌─────────────────┬─────────┴───────┬──────────────────┬─────────────────┐
+     │                 │                 │                  │                 │
+┌────┴─────┐     ┌─────┴──────┐    ┌─────┴──────┐    ┌──────┴──────┐    ┌─────┴──────┐
+│  1. HOME │     │ 2. ABOUT   │    │ 3. PRODUCTS│    │ 4. BULK &   │    │ 5. CONTACT │
+│   PAGE   │     │ & QUALITY  │    │   CATALOG  │    │  SERVICES   │    │     US     │
+└──────────┘     └────────────┘    └────────────┘    └─────────────┘    └────────────┘
+Page Breakdown:
+Home Page (/)
+
+High-impact hero section with primary Call-to-Action (CTA: "Order Water Now" / "Request Bowser").
+
+Quick Product Categories grid (Bottled Water, Dispensers, Accessories).  
+PDF
+
+Core Services highlights.  
+PDF
+
+Trust badges & Compliance highlights.  
+PDF
+
+Client Logo Showcase.  
+PDF
+
+Testimonials / Quality Assurance counter.
+
+About Us & Compliance Page (/about)
+
+Company history (Incorporated Nov 20, 2013 under Cap 486).  
+PDF
+
+Purification Technology breakdown (Micro-filtration, Reverse Osmosis, Ozonation, UV Sterilization).  
+PDF
+
+Mineral Content breakdown (Potassium, Calcium, Magnesium, Zinc).  
+PDF
+
+Regulatory Approvals (KEBS, KRA Excise, Ministry of Health).  
+PDF
+
+Products Catalog Page (/products)
+
+Product cards with image, volume size, description, and dual CTA ("Order via WhatsApp" / "Add to Inquiry").
+
+Categories:
+
+Bottled Water: 500ml, 1L, 1.5L, 5L, 10L, 18.9L.  
+PDF
++ 1
+
+Dispensers: Floor-standing & Desktop models (Ipcone, Nonga, etc.).  
+PDF
++ 1
+
+Accessories: Disposable Cups, Dispenser Accessories.  
+PDF
++ 1
+
+Bulk Water & Services Page (/services)
+
+Dedicated details for B2B / Industrial services:
+
+Bulk Water Supply via Water Bowsers ("Limah Soft Water").  
+PDF
++ 1
+
+Dispenser Supply, Maintenance, and Sanitization.  
+PDF
+
+Home & Office Scheduled Delivery Contracts.  
+PDF
+
+Interactive "Request a Bowser / Quote" form.
+
+Contact Us Page (/contact)
+
+Interactive location map (North Airport Road, Amee Holdings, Nairobi).  
+PDF
++ 1
+
+Contact details: 0718013432 / 0718013391 / 0722998182 / 0116022104.  
+PDF
++ 1
+
+Direct Email form targeting info@limaheastafrica.co.ke and limaheastafrica@gmail.com.  
+PDF
++ 1
+
+Operating hours and address details.  
+PDF
++ 1

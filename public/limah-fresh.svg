@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+  <defs>
+    <!-- Gold Metallic Gradient -->
+    <linearGradient id="limahGold" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#C59A27" />
+      <stop offset="35%" stop-color="#FDF0A6" />
+      <stop offset="70%" stop-color="#D4A338" />
+      <stop offset="100%" stop-color="#99701A" />
+    </linearGradient>
+  </defs>
+
+  <g fill="none" stroke="url(#limahGold)" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Outer Ring -->
+    <circle cx="118" cy="100" r="56" stroke-width="4.5" />
+    
+    <!-- Bottom-Left Dash -->
+    <line x1="10" y1="155" x2="22" y2="155" stroke-width="4.5" />
+    
+    <!-- Cursive Loop Symbol -->
+    <path d="M 32 153 
+             C 55 148, 82 120, 102 70 
+             C 112 45, 122 18, 114 10 
+             C 104 2, 92 25, 84 55 
+             C 72 98, 62 138, 70 154 
+             C 78 170, 108 172, 132 148 
+             C 152 128, 158 98, 146 72" 
+          stroke-width="4.5" />
+  </g>
+</svg>

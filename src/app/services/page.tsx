@@ -29,7 +29,7 @@ export const metadata: Metadata = {
 function PageHero() {
   return (
     <section className="relative overflow-hidden bg-deep">
-      <Image src={PHOTOS.tanker} alt="" fill priority className="object-cover opacity-35" sizes="100vw" />
+      <Image src="/bowser.jpeg" alt="" fill priority className="object-cover opacity-35" sizes="100vw" />
       <div className="absolute inset-0 bg-gradient-to-r from-deep/95 via-navy/85 to-brand/40" />
       <div className="relative z-10 mx-auto max-w-7xl px-6 pb-20 pt-16 sm:pb-24">
         <Reveal>
@@ -109,7 +109,7 @@ function Bowser() {
             <div className="relative">
               <div className="overflow-hidden rounded-[2rem] shadow-2xl shadow-navy/20 ring-1 ring-mist">
                 <Image
-                  src={PHOTOS.tanker}
+                  src="/bowser.jpeg"
                   alt="Limah Soft Water tanker bowser ready for delivery"
                   width={1600}
                   height={1067}
@@ -259,7 +259,7 @@ function Contracts() {
       <div className="mx-auto max-w-7xl px-6">
         <Reveal className="mb-14 text-center">
           <span className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-brand to-aqua px-4 py-2 text-[11px] font-bold uppercase tracking-[0.2em] text-white shadow-lg shadow-aqua/25">
-            <BadgeCheck className="h-3.5 w-3.5" /> Service 03
+            <BadgeCheck className="h-3.5 w-3.5" /> Service 04
           </span>
           <h2 className="font-display mt-5 text-3xl font-extrabold tracking-tight text-navy sm:text-5xl">
             Corporate &amp; Home <span className="text-gradient-deep">Delivery Contracts</span>
@@ -274,7 +274,7 @@ function Contracts() {
               <div
                 className={`relative flex h-full flex-col rounded-3xl p-8 transition-all duration-500 hover:-translate-y-2 ${
                   plan.featured
-                    ? "wave-dots bg-gradient-to-b from-navy to-brand text-white shadow-2xl shadow-brand/25"
+                    ? "bg-gradient-to-b from-navy to-brand text-white shadow-2xl shadow-brand/25"
                     : "border border-mist bg-gradient-to-b from-ice to-white hover:border-aqua/50 hover:shadow-xl hover:shadow-aqua/10"
                 }`}
               >
@@ -360,7 +360,7 @@ function BrandedWater() {
         <div className="grid items-center gap-14 lg:grid-cols-2">
           <Reveal direction="left">
             <span className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-brand to-aqua px-4 py-2 text-[11px] font-bold uppercase tracking-[0.2em] text-white shadow-lg shadow-aqua/25">
-              <Gift className="h-3.5 w-3.5" /> Service 04
+              <Gift className="h-3.5 w-3.5" /> Service 03
             </span>
             <h2 className="font-display mt-5 text-3xl font-extrabold tracking-tight text-navy sm:text-5xl">
               Custom Branded <span className="text-gradient-deep">Water Bottles</span>
@@ -427,8 +427,8 @@ export default function ServicesPage() {
       <PageHero />
       <Bowser />
       <Maintenance />
-      <Contracts />
       <BrandedWater />
+      <Contracts />
     </>
   );
 }

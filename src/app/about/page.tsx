@@ -4,12 +4,11 @@ import {
   Award,
   CalendarDays,
   Filter,
-  FlaskConical,
   Globe2,
   RefreshCw,
-  ShieldCheck,
   Sparkles,
   Sun,
+  Users,
 } from "lucide-react";
 import { PHOTOS, SITE } from "@/lib/site";
 import { Reveal } from "@/components/ui/Reveal";
@@ -87,8 +86,8 @@ function Story() {
           <div className="relative">
             <div className="overflow-hidden rounded-[2rem] shadow-2xl shadow-navy/20 ring-1 ring-mist">
               <Image
-                src={PHOTOS.plant}
-                alt="Purification vessels and blue piping at the Limah Fresh treatment setup"
+                src="/limahstaff.jpg"
+                alt="Limah Fresh staff team"
                 width={1600}
                 height={1067}
                 className="h-[420px] w-full object-cover transition-transform duration-700 hover:scale-105"
@@ -141,7 +140,9 @@ function Purification() {
     },
   ];
   return (
-    <section className="relative overflow-hidden bg-navy py-24">
+    <section className="relative overflow-hidden bg-deep py-24">
+      <Image src="/operations.png" alt="" fill className="object-cover opacity-30" sizes="100vw" />
+      <div className="absolute inset-0 bg-gradient-to-r from-deep/95 via-navy/85 to-brand/40" />
       <div className="grid-lines pointer-events-none absolute inset-0" />
       <div className="relative mx-auto max-w-7xl px-6">
         <Reveal className="mb-16 text-center">
@@ -174,53 +175,54 @@ function Purification() {
   );
 }
 
-function Minerals() {
-  const minerals = [
-    { sym: "K", name: "Potassium", note: "Supports fluid balance & nerve function" },
-    { sym: "Ca", name: "Calcium", note: "Essential for strong bones & teeth" },
-    { sym: "Mg", name: "Magnesium", note: "Aids energy release & muscle recovery" },
-    { sym: "Zn", name: "Zinc", note: "Backs immunity & healthy skin" },
+function Team() {
+  const members = [
+    { img: "/team1.jpg", name: "Team Member" },
+    { img: "/team2.jpg", name: "Team Member" },
+    { img: "/team3.jpg", name: "Team Member" },
+    { img: "/team4.jpg", name: "Team Member" },
+    { img: "/team5.jpg", name: "Team Member" },
+    { img: "/team6.jpg", name: "Team Member" },
   ];
+
   return (
     <section className="bg-ice py-24">
       <div className="mx-auto max-w-7xl px-6">
-        <div className="grid items-center gap-14 lg:grid-cols-[1fr_1.2fr]">
-          <Reveal direction="left">
-            <p className="text-xs font-bold uppercase tracking-[0.3em] text-aqua">Essential Mineral Composition</p>
-            <h2 className="font-display mt-3 text-3xl font-extrabold tracking-tight text-navy sm:text-4xl">
-              Nature&apos;s Minerals, <span className="text-gradient-deep">Nothing Harmful</span>
-            </h2>
-            <p className="mt-5 text-[15px] leading-relaxed text-slate-700">
-              Limah Fresh retains the beneficial trace minerals your body loves — while our purification
-              process removes harmful chemicals and heavy metals entirely. Every batch is verified through
-              quarterly microbiological testing.
-            </p>
-            <ul className="mt-6 space-y-3 text-sm text-slate-700">
-              {["Zero harmful chemicals", "Zero heavy metals", "Balanced, fresh taste profile"].map((li) => (
-                <li key={li} className="flex items-center gap-3">
-                  <span className="flex h-6 w-6 items-center justify-center rounded-full bg-gradient-to-br from-brand to-aqua text-white">
-                    <ShieldCheck className="h-3.5 w-3.5" />
-                  </span>
-                  <span className="font-semibold">{li}</span>
-                </li>
-              ))}
-            </ul>
-          </Reveal>
-          <div className="grid grid-cols-2 gap-5">
-            {minerals.map((m, i) => (
-              <Reveal key={m.sym} delay={i * 110} direction={i % 2 ? "right" : "up"}>
-                <div className="group relative overflow-hidden rounded-3xl border border-mist bg-white p-6 transition-all duration-500 hover:-translate-y-1.5 hover:border-aqua/50 hover:shadow-xl hover:shadow-aqua/10">
-                  <div className="flex items-start justify-between">
-                    <span className="font-display text-5xl font-extrabold text-gradient-deep">{m.sym}</span>
-                    <FlaskConical className="h-5 w-5 text-foam transition group-hover:text-aqua" />
-                  </div>
-                  <p className="font-display mt-4 text-lg font-bold text-navy">{m.name}</p>
-                  <p className="mt-1 text-[12.5px] leading-relaxed text-slate-600">{m.note}</p>
-                  <span className="absolute -bottom-8 -right-8 h-24 w-24 rounded-full bg-mist/50 transition-transform duration-500 group-hover:scale-150" />
+        <Reveal className="mb-14 text-center">
+          <span className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-brand to-aqua px-4 py-2 text-[11px] font-bold uppercase tracking-[0.2em] text-white shadow-lg shadow-aqua/25">
+            <Users className="h-3.5 w-3.5" /> Our Team
+          </span>
+          <h2 className="font-display mt-5 text-3xl font-extrabold tracking-tight text-navy sm:text-5xl">
+            Meet the People Behind <span className="text-gradient-deep">Every Drop</span>
+          </h2>
+          <p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-slate-600 sm:text-base">
+            Passionate, dedicated, and driven by quality — our team makes purity personal.
+          </p>
+        </Reveal>
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {members.map((m, i) => (
+            <Reveal key={i} delay={i * 100} direction={i % 3 === 0 ? "left" : i % 3 === 1 ? "up" : "right"}>
+              <div className="group relative overflow-hidden rounded-3xl bg-white shadow-lg shadow-navy/5 ring-1 ring-mist transition-all duration-500 hover:-translate-y-2 hover:shadow-xl hover:shadow-aqua/10">
+                <div className="relative h-72 w-full overflow-hidden">
+                  <Image
+                    src={m.img}
+                    alt={m.name}
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-110"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-deep/80 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
                 </div>
-              </Reveal>
-            ))}
-          </div>
+                <div className="relative p-5">
+                  <h3 className="font-display text-lg font-bold text-navy">{m.name}</h3>
+                  <div className="mt-2 flex items-center gap-2">
+                    <span className="h-1 w-8 rounded-full bg-gradient-to-r from-brand to-aqua" />
+                    <span className="text-xs font-medium text-slate-500">Limah Fresh Team</span>
+                  </div>
+                </div>
+              </div>
+            </Reveal>
+          ))}
         </div>
       </div>
     </section>
@@ -233,7 +235,7 @@ export default function AboutPage() {
       <PageHero />
       <Story />
       <Purification />
-      <Minerals />
+      <Team />
     </>
   );
 }

@@ -1,20 +1,19 @@
 export const SITE = {
   name: "Limah Fresh",
-  company: "Limah E.A. Limited",
+  company: "Limah Fresh",
   slogan: "Pure Drinking Water",
   tagline: "Ensuring you love and enjoy your environment",
   incorporated: "November 20, 2013",
   address: "Amee Holdings, North Airport Road",
   poBox: "P.O. Box 36075-00200, Nairobi, Kenya",
   mapQuery: "North Airport Road, Embakasi, Nairobi, Kenya",
-  whatsappPrimary: "254718013432",
+  whatsappPrimary: "254718013391",
   phones: [
     { label: "Office Line", value: "011 602 2104", raw: "+254116022104" },
-    { label: "Sales & Orders", value: "0718 013 432", raw: "+254718013432" },
-    { label: "Customer Care", value: "0718 013 391", raw: "+254718013391" },
-    { label: "Deliveries", value: "0722 998 182", raw: "+254722998182" },
+    { label: "Sales & Orders", value: "0718 013 391", raw: "+254718013391" },
+    { label: "Shop Line", value: "0742 336 747", raw: "+254742336747" },
   ],
-  emails: ["info@limaheastafrica.co.ke", "limaheastafrica@gmail.com"],
+  emails: ["info@limahfresh.co.ke", "limahfresh01@gmail.com"],
   hours: [
     { days: "Monday – Friday", time: "8:00 AM – 5:30 PM" },
     { days: "Saturday", time: "8:00 AM – 3:00 PM" },
@@ -23,10 +22,26 @@ export const SITE = {
 };
 
 export const SOCIALS = [
-  { platform: "TikTok", href: "#", icon: "tiktok" },
-  { platform: "Instagram", href: "#", icon: "instagram" },
-  { platform: "Facebook", href: "#", icon: "facebook" },
-  { platform: "WhatsApp", href: "#", icon: "whatsapp" },
+  {
+    platform: "TikTok",
+    href: "https://www.tiktok.com/@limah.fresh.water?is_from_webapp=1&sender_device=pc",
+    icon: "tiktok",
+  },
+  {
+    platform: "Instagram",
+    href: "https://www.instagram.com/limah_fresh_water_company?igsh=MTJ3Z3EwcHJqZDU2Zw==",
+    icon: "instagram",
+  },
+  {
+    platform: "Facebook",
+    href: "https://www.facebook.com/limahfresh/",
+    icon: "facebook",
+  },
+  {
+    platform: "WhatsApp",
+    href: "https://wa.me/254718013391",
+    icon: "whatsapp",
+  },
 ];
 
 export const NAV_LINKS = [
@@ -51,7 +66,8 @@ export const CLIENTS = [
 /** Stock photography (Pexels) used for atmospheric sections. */
 export const PHOTOS = {
   hero: "https://images.pexels.com/photos/32180816/pexels-photo-32180816.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=1920&h=1280",
-  plant: "https://images.pexels.com/photos/12726229/pexels-photo-12726229.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=1600&h=1067",
+  plant:
+    "https://images.pexels.com/photos/12726229/pexels-photo-12726229.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=1600&h=1067",
   tanker:
     "https://images.pexels.com/photos/16966615/pexels-photo-16966615.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=1600&h=1067",
   dispenser:
@@ -67,7 +83,11 @@ export function waLink(message: string, phone: string = SITE.whatsappPrimary) {
   return `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
 }
 
-export function productOrderMessage(name: string, qty: number, volume?: string | null) {
+export function productOrderMessage(
+  name: string,
+  qty: number,
+  volume?: string | null,
+) {
   return [
     "Hello Limah Fresh, I would like to place an order:",
     "",
@@ -95,12 +115,17 @@ export function bowserMessage() {
 
 export const SERVICE_TYPES = [
   { value: "bowser", label: "Bulk Water Bowser (Limah Soft Water)" },
-  { value: "dispenser_maintenance", label: "Dispenser Maintenance & Sanitization" },
+  {
+    value: "dispenser_maintenance",
+    label: "Dispenser Maintenance & Sanitization",
+  },
   { value: "delivery_contract", label: "Home / Office Delivery Contract" },
   { value: "bulk_bottled", label: "Bulk Bottled Water Order" },
   { value: "general", label: "General Inquiry" },
 ];
 
 export function serviceLabel(value: string) {
-  return SERVICE_TYPES.find((s) => s.value === value)?.label ?? "General Inquiry";
+  return (
+    SERVICE_TYPES.find((s) => s.value === value)?.label ?? "General Inquiry"
+  );
 }

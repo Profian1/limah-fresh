@@ -33,8 +33,8 @@ function Hero() {
   return (
     <section className="relative flex min-h-screen items-center overflow-hidden bg-deep">    
       <Image
-        src={PHOTOS.hero}
-        alt="Dynamic splash of pure blue water"
+        src="/hero background.png"
+        alt=""
         fill
         priority
         className="object-cover opacity-70"
@@ -164,18 +164,11 @@ function Categories() {
       count: "6 formats",
     },
     {
-      art: "dispenser-floor",
-      title: "Water Dispensers",
-      text: "Floor-standing and desktop models with hot & cold taps, installed and serviced by our team.",
-      href: "/products?cat=dispensers",
-      count: "Ipcone · Nonga",
-    },
-    {
       art: "cups",
       title: "Accessories",
-      text: "Food-grade disposable cups, manual pumps and everything that keeps hydration flowing.",
+      text: "Food-grade disposable cups — everything that keeps hydration flowing.",
       href: "/products?cat=accessories",
-      count: "Cups · Pumps",
+      count: "Disposable Cups",
     },
   ];
   return (
@@ -190,7 +183,7 @@ function Categories() {
             <span className="text-gradient-deep">Stay Hydrated</span>
           </h2>
         </Reveal>
-        <div className="grid gap-6 md:grid-cols-3">
+        <div className="mx-auto grid max-w-2xl gap-6 md:grid-cols-2">
           {cats.map((cat, i) => (
             <Reveal key={cat.title} delay={i * 130}>
               <Link
@@ -457,9 +450,11 @@ function ClientsMarquee() {
 
 function CtaBand() {
   return (
-    <section className="relative overflow-hidden bg-navy px-6 py-20">
+    <section className="relative overflow-hidden px-6 py-20">
+      <Image src="/bowser.jpeg" alt="" fill className="object-cover opacity-25" sizes="100vw" />
+      <div className="absolute inset-0 bg-gradient-to-r from-navy/95 via-navy/80 to-brand/60" />
       <div className="grid-lines pointer-events-none absolute inset-0" />
-      <Reveal direction="scale">
+      <Reveal direction="scale" className="relative z-10">
         <div className="wave-dots relative mx-auto max-w-6xl overflow-hidden rounded-[2.5rem] bg-gradient-to-br from-brand via-aqua to-sky p-10 text-center shadow-2xl shadow-brand/30 sm:p-16">
           <div className="pointer-events-none absolute -left-24 -top-24 h-72 w-72 rounded-full bg-white/10 blur-3xl" />
           <Truck className="mx-auto h-12 w-12 text-white" />

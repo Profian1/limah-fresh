@@ -141,8 +141,8 @@ function Purification() {
   ];
   return (
     <section className="relative overflow-hidden bg-deep py-24">
-      <Image src="/operations.png" alt="" fill className="object-cover opacity-30" sizes="100vw" />
-      <div className="absolute inset-0 bg-gradient-to-r from-deep/95 via-navy/85 to-brand/40" />
+      <Image src="/operations.png" alt="" fill className="object-cover opacity-50" sizes="100vw" />
+      <div className="absolute inset-0 bg-gradient-to-r from-deep/80 via-navy/60 to-brand/20" />
       <div className="grid-lines pointer-events-none absolute inset-0" />
       <div className="relative mx-auto max-w-7xl px-6">
         <Reveal className="mb-16 text-center">

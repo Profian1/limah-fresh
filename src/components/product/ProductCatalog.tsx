@@ -2,13 +2,12 @@
 
 import { useMemo, useState } from "react";
 import { useSearchParams } from "next/navigation";
-import { LayoutGrid, Droplets, Monitor, CupSoda } from "lucide-react";
+import { LayoutGrid, Droplets, CupSoda } from "lucide-react";
 import { ProductCard, type CardProduct } from "./ProductCard";
 
 const TABS = [
   { value: "all", label: "All Products", icon: LayoutGrid },
   { value: "bottled_water", label: "Bottled Water", icon: Droplets },
-  { value: "dispensers", label: "Dispensers", icon: Monitor },
   { value: "accessories", label: "Accessories", icon: CupSoda },
 ];
 

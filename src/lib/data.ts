@@ -13,6 +13,7 @@ function seedFallback(): CardProduct[] {
     description: p.description,
     badge: p.badge ?? null,
     art: p.art,
+    image: p.image ?? null,
     priceNote: p.priceNote ?? null,
   }));
 }

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { Minus, Plus } from "lucide-react";
 import { ProductArt } from "@/components/art/ProductArt";
 import { WhatsAppIcon } from "@/components/art/icons";
@@ -14,6 +15,7 @@ export interface CardProduct {
   description: string;
   badge: string | null;
   art: string;
+  image?: string | null;
   priceNote?: string | null;
 }
 
@@ -29,10 +31,20 @@ export function ProductCard({ product, index = 0 }: { product: CardProduct; inde
     >
       {/* Artwork */}
       <div className="art-tile relative flex h-44 items-center justify-center overflow-hidden sm:h-60">
-        <ProductArt
-          variant={product.art}
-          className="h-36 w-auto drop-shadow-xl transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:-translate-y-1.5 group-hover:scale-[1.06] sm:h-52"
-        />
+        {product.image ? (
+          <Image
+            src={product.image}
+            alt={product.name}
+            fill
+            className="object-contain p-4 drop-shadow-xl transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:-translate-y-1.5 group-hover:scale-[1.06]"
+            sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+          />
+        ) : (
+          <ProductArt
+            variant={product.art}
+            className="h-36 w-auto drop-shadow-xl transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:-translate-y-1.5 group-hover:scale-[1.06] sm:h-52"
+          />
+        )}
         {product.badge && (
           <span className="absolute left-3 top-3 rounded-full bg-navy px-2.5 py-1 text-[9px] font-extrabold uppercase tracking-[0.12em] text-foam shadow-lg shadow-navy/25 sm:left-4 sm:top-4 sm:px-3.5 sm:py-1.5 sm:text-[10px] sm:tracking-[0.14em]">
             {product.badge}

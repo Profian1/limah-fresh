@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { Clock, Mail, MapPin, Phone } from "lucide-react";
-import { SITE, waLink, generalInquiryMessage } from "@/lib/site";
+import { PHOTOS, SITE, waLink, generalInquiryMessage } from "@/lib/site";
 import { Reveal } from "@/components/ui/Reveal";
 import { WaveDivider } from "@/components/art/WaveDivider";
 import { ContactForm } from "@/components/forms/ContactForm";
@@ -44,6 +45,8 @@ export default function ContactPage() {
     <>
       {/* Hero */}
       <section className="relative overflow-hidden bg-deep">
+        <Image src={PHOTOS.hero} alt="" fill priority className="object-cover opacity-40" sizes="100vw" />
+        <div className="absolute inset-0 bg-gradient-to-r from-deep/95 via-navy/85 to-brand/40" />
         <div className="grid-lines pointer-events-none absolute inset-0" />
         <div className="pointer-events-none absolute -left-32 top-0 h-96 w-96 rounded-full bg-aqua/15 blur-3xl" />
         <div className="relative z-10 mx-auto max-w-7xl px-6 pb-20 pt-16 sm:pb-24">
@@ -153,11 +156,11 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* WhatsApp strip — full width */}
-      <section>
-        <Reveal direction="scale">
-          <div className="wave-dots overflow-hidden bg-gradient-to-r from-[#128C7E] to-[#25D366] p-10 text-center shadow-2xl shadow-[#25D366]/25 sm:p-14">
-            <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 lg:flex-row lg:text-left">
+      {/* WhatsApp strip */}
+      <section className="px-0 pb-20">
+        <div className="mx-4 overflow-hidden rounded-[2.5rem] bg-gradient-to-r from-[#128C7E] to-[#25D366] p-10 sm:mx-6 sm:p-14">
+          <Reveal direction="scale">
+            <div className="flex flex-col items-center justify-between gap-6 lg:flex-row lg:text-left">
               <div className="flex items-center gap-5">
                 <span className="hidden h-16 w-16 items-center justify-center rounded-2xl bg-white/15 text-white sm:flex">
                   <WhatsAppIcon className="h-9 w-9" />
@@ -180,8 +183,8 @@ export default function ContactPage() {
                 <WhatsAppIcon className="h-4 w-4" /> Start a Chat
               </a>
             </div>
-          </div>
-        </Reveal>
+          </Reveal>
+        </div>
       </section>
     </>
   );

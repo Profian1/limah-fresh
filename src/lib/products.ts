@@ -10,6 +10,7 @@ export interface ProductSeed {
   description: string;
   badge?: string;
   art: string;
+  image?: string;
   priceNote?: string;
   featured?: boolean;
   sortOrder: number;
@@ -25,6 +26,7 @@ export const PRODUCT_SEED: ProductSeed[] = [
       "The home & office classic. Dispenser-ready, returnable polycarbonate bottle with a tamper-proof KEBS-approved seal.",
     badge: "Best Seller",
     art: "jug",
+    image: "/18.9lbottle.jpeg",
     priceNote: "Refill & exchange available",
     featured: true,
     sortOrder: 1,
@@ -69,6 +71,7 @@ export const PRODUCT_SEED: ProductSeed[] = [
     description:
       "On-the-go size that fits backpacks, cup holders and handbags. Perfect for school and commute.",
     art: "pet-md",
+    image: "/1litrebottle.jpeg",
     sortOrder: 5,
   },
   {
@@ -80,43 +83,10 @@ export const PRODUCT_SEED: ProductSeed[] = [
       "Pocket and event size, shrink-wrapped in cases of 24. The go-to choice for conferences, weddings and retail.",
     badge: "Events Favorite",
     art: "pet-sm",
+    image: "/500mlbottle.jpeg",
     priceNote: "Sold per case",
     featured: true,
     sortOrder: 6,
-  },
-  {
-    slug: "dispenser-floor-ipcone",
-    name: "Floor-Standing Dispenser — Hot & Cold",
-    category: "dispensers",
-    volume: "Ipcone",
-    description:
-      "Full-height unit with hot & cold taps for the 18.9L bottle — ideal for offices, receptions and staff rooms.",
-    badge: "Ipcone",
-    art: "dispenser-floor",
-    priceNote: "Free installation in Nairobi",
-    featured: true,
-    sortOrder: 7,
-  },
-  {
-    slug: "dispenser-desktop-nonga",
-    name: "Desktop Dispenser",
-    category: "dispensers",
-    volume: "Nonga",
-    description:
-      "Compact counter-top dispenser for kitchens and small workspaces. Cold & room-temperature dispensing.",
-    badge: "Nonga",
-    art: "dispenser-desktop",
-    sortOrder: 8,
-  },
-  {
-    slug: "pump-manual",
-    name: "Manual Bottle Pump",
-    category: "accessories",
-    volume: "Fits 10L & 18.9L",
-    description:
-      "No electricity needed — press-pump dispensing for the 18.9L and 10L bottles. Great for sites and homes.",
-    art: "pump",
-    sortOrder: 9,
   },
   {
     slug: "cups-disposable",
@@ -127,6 +97,7 @@ export const PRODUCT_SEED: ProductSeed[] = [
       "Clean, food-grade drinking cups for dispensers, events and front-office hospitality stations.",
     badge: "Food Grade",
     art: "cups",
-    sortOrder: 10,
+    image: "/disposablecups.png",
+    sortOrder: 7,
   },
 ];

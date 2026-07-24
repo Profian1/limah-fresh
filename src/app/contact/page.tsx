@@ -18,7 +18,7 @@ const cards = [
     icon: MapPin,
     title: "Visit Our Plant",
     lines: [SITE.address, SITE.poBox],
-    action: { label: "Get directions", href: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(SITE.mapQuery)}` },
+    action: { label: "Get directions", href: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(SITE.mapQuery)}`, external: true },
   },
   {
     icon: Phone,

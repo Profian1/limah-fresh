@@ -379,7 +379,7 @@ function BrandedWater() {
             </ul>
             <div className="mt-9 flex flex-wrap gap-3">
               <QuoteButton
-                service="bulk_bottled"
+                service="branded_water"
                 className="btn-sheen inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-brand to-aqua px-7 py-3.5 text-sm font-bold text-white shadow-xl shadow-aqua/25 transition hover:-translate-y-0.5"
               >
                 <Gift className="h-4 w-4" /> Request Branded Water Quote

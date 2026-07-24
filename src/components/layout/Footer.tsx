@@ -106,6 +106,17 @@ export function Footer() {
           <p>
             © {new Date().getFullYear()} {SITE.company} — {SITE.slogan}. All rights reserved.
           </p>
+          <p className="mt-1.5">
+            Web design by{" "}
+            <a
+              href="https://inactechnologies.co.ke"
+              target="_blank"
+              rel="noreferrer"
+              className="text-aqua/70 underline-offset-2 transition hover:text-aqua hover:underline"
+            >
+              INac Tech
+            </a>
+          </p>
         </div>
       </div>
     </footer>

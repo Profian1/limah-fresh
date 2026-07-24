@@ -128,6 +128,7 @@ export const SERVICE_TYPES = [
   },
   { value: "delivery_contract", label: "Home / Office Delivery Contract" },
   { value: "bulk_bottled", label: "Bulk Bottled Water Order" },
+  { value: "branded_water", label: "Custom Branded Water Bottles" },
   { value: "general", label: "General Inquiry" },
 ];
 

@@ -12,7 +12,7 @@ const quoteSchema = z.object({
   serviceType: z
     .string()
     .trim()
-    .refine((v) => ["bowser", "dispenser_maintenance", "delivery_contract", "bulk_bottled", "general"].includes(v), {
+    .refine((v) => ["bowser", "dispenser_maintenance", "delivery_contract", "bulk_bottled", "branded_water", "general"].includes(v), {
       message: "Please choose a valid service type.",
     }),
   name: z.string().trim().min(2, "Please enter your name.").max(120),

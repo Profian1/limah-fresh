@@ -14,7 +14,6 @@ const productLinks = [
 export function Footer() {
   return (
     <footer className="relative overflow-hidden bg-deep text-mist">
-      <div className="grid-lines pointer-events-none absolute inset-0" />
       <div className="pointer-events-none absolute -left-32 top-1/3 h-96 w-96 rounded-full bg-brand/20 blur-3xl" />
       <div className="pointer-events-none absolute -right-32 bottom-0 h-96 w-96 rounded-full bg-aqua/15 blur-3xl" />
 

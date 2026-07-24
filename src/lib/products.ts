@@ -11,6 +11,8 @@ export interface ProductSeed {
   badge?: string;
   art: string;
   image?: string;
+  price: number;
+  oldPrice?: number;
   priceNote?: string;
   featured?: boolean;
   sortOrder: number;
@@ -26,7 +28,9 @@ export const PRODUCT_SEED: ProductSeed[] = [
       "The home & office classic. Dispenser-ready, returnable polycarbonate bottle with a tamper-proof KEBS-approved seal.",
     badge: "Best Seller",
     art: "jug",
-    image: "/18.9lbottle.jpeg",
+    image: "/Products/18.9lbottle.jpeg",
+    price: 350,
+    oldPrice: 400,
     priceNote: "Refill & exchange available",
     featured: true,
     sortOrder: 1,
@@ -40,6 +44,7 @@ export const PRODUCT_SEED: ProductSeed[] = [
       "Family-size hydration with a sturdy moulded handle and convenient handle-cap for easy lifting and pouring.",
     badge: "Family Size",
     art: "bottle-lg",
+    price: 200,
     featured: true,
     sortOrder: 2,
   },
@@ -51,6 +56,8 @@ export const PRODUCT_SEED: ProductSeed[] = [
     description:
       "Easy-grip design built for kitchens, small offices, road trips and events — no dispenser needed.",
     art: "bottle-md",
+    price: 120,
+    featured: true,
     sortOrder: 3,
   },
   {
@@ -61,6 +68,7 @@ export const PRODUCT_SEED: ProductSeed[] = [
     description:
       "Your daily hydration partner — gym, desk or dinner table. Crisp, purified taste in every sip.",
     art: "pet-lg",
+    price: 70,
     sortOrder: 4,
   },
   {
@@ -71,7 +79,8 @@ export const PRODUCT_SEED: ProductSeed[] = [
     description:
       "On-the-go size that fits backpacks, cup holders and handbags. Perfect for school and commute.",
     art: "pet-md",
-    image: "/1litrebottle.jpeg",
+    image: "/Products/1litrebottle.jpeg",
+    price: 50,
     sortOrder: 5,
   },
   {
@@ -83,7 +92,8 @@ export const PRODUCT_SEED: ProductSeed[] = [
       "Pocket and event size, shrink-wrapped in cases of 24. The go-to choice for conferences, weddings and retail.",
     badge: "Events Favorite",
     art: "pet-sm",
-    image: "/500mlbottle.jpeg",
+    image: "/Products/500mlbottle.jpeg",
+    price: 650,
     priceNote: "Sold per case",
     featured: true,
     sortOrder: 6,
@@ -97,7 +107,8 @@ export const PRODUCT_SEED: ProductSeed[] = [
       "Clean, food-grade drinking cups for dispensers, events and front-office hospitality stations.",
     badge: "Food Grade",
     art: "cups",
-    image: "/disposablecups.png",
+    image: "/Products/disposablecups.png",
+    price: 450,
     sortOrder: 7,
   },
 ];

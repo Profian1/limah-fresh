@@ -54,7 +54,7 @@ export function ProductCatalog({ products }: { products: CardProduct[] }) {
       </p>
 
       {/* Grid */}
-      <div key={tab} className="mt-8 grid grid-cols-2 gap-4 sm:gap-7 lg:grid-cols-3 xl:grid-cols-4">
+      <div key={tab} className="mt-8 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {filtered.map((p, i) => (
           <ProductCard key={p.slug} product={p} index={i} />
         ))}

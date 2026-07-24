@@ -3,27 +3,20 @@ import Link from "next/link";
 import {
   ArrowRight,
   BadgeCheck,
-  CalendarClock,
-  Droplets,
   Quote,
   ShieldCheck,
   Truck,
-  Wrench,
 } from "lucide-react";
-import {
-  CLIENTS,
-  PHOTOS,
-  SITE,
-  waLink,
-  generalInquiryMessage,
-} from "@/lib/site";
+import { SITE, waLink, generalInquiryMessage } from "@/lib/site";
 import { getFeaturedProducts } from "@/lib/data";
 import { Reveal } from "@/components/ui/Reveal";
 import { CountUp } from "@/components/ui/CountUp";
 import { WhatsAppIcon } from "@/components/art/icons";
-import { ProductArt } from "@/components/art/ProductArt";
 import { ProductCard } from "@/components/product/ProductCard";
 import { QuoteButton } from "@/components/quote/QuoteButton";
+import { WhyChooseUs } from "@/components/why-choose-us/WhyChooseUs";
+import { Services } from "@/components/services/Services";
+import { Clients } from "@/components/clients/Clients";
 
 export const dynamic = "force-dynamic";
 
@@ -31,7 +24,7 @@ export const dynamic = "force-dynamic";
 
 function Hero() {
   return (
-    <section className="relative flex min-h-screen items-center overflow-hidden bg-deep">    
+    <section className="relative flex min-h-screen items-center overflow-hidden bg-deep">
       <Image
         src="/hero background.png"
         alt=""
@@ -40,8 +33,8 @@ function Hero() {
         className="object-cover opacity-70"
         sizes="200vw"
       />
-      <div className="absolute inset-0 bg-gradient-to-r from-deep/95 via-navy/80 to-brand/30" />
-      <div className="absolute inset-0 bg-gradient-to-t from-deep/90 via-transparent to-deep/40" />
+      <div className="absolute inset-0 bg-gradient-to-r from-deep/65 via-navy/65 to-brand/10" />
+      <div className="absolute inset-0 bg-gradient-to-t from-deep/60 via-transparent to-deep/25" />
 
       <div className="relative z-10 mx-auto w-full max-w-7xl px-6 py-20">
         <Reveal delay={120}>
@@ -152,74 +145,6 @@ function TrustRibbon() {
   );
 }
 
-/* ------------------------------- categories ------------------------------- */
-
-function Categories() {
-  const cats = [
-    {
-      art: "jug",
-      title: "Bottled Water",
-      text: "From pocket-size 500ml to the 18.9L dispenser classic — purified, sealed and delivered.",
-      href: "/products?cat=bottled_water",
-      count: "6 formats",
-    },
-    {
-      art: "cups",
-      title: "Accessories",
-      text: "Food-grade disposable cups — everything that keeps hydration flowing.",
-      href: "/products?cat=accessories",
-      count: "Disposable Cups",
-    },
-  ];
-  return (
-    <section className="bg-ice py-20">
-      <div className="mx-auto max-w-7xl px-6">
-        <Reveal className="mb-12 text-center">
-          <p className="text-xs font-bold uppercase tracking-[0.3em] text-aqua">
-            Shop by Category
-          </p>
-          <h2 className="font-display mt-3 text-3xl font-extrabold tracking-tight text-navy sm:text-5xl">
-            Everything You Need to{" "}
-            <span className="text-gradient-deep">Stay Hydrated</span>
-          </h2>
-        </Reveal>
-        <div className="mx-auto grid max-w-2xl gap-6 md:grid-cols-2">
-          {cats.map((cat, i) => (
-            <Reveal key={cat.title} delay={i * 130}>
-              <Link
-                href={cat.href}
-                className="group relative block h-full overflow-hidden rounded-3xl bg-white ring-1 ring-mist transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-aqua/15"
-              >
-                <div className="art-tile relative flex h-56 items-end justify-center overflow-hidden">
-                  <ProductArt
-                    variant={cat.art}
-                    className="h-52 w-auto drop-shadow-xl transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-y-2 group-hover:scale-110"
-                  />
-                  <span className="absolute left-5 top-5 rounded-full bg-navy/90 px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.18em] text-foam">
-                    {cat.count}
-                  </span>
-                </div>
-                <div className="p-7">
-                  <h3 className="font-display text-xl font-bold text-navy">
-                    {cat.title}
-                  </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-slate-600">
-                    {cat.text}
-                  </p>
-                  <span className="mt-4 inline-flex items-center gap-2 text-sm font-bold text-brand">
-                    Browse the range
-                    <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1.5" />
-                  </span>
-                </div>
-              </Link>
-            </Reveal>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
 /* ---------------------------- featured products ---------------------------- */
 
 async function Featured() {
@@ -227,95 +152,15 @@ async function Featured() {
   return (
     <section className="relative bg-gradient-to-b from-ice to-white py-20">
       <div className="mx-auto max-w-7xl px-6">
-        <Reveal className="mb-12 flex flex-wrap items-end justify-between gap-6">
-          <div>
-            <p className="text-xs font-bold uppercase tracking-[0.3em] text-aqua">
-              Customer Favorites
-            </p>
-            <h2 className="font-display mt-3 text-3xl font-extrabold tracking-tight text-navy sm:text-5xl">
-              Best Sellers,{" "}
-              <span className="text-gradient-deep">Ready to Order</span>
-            </h2>
-          </div>
-          <Link
-            href="/products"
-            className="group inline-flex items-center gap-2 rounded-full border border-mist bg-white px-6 py-3 text-sm font-bold text-brand transition hover:border-aqua hover:bg-mist/40"
-          >
-            View full catalog
-            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-          </Link>
+        <Reveal className="mb-12 text-center">
+          <p className="text-xs font-bold uppercase tracking-[0.3em] text-aqua">
+            Our Products
+          </p>
         </Reveal>
-        <div className="grid grid-cols-2 gap-4 sm:gap-7 lg:grid-cols-4">
+        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {featured.map((p, i) => (
             <Reveal key={p.slug} delay={i * 110}>
               <ProductCard product={p} index={i} />
-            </Reveal>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/* -------------------------------- services --------------------------------- */
-
-function Services() {
-  const items = [
-    {
-      icon: Droplets,
-      title: "Bottled Water Delivery",
-      text: "Same-day dispatch of every bottle size across Nairobi — from single bottles to pallet loads.",
-    },
-    {
-      icon: Truck,
-      title: "Bulk Bowser — Limah Soft Water",
-      text: "Tanker deliveries of soft water for construction, events, institutions and commercial sites.",
-    },
-    {
-      icon: Wrench,
-      title: "Dispenser Maintenance",
-      text: "Scheduled cleaning, sanitization and technical repairs that keep your dispensers safe.",
-    },
-    {
-      icon: CalendarClock,
-      title: "Home & Office Contracts",
-      text: "Subscription-style refill plans with priority delivery windows, weekly or monthly.",
-    },
-  ];
-  return (
-    <section className="relative overflow-hidden bg-navy py-24">
-      <div className="grid-lines pointer-events-none absolute inset-0" />
-      <div className="pointer-events-none absolute -right-40 -top-40 h-[480px] w-[480px] rounded-full bg-aqua/15 blur-3xl" />
-      <div className="relative mx-auto max-w-7xl px-6">
-        <Reveal className="mb-14 text-center">
-          <p className="text-xs font-bold uppercase tracking-[0.3em] text-sky">
-            What We Do
-          </p>
-          <h2 className="font-display mt-3 text-3xl font-extrabold tracking-tight text-white sm:text-5xl">
-            One Partner for <span className="text-gradient">Every Drop</span>
-          </h2>
-        </Reveal>
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {items.map((item, i) => (
-            <Reveal key={item.title} delay={i * 120}>
-              <Link
-                href="/services"
-                className="group block h-full rounded-3xl border border-white/10 bg-white/[0.06] p-7 backdrop-blur transition-all duration-500 hover:-translate-y-2 hover:border-aqua/40 hover:bg-white/10"
-              >
-                <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-aqua to-sky text-deep shadow-lg shadow-aqua/30 transition group-hover:scale-110 group-hover:rotate-3">
-                  <item.icon className="h-7 w-7" />
-                </span>
-                <h3 className="font-display mt-6 text-lg font-bold text-white">
-                  {item.title}
-                </h3>
-                <p className="mt-2.5 text-[13px] leading-relaxed text-mist/70">
-                  {item.text}
-                </p>
-                <span className="mt-5 inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-sky">
-                  Learn more{" "}
-                  <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
-                </span>
-              </Link>
             </Reveal>
           ))}
         </div>
@@ -334,12 +179,12 @@ function StatsBand() {
     { value: 100, suffix: "%", label: "Batches lab-tested" },
   ];
   return (
-    <section className="bg-white py-24">
+    <section className="bg-white pt-8 pb-24">
       <div className="mx-auto max-w-7xl px-6">
-        <div className="grid gap-px overflow-hidden rounded-3xl bg-mist sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {stats.map((s, i) => (
             <Reveal key={s.label} delay={i * 100}>
-              <div className="flex h-full flex-col items-center bg-ice px-6 py-10 text-center">
+              <div className="flex h-full flex-col items-center rounded-3xl bg-ice px-6 py-10 text-center">
                 <CountUp
                   end={s.value}
                   suffix={s.suffix}
@@ -384,9 +229,12 @@ function Testimonials() {
     <section className="bg-white py-24">
       <div className="mx-auto max-w-7xl px-6">
         <Reveal className="mb-12 text-center">
-          <p className="text-xs font-bold uppercase tracking-[0.3em] text-aqua">Word on the Street</p>
+          <p className="text-xs font-bold uppercase tracking-[0.3em] text-aqua">
+            Word on the Street
+          </p>
           <h2 className="font-display mt-3 text-3xl font-extrabold tracking-tight text-navy sm:text-5xl">
-            Trusted Where Quality <span className="text-gradient-deep">Cannot Slip</span>
+            Trusted Where Quality{" "}
+            <span className="text-gradient-deep">Cannot Slip</span>
           </h2>
         </Reveal>
         <div className="grid gap-6 md:grid-cols-3">
@@ -394,51 +242,17 @@ function Testimonials() {
             <Reveal key={t.org} delay={i * 130}>
               <figure className="relative flex h-full flex-col rounded-3xl border border-mist/70 bg-gradient-to-b from-ice to-white p-8 transition-all duration-500 hover:-translate-y-1.5 hover:shadow-xl hover:shadow-aqua/10">
                 <Quote className="h-8 w-8 text-aqua/50" />
-                <blockquote className="mt-4 flex-1 text-sm leading-relaxed text-slate-700">"{t.quote}"</blockquote>
+                <blockquote className="mt-4 flex-1 text-sm leading-relaxed text-slate-700">
+                  "{t.quote}"
+                </blockquote>
                 <figcaption className="mt-6 border-t border-mist pt-4">
-                  <p className="font-display text-sm font-bold text-navy">{t.name}</p>
+                  <p className="font-display text-sm font-bold text-navy">
+                    {t.name}
+                  </p>
                   <p className="text-xs font-medium text-brand">{t.org}</p>
                 </figcaption>
               </figure>
             </Reveal>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/* ------------------------------ clients marquee ---------------------------- */
-
-function ClientsMarquee() {
-  const row = [...CLIENTS, ...CLIENTS];
-  return (
-    <section className="overflow-hidden border-y border-mist bg-ice py-14">
-      <Reveal className="mb-9 text-center">
-        <p className="text-xs font-bold uppercase tracking-[0.3em] text-aqua">
-          Our Corporate Clients
-        </p>
-        <h2 className="font-display mt-3 text-2xl font-extrabold tracking-tight text-navy sm:text-3xl">
-          Kenya&apos;s Leading Institutions Drink Limah Fresh
-        </h2>
-      </Reveal>
-      <div
-        className="group relative"
-        style={{
-          maskImage:
-            "linear-gradient(90deg, transparent, black 10%, black 90%, transparent)",
-          WebkitMaskImage:
-            "linear-gradient(90deg, transparent, black 10%, black 90%, transparent)",
-        }}
-      >
-        <div className="animate-marquee flex w-max items-center gap-10 group-hover:[animation-play-state:paused]">
-          {row.map((client, i) => (
-            <span key={i} className="flex items-center gap-10">
-              <span className="font-display whitespace-nowrap text-lg font-extrabold tracking-wide text-navy/60 transition hover:text-brand sm:text-xl">
-                {client}
-              </span>
-              <Droplets className="h-4 w-4 shrink-0 text-aqua/60" />
-            </span>
           ))}
         </div>
       </div>
@@ -451,9 +265,14 @@ function ClientsMarquee() {
 function CtaBand() {
   return (
     <section className="relative overflow-hidden px-6 py-20">
-      <Image src="/bowser.jpeg" alt="" fill className="object-cover opacity-25" sizes="100vw" />
-      <div className="absolute inset-0 bg-gradient-to-r from-navy/95 via-navy/80 to-brand/60" />
-      <div className="grid-lines pointer-events-none absolute inset-0" />
+      <Image
+        src="/bowser.jpeg"
+        alt=""
+        fill
+        className="object-cover opacity-40"
+        sizes="100vw"
+      />
+      <div className="absolute inset-0 bg-gradient-to-r from-navy/85 via-navy/65 to-brand/40" />
       <Reveal direction="scale" className="relative z-10">
         <div className="wave-dots relative mx-auto max-w-6xl overflow-hidden rounded-[2.5rem] bg-gradient-to-br from-brand via-aqua to-sky p-10 text-center shadow-2xl shadow-brand/30 sm:p-16">
           <div className="pointer-events-none absolute -left-24 -top-24 h-72 w-72 rounded-full bg-white/10 blur-3xl" />
@@ -498,11 +317,11 @@ export default function HomePage() {
     <>
       <Hero />
       <TrustRibbon />
-      <Categories />
-      <Featured />
+      <WhyChooseUs />
       <Services />
+      <Featured />
+      <Clients />
       <StatsBand />
-      <ClientsMarquee />
       <CtaBand />
       <Testimonials />
     </>

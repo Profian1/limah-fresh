@@ -9,7 +9,6 @@ export const SITE = {
   mapQuery: "North Airport Road, Embakasi, Nairobi, Kenya",
   whatsappPrimary: "254718013391",
   phones: [
-    { label: "Office Line", value: "011 602 2104", raw: "+254116022104" },
     { label: "Sales & Orders", value: "0718 013 391", raw: "+254718013391" },
     { label: "Shop Line", value: "0742 336 747", raw: "+254742336747" },
   ],
@@ -87,16 +86,24 @@ export function productOrderMessage(
   name: string,
   qty: number,
   volume?: string | null,
+  price?: number,
 ) {
-  return [
+  const lines = [
     "Hello Limah Fresh, I would like to place an order:",
     "",
     `• Product: ${name}${volume ? ` (${volume})` : ""}`,
     `• Quantity: ${qty}`,
+  ];
+  if (price) {
+    lines.push(`• Price: KSh ${price.toLocaleString()} each`);
+    lines.push(`• Total: KSh ${(price * qty).toLocaleString()}`);
+  }
+  lines.push(
     "• Location: [please share your delivery location]",
     "",
     "Thank you.",
-  ].join("\n");
+  );
+  return lines.join("\n");
 }
 
 export function generalInquiryMessage() {

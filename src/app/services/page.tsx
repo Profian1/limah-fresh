@@ -13,7 +13,7 @@ import {
   Truck,
   Wrench,
 } from "lucide-react";
-import { PHOTOS, SITE, waLink, bowserMessage } from "@/lib/site";
+import { SITE, waLink, bowserMessage } from "@/lib/site";
 import { Reveal } from "@/components/ui/Reveal";
 import { WaveDivider } from "@/components/art/WaveDivider";
 import { WhatsAppIcon } from "@/components/art/icons";
@@ -164,14 +164,13 @@ function Maintenance() {
   ];
   return (
     <section className="relative overflow-hidden bg-navy py-24">
-      <div className="grid-lines pointer-events-none absolute inset-0" />
       <div className="relative mx-auto max-w-7xl px-6">
         <div className="grid items-center gap-14 lg:grid-cols-2">
           <Reveal direction="left" className="order-2 lg:order-1">
             <div className="relative">
               <div className="overflow-hidden rounded-[2rem] shadow-2xl shadow-deep/40 ring-1 ring-white/10">
                 <Image
-                  src={PHOTOS.dispenser}
+                  src="/dispenser.jpg"
                   alt="Technician-serviced office water dispenser in use"
                   width={1600}
                   height={1067}
@@ -396,23 +395,14 @@ function BrandedWater() {
             </div>
           </Reveal>
           <Reveal direction="right">
-            <div className="flex items-center justify-center">
-              <div className="relative flex flex-wrap items-center justify-center gap-4">
-                {["pet-sm", "pet-md", "pet-lg", "bottle-md"].map((art, i) => (
-                  <div
-                    key={art}
-                    className="flex h-36 w-36 items-center justify-center rounded-3xl border border-mist bg-white p-4 shadow-lg shadow-navy/5 transition-all duration-500 hover:-translate-y-2 hover:shadow-xl"
-                    style={{ transform: `rotate(${(i - 1.5) * 6}deg)` }}
-                  >
-                    <Droplet className="h-14 w-14 text-aqua/30" />
-                  </div>
-                ))}
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="glass-dark rounded-2xl px-6 py-3">
-                    <p className="font-display text-lg font-extrabold text-white">Your Brand Here</p>
-                  </div>
-                </div>
-              </div>
+            <div className="overflow-hidden rounded-[2rem] shadow-2xl shadow-navy/20 ring-1 ring-mist">
+              <Image
+                src="/branded.jpg"
+                alt="Custom branded Limah Fresh water bottles"
+                width={1600}
+                height={1067}
+                className="h-[420px] w-full object-cover transition-transform duration-700 hover:scale-105"
+              />
             </div>
           </Reveal>
         </div>

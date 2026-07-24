@@ -14,6 +14,8 @@ function seedFallback(): CardProduct[] {
     badge: p.badge ?? null,
     art: p.art,
     image: p.image ?? null,
+    price: p.price,
+    oldPrice: p.oldPrice ?? null,
     priceNote: p.priceNote ?? null,
   }));
 }

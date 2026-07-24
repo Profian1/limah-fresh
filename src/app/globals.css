@@ -22,6 +22,10 @@
   --animate-spin-slow: spin 16s linear infinite;
   --animate-ripple: ripple 3.4s cubic-bezier(0.22, 1, 0.36, 1) infinite;
   --animate-bubble: bubble 9s linear infinite;
+  --animate-bubble-rise: bubble-rise 10s linear infinite;
+  --animate-bubble-rise-slow: bubble-rise 15s linear infinite;
+  --animate-breathe: breathe 10s ease-in-out infinite;
+  --animate-wave-drift: wave-drift 12s ease-in-out infinite;
   --animate-sheen: sheen 2.8s ease-in-out infinite;
 
   @keyframes float {
@@ -44,6 +48,20 @@
   @keyframes sheen {
     0% { transform: translateX(-160%) skewX(-18deg); }
     55%, 100% { transform: translateX(260%) skewX(-18deg); }
+  }
+  @keyframes bubble-rise {
+    0% { transform: translateY(0) scale(0.4); opacity: 0; }
+    5% { opacity: 0.15; }
+    85% { opacity: 0.1; }
+    100% { transform: translateY(-120vh) scale(1); opacity: 0; }
+  }
+  @keyframes breathe {
+    0%, 100% { opacity: 0.7; }
+    50% { opacity: 1; }
+  }
+  @keyframes wave-drift {
+    0%, 100% { transform: translateX(0%); }
+    50% { transform: translateX(-5%); }
   }
 }
 
@@ -230,4 +248,35 @@ body {
 /* map frame */
 .map-frame iframe {
   filter: saturate(0.92) hue-rotate(-6deg);
+}
+
+/* ---------- premium water texture ---------- */
+.water-texture {
+  background:
+    radial-gradient(circle at 25% 20%, rgba(72,202,228,0.04) 0%, transparent 40%),
+    radial-gradient(circle at 75% 60%, rgba(0,180,216,0.04) 0%, transparent 40%),
+    radial-gradient(circle at 50% 80%, rgba(144,224,239,0.03) 0%, transparent 40%),
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(72,202,228,0.025) 2px,
+      rgba(72,202,228,0.025) 4px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 2px,
+      rgba(144,224,239,0.02) 2px,
+      rgba(144,224,239,0.02) 4px
+    );
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-bubble-rise,
+  .animate-bubble-rise-slow,
+  .animate-breathe,
+  .animate-wave-drift {
+    animation: none !important;
+  }
 }

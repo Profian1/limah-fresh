@@ -47,7 +47,6 @@ export default function ContactPage() {
       <section className="relative overflow-hidden bg-deep">
         <Image src={PHOTOS.hero} alt="" fill priority className="object-cover opacity-40" sizes="100vw" />
         <div className="absolute inset-0 bg-gradient-to-r from-deep/95 via-navy/85 to-brand/40" />
-        <div className="grid-lines pointer-events-none absolute inset-0" />
         <div className="pointer-events-none absolute -left-32 top-0 h-96 w-96 rounded-full bg-aqua/15 blur-3xl" />
         <div className="relative z-10 mx-auto max-w-7xl px-6 pb-20 pt-16 sm:pb-24">
           <Reveal>

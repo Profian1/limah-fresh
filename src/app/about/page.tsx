@@ -141,9 +141,8 @@ function Purification() {
   ];
   return (
     <section className="relative overflow-hidden bg-deep py-24">
-      <Image src="/operations.png" alt="" fill className="object-cover opacity-50" sizes="100vw" />
+      <Image src="/operations.png" alt="" fill className="object-cover opacity-30" sizes="100vw" />
       <div className="absolute inset-0 bg-gradient-to-r from-deep/80 via-navy/60 to-brand/20" />
-      <div className="grid-lines pointer-events-none absolute inset-0" />
       <div className="relative mx-auto max-w-7xl px-6">
         <Reveal className="mb-16 text-center">
           <p className="text-xs font-bold uppercase tracking-[0.3em] text-sky">Purification Technology</p>
@@ -177,12 +176,14 @@ function Purification() {
 
 function Team() {
   const members = [
-    { img: "/team1.jpg", name: "Team Member" },
-    { img: "/team2.jpg", name: "Team Member" },
-    { img: "/team3.jpg", name: "Team Member" },
-    { img: "/team4.jpg", name: "Team Member" },
-    { img: "/team5.jpg", name: "Team Member" },
-    { img: "/team6.jpg", name: "Team Member" },
+    { img: "/team1.jpg", alt: "Limah Fresh team member" },
+    { img: "/team4.jpeg", alt: "Limah Fresh team member" },
+    { img: "/team6.jpeg", alt: "Limah Fresh team member" },
+    { img: "/team7.jpg", alt: "Limah Fresh team member" },
+    { img: "/team3.jpg", alt: "Limah Fresh team member" },
+    { img: "/team5.jpg", alt: "Limah Fresh team member" },
+    { img: "/team8.jpg", alt: "Limah Fresh team member" },
+    { img: "/team2.jpg", alt: "Limah Fresh team member" },
   ];
 
   return (
@@ -199,25 +200,28 @@ function Team() {
             Passionate, dedicated, and driven by quality — our team makes purity personal.
           </p>
         </Reveal>
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+
+        {/* Masonry gallery */}
+        <div className="columns-1 gap-4 sm:columns-2 lg:columns-3 xl:columns-4 space-y-4">
           {members.map((m, i) => (
-            <Reveal key={i} delay={i * 100} direction={i % 3 === 0 ? "left" : i % 3 === 1 ? "up" : "right"}>
-              <div className="group relative overflow-hidden rounded-3xl bg-white shadow-lg shadow-navy/5 ring-1 ring-mist transition-all duration-500 hover:-translate-y-2 hover:shadow-xl hover:shadow-aqua/10">
-                <div className="relative h-72 w-full overflow-hidden">
+            <Reveal key={i} delay={i * 100}>
+              <div className="group relative overflow-hidden rounded-[20px] bg-white shadow-md shadow-navy/5 ring-1 ring-mist/50 transition-all duration-500 hover:-translate-y-1.5 hover:shadow-xl hover:shadow-aqua/10 hover:ring-aqua/30">
+                <div className="relative w-full">
                   <Image
                     src={m.img}
-                    alt={m.name}
-                    fill
-                    className="object-cover transition-transform duration-700 group-hover:scale-110"
+                    alt={m.alt}
+                    width={800}
+                    height={1000}
+                    className="w-full object-cover transition-transform duration-700 group-hover:scale-105"
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-deep/80 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-                </div>
-                <div className="relative p-5">
-                  <h3 className="font-display text-lg font-bold text-navy">{m.name}</h3>
-                  <div className="mt-2 flex items-center gap-2">
-                    <span className="h-1 w-8 rounded-full bg-gradient-to-r from-brand to-aqua" />
-                    <span className="text-xs font-medium text-slate-500">Limah Fresh Team</span>
+                  <div className="absolute inset-0 bg-gradient-to-t from-deep/70 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+                  <div className="absolute inset-x-0 bottom-0 translate-y-full p-5 opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
+                    <p className="font-display text-lg font-bold text-white">Limah Fresh Team</p>
+                    <div className="mt-1.5 flex items-center gap-2">
+                      <span className="h-1 w-8 rounded-full bg-gradient-to-r from-aqua to-sky" />
+                      <span className="text-xs font-medium text-foam/80">Nairobi, Kenya</span>
+                    </div>
                   </div>
                 </div>
               </div>

@@ -95,15 +95,31 @@ function LogoCard({
   const w = Math.round(130 * scale);
   const h = Math.round(46 * scale);
 
+  // We use a CSS transform approach for mobile to ensure perfect centering
+  // without any flexbox overflow alignment bugs, while keeping relative logo scales.
+  const mobileScale = scale * 1.05; // 1.05 multiplier gives a great size that fills the card
+
   return (
     <Reveal direction="up" delay={globalDelay + colIndex * 40}>
       <div
         ref={cardRef}
-        className="group relative flex h-[90px] w-[170px] items-center justify-center rounded-[18px] border border-[rgba(0,174,239,0.08)] bg-[rgba(255,255,255,0.55)] p-5 backdrop-blur-[12px] transition-all duration-[350ms] ease-out hover:-translate-y-[6px] hover:border-[#00AEEF] hover:shadow-[0_24px_40px_-12px_rgba(0,174,239,0.15)]"
+        className="group relative flex h-[70px] w-[31%] max-w-[125px] sm:h-[90px] sm:w-[170px] sm:max-w-none items-center justify-center rounded-[12px] sm:rounded-[18px] border border-[rgba(0,174,239,0.08)] bg-[rgba(255,255,255,0.55)] p-0 sm:p-5 backdrop-blur-[12px] transition-all duration-[350ms] ease-out hover:-translate-y-[6px] hover:border-[#00AEEF] hover:shadow-[0_24px_40px_-12px_rgba(0,174,239,0.15)]"
         style={{ transform: getTilt() }}
       >
+        <div className="relative transition-all duration-[350ms] ease-out group-hover:scale-105 flex sm:hidden items-center justify-center w-[90%] h-[90%]">
+          <div className="relative w-full h-full flex items-center justify-center" style={{ transform: `scale(${mobileScale})` }}>
+            <Image
+              src={logo.src}
+              alt={logo.alt}
+              fill
+              className="object-contain transition-all duration-[350ms] ease-out group-hover:opacity-100"
+              style={{ opacity: logo.opacity }}
+              sizes="120px"
+            />
+          </div>
+        </div>
         <div
-          className="relative transition-all duration-[350ms] ease-out group-hover:scale-105"
+          className="relative transition-all duration-[350ms] ease-out group-hover:scale-105 hidden sm:block flex-shrink-0"
           style={{ width: w, height: h }}
         >
           <Image
@@ -183,33 +199,35 @@ export function Clients() {
   };
 
   const renderMobileGrid = () => {
-    const itemsPerRow = 5;
-    const rows: Array<typeof LOGOS> = [];
-    for (let i = 0; i < LOGOS.length; i += itemsPerRow) {
-      rows.push(LOGOS.slice(i, i + itemsPerRow));
-    }
-    return rows.map((row, rowIdx) => (
-      <div
-        key={rowIdx}
-        className="flex flex-wrap justify-center gap-2.5"
-        style={{ marginTop: rowIdx === 0 ? 0 : 12 }}
-      >
-        {row.map((logo, colIdx) => {
-          const delay = rowIdx * 200 + colIdx * 40;
-          return (
-            <LogoCard
-              key={logo.alt}
-              logo={logo}
-              globalDelay={delay}
-              colIndex={colIdx}
-              sectionRect={sectionRect}
-              mouseInSection={mouseInSection}
-              mousePos={mousePos}
-            />
-          );
-        })}
-      </div>
-    ));
+    const PATTERN = [3, 2, 3, 2, 3, 2, 3, 2];
+    let idx = 0;
+    return PATTERN.map((rowSize, rowIdx) => {
+      const rowLogos = LOGOS.slice(idx, idx + rowSize);
+      idx += rowSize;
+      if (rowLogos.length === 0) return null;
+      return (
+        <div
+          key={rowIdx}
+          className="flex justify-center gap-1.5 sm:gap-2.5"
+          style={{ marginTop: rowIdx === 0 ? 0 : 8 }}
+        >
+          {rowLogos.map((logo, colIdx) => {
+            const delay = rowIdx * 100 + colIdx * 40;
+            return (
+              <LogoCard
+                key={logo.alt}
+                logo={logo}
+                globalDelay={delay}
+                colIndex={colIdx}
+                sectionRect={sectionRect}
+                mouseInSection={mouseInSection}
+                mousePos={mousePos}
+              />
+            );
+          })}
+        </div>
+      );
+    });
   };
 
   return (

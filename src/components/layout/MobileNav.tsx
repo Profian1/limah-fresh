@@ -2,13 +2,14 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Home, Info, Package, Truck, Phone } from "lucide-react";
+import { Home, Info, Package, Truck, Phone, Image as ImageIcon } from "lucide-react";
 
 const NAV_ITEMS = [
   { href: "/", label: "Home", icon: Home },
   { href: "/about", label: "About", icon: Info },
   { href: "/products", label: "Products", icon: Package },
   { href: "/services", label: "Services", icon: Truck },
+  { href: "/gallery", label: "Gallery", icon: ImageIcon },
   { href: "/contact", label: "Contact", icon: Phone },
 ];
 

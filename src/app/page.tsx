@@ -17,6 +17,7 @@ import { QuoteButton } from "@/components/quote/QuoteButton";
 import { WhyChooseUs } from "@/components/why-choose-us/WhyChooseUs";
 import { Services } from "@/components/services/Services";
 import { Clients } from "@/components/clients/Clients";
+import { GalleryGrid } from "@/components/gallery/GalleryGrid";
 
 export const dynamic = "force-dynamic";
 
@@ -24,64 +25,129 @@ export const dynamic = "force-dynamic";
 
 function Hero() {
   return (
-    <section className="relative flex min-h-screen items-center overflow-hidden bg-deep">
-      <Image
-        src="/hero background.png"
-        alt=""
-        fill
-        priority
-        className="object-cover opacity-70"
-        sizes="200vw"
-      />
-      <div className="absolute inset-0 bg-gradient-to-r from-deep/65 via-navy/45 to-brand/10" />
-      <div className="absolute inset-0 bg-gradient-to-t from-deep/40 via-transparent to-deep/25" />
+    <>
+      {/* ── MOBILE layout (< 768px): full-bleed hero image with text overlay ── */}
+      <section className="relative flex min-h-screen flex-col justify-end overflow-hidden bg-deep md:hidden">
+        {/* Full-bleed mobile hero image */}
+        <Image
+          src="/mobile-hero-background.png"
+          alt="Limah Fresh pure water"
+          fill
+          priority
+          className="object-cover object-center"
+          sizes="100vw"
+        />
+        {/* Gradient overlay — deeper at the bottom where text sits */}
+        <div className="absolute inset-0 bg-gradient-to-t from-deep via-deep/40 to-transparent" />
 
-      <div className="relative z-10 mx-auto w-full max-w-7xl px-6 py-20">
-        <Reveal delay={120}>
-          <h1 className="font-display mt-6 text-[2.6rem] font-extrabold leading-[1.05] tracking-tight text-white sm:text-6xl xl:text-7xl">
-            Pure Hydration,
-            <br />
-            Delivered to <span className="text-gradient">Your Doorstep</span>
-          </h1>
-        </Reveal>
-        <Reveal delay={240}>
-          <p className="mt-6 max-w-xl text-base leading-relaxed text-mist/85 sm:text-lg">
-            Exceptional taste from water purified through{" "}
-            <strong className="text-white">reverse osmosis</strong> and{" "}
-            <strong className="text-white">UV sterilization</strong> — bottled
-            by {SITE.company} for homes, offices and institutions across
-            Nairobi.
-          </p>
-        </Reveal>
-        <Reveal delay={360}>
-          <div className="mt-9 flex flex-wrap items-center gap-4">
-            <Link
-              href="/products"
-              className="btn-sheen group inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-brand to-aqua px-7 py-4 text-sm font-bold text-white shadow-xl shadow-aqua/30 transition hover:-translate-y-0.5"
-            >
-              Explore Products
-              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-            </Link>
-            <a
-              href={waLink(generalInquiryMessage())}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center gap-2 rounded-full bg-[#25D366] px-7 py-4 text-sm font-bold text-white shadow-xl shadow-[#25D366]/25 transition hover:-translate-y-0.5"
-            >
-              <WhatsAppIcon className="h-4 w-4" />
-              Order via WhatsApp
-            </a>
-            <QuoteButton
-              service="bowser"
-              className="inline-flex items-center gap-2 rounded-full border border-foam/40 bg-white/5 px-7 py-4 text-sm font-bold text-foam backdrop-blur transition hover:bg-white/15"
-            >
-              <Truck className="h-4 w-4" />
-              Request a Bowser
-            </QuoteButton>
-          </div>
-        </Reveal>
-      </div>
-    </section>
+        {/* Text + CTA panel — pinned to very bottom */}
+        <div className="relative z-20 px-6 pb-30 pt-8">
+          <Reveal delay={120}>
+            <h1 className="font-display text-[2.1rem] font-extrabold leading-[1.1] tracking-tight text-white">
+              Pure Hydration,
+              <br />
+              Delivered to <span className="text-gradient">Your Doorstep</span>
+            </h1>
+          </Reveal>
+          <Reveal delay={240}>
+            <p className="mt-5 text-base leading-relaxed text-mist/85">
+              Exceptional taste from water purified through{" "}
+              <strong className="text-white">reverse osmosis</strong> and{" "}
+              <strong className="text-white">UV sterilization</strong> — bottled
+              by {SITE.company} for homes, offices and institutions across
+              Nairobi.
+            </p>
+          </Reveal>
+          <Reveal delay={360}>
+            <div className="mt-8 flex flex-col gap-3">
+              <Link
+                href="/products"
+                className="btn-sheen group inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-brand to-aqua px-7 py-4 text-sm font-bold text-white shadow-xl shadow-aqua/30 transition hover:-translate-y-0.5"
+              >
+                Explore Products
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </Link>
+              <a
+                href={waLink(generalInquiryMessage())}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-[#25D366] px-7 py-4 text-sm font-bold text-white shadow-xl shadow-[#25D366]/25 transition hover:-translate-y-0.5"
+              >
+                <WhatsAppIcon className="h-4 w-4" />
+                Order via WhatsApp
+              </a>
+              <QuoteButton
+                service="bowser"
+                className="inline-flex items-center justify-center gap-2 rounded-full border border-foam/40 bg-white/5 px-7 py-4 text-sm font-bold text-foam backdrop-blur transition hover:bg-white/15"
+              >
+                <Truck className="h-4 w-4" />
+                Request a Bowser
+              </QuoteButton>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* ── DESKTOP / TABLET layout (≥ 768px): full-bleed background, unchanged ── */}
+      <section className="relative hidden min-h-screen items-center overflow-hidden bg-deep md:flex">
+        <Image
+          src="/hero background.png"
+          alt=""
+          fill
+          priority
+          className="object-cover opacity-70"
+          sizes="200vw"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-deep/65 via-navy/45 to-brand/10" />
+        <div className="absolute inset-0 bg-gradient-to-t from-deep/40 via-transparent to-deep/25" />
+
+        <div className="relative z-10 mx-auto w-full max-w-7xl px-6 py-20">
+          <Reveal delay={120}>
+            <h1 className="font-display mt-6 text-[2.6rem] font-extrabold leading-[1.05] tracking-tight text-white sm:text-6xl xl:text-7xl">
+              Pure Hydration,
+              <br />
+              Delivered to <span className="text-gradient">Your Doorstep</span>
+            </h1>
+          </Reveal>
+          <Reveal delay={240}>
+            <p className="mt-6 max-w-xl text-base leading-relaxed text-mist/85 sm:text-lg">
+              Exceptional taste from water purified through{" "}
+              <strong className="text-white">reverse osmosis</strong> and{" "}
+              <strong className="text-white">UV sterilization</strong> — bottled
+              by {SITE.company} for homes, offices and institutions across
+              Nairobi.
+            </p>
+          </Reveal>
+          <Reveal delay={360}>
+            <div className="mt-9 flex flex-wrap items-center gap-4">
+              <Link
+                href="/products"
+                className="btn-sheen group inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-brand to-aqua px-7 py-4 text-sm font-bold text-white shadow-xl shadow-aqua/30 transition hover:-translate-y-0.5"
+              >
+                Explore Products
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </Link>
+              <a
+                href={waLink(generalInquiryMessage())}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 rounded-full bg-[#25D366] px-7 py-4 text-sm font-bold text-white shadow-xl shadow-[#25D366]/25 transition hover:-translate-y-0.5"
+              >
+                <WhatsAppIcon className="h-4 w-4" />
+                Order via WhatsApp
+              </a>
+              <QuoteButton
+                service="bowser"
+                className="inline-flex items-center gap-2 rounded-full border border-foam/40 bg-white/5 px-7 py-4 text-sm font-bold text-foam backdrop-blur transition hover:bg-white/15"
+              >
+                <Truck className="h-4 w-4" />
+                Request a Bowser
+              </QuoteButton>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+    </>
   );
 }
 
@@ -150,14 +216,14 @@ function TrustRibbon() {
 async function Featured() {
   const featured = await getFeaturedProducts();
   return (
-    <section className="relative bg-gradient-to-b from-ice to-white py-20">
-      <div className="mx-auto max-w-7xl px-6">
-        <Reveal className="mb-12 text-center">
+    <section className="relative bg-gradient-to-b from-ice to-white py-16 md:py-20">
+      <div className="mx-auto max-w-7xl px-3 sm:px-6">
+        <Reveal className="mb-8 text-center md:mb-12">
           <p className="text-xs font-bold uppercase tracking-[0.3em] text-aqua">
             Our Products
           </p>
         </Reveal>
-        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-2 gap-3 sm:grid-cols-2 sm:gap-8 lg:grid-cols-4">
           {featured.map((p, i) => (
             <Reveal key={p.slug} delay={i * 110}>
               <ProductCard product={p} index={i} />
@@ -197,6 +263,45 @@ function StatsBand() {
             </Reveal>
           ))}
         </div>
+      </div>
+    </section>
+  );
+}
+
+/* ------------------------- gallery preview --------------------------- */
+
+const HOME_GALLERY_IMAGES = [
+  { src: "/limahstaff.jpg", alt: "The Limah Fresh team ready to serve", aspect: "aspect-video" },
+  { src: "/bowser.jpeg", alt: "Limah Soft Water bowser delivering to a construction site", aspect: "aspect-[4/3]" },
+  { src: "/operations.png", alt: "Inside the Limah Fresh purification facility", aspect: "aspect-video" },
+  { src: "/packed bottles.jpeg", alt: "Freshly packed bottles ready for dispatch", aspect: "aspect-square" },
+  { src: "/branded.jpg", alt: "Custom branded water bottles for a corporate event", aspect: "aspect-[3/4]" },
+  { src: "/pack.jpeg", alt: "Shrink-wrapped Limah Fresh water crates", aspect: "aspect-[4/3]" },
+];
+
+function GalleryPreview() {
+  return (
+    <section className="bg-white py-24">
+      <div className="mx-auto max-w-7xl px-6">
+        <Reveal className="mb-12 text-center">
+          <p className="text-xs font-bold uppercase tracking-[0.3em] text-aqua">See Our Work</p>
+          <h2 className="font-display mt-3 text-3xl font-extrabold tracking-tight text-navy sm:text-5xl">
+            Behind the <span className="text-gradient-deep">Scenes</span>
+          </h2>
+          <p className="mx-auto mt-4 max-w-xl text-sm leading-relaxed text-slate-600 sm:text-base">
+            A glimpse into our facilities, team, and the passion that drives every drop of Limah Fresh water.
+          </p>
+        </Reveal>
+        <GalleryGrid images={HOME_GALLERY_IMAGES} />
+        <Reveal className="mt-12 text-center">
+          <Link
+            href="/gallery"
+            className="btn-sheen group inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-brand to-aqua px-8 py-4 text-sm font-bold text-white shadow-xl shadow-aqua/25 transition hover:-translate-y-0.5"
+          >
+            View Full Gallery
+            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+          </Link>
+        </Reveal>
       </div>
     </section>
   );
@@ -317,9 +422,10 @@ export default function HomePage() {
     <>
       <Hero />
       <TrustRibbon />
-      <WhyChooseUs />
       <Services />
       <Featured />
+      <GalleryPreview />
+      <WhyChooseUs />
       <Clients />
       <StatsBand />
       <CtaBand />

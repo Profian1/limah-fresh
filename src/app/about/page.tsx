@@ -1,14 +1,16 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import {
+  ArrowRight,
   Award,
   CalendarDays,
+  Camera,
   Filter,
   Globe2,
   RefreshCw,
   Sparkles,
   Sun,
-  Users,
 } from "lucide-react";
 import { PHOTOS, SITE } from "@/lib/site";
 import { Reveal } from "@/components/ui/Reveal";
@@ -174,59 +176,56 @@ function Purification() {
   );
 }
 
-function Team() {
-  const members = [
-    { img: "/team1.jpg", alt: "Limah Fresh team member" },
-    { img: "/team4.jpeg", alt: "Limah Fresh team member" },
-    { img: "/team6.jpeg", alt: "Limah Fresh team member" },
-    { img: "/team7.jpg", alt: "Limah Fresh team member" },
-    { img: "/team3.jpg", alt: "Limah Fresh team member" },
-    { img: "/team5.jpg", alt: "Limah Fresh team member" },
-    { img: "/team8.jpg", alt: "Limah Fresh team member" },
-    { img: "/team2.jpg", alt: "Limah Fresh team member" },
+function GalleryCta() {
+  const previewImages = [
+    { src: "/limahstaff.jpg", alt: "The Limah Fresh team ready to serve" },
+    { src: "/bowser.jpeg", alt: "Limah Soft Water bowser delivering to a construction site" },
   ];
 
   return (
     <section className="bg-ice py-24">
       <div className="mx-auto max-w-7xl px-6">
-        <Reveal className="mb-14 text-center">
-          <span className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-brand to-aqua px-4 py-2 text-[11px] font-bold uppercase tracking-[0.2em] text-white shadow-lg shadow-aqua/25">
-            <Users className="h-3.5 w-3.5" /> Our Team
-          </span>
-          <h2 className="font-display mt-5 text-3xl font-extrabold tracking-tight text-navy sm:text-5xl">
-            Meet the People Behind <span className="text-gradient-deep">Every Drop</span>
-          </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-slate-600 sm:text-base">
-            Passionate, dedicated, and driven by quality — our team makes purity personal.
-          </p>
-        </Reveal>
-
-        {/* Masonry gallery */}
-        <div className="columns-1 gap-4 sm:columns-2 lg:columns-3 xl:columns-4 space-y-4">
-          {members.map((m, i) => (
-            <Reveal key={i} delay={i * 100}>
-              <div className="group relative overflow-hidden rounded-[20px] bg-white shadow-md shadow-navy/5 ring-1 ring-mist/50 transition-all duration-500 hover:-translate-y-1.5 hover:shadow-xl hover:shadow-aqua/10 hover:ring-aqua/30">
-                <div className="relative w-full">
+        <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+          {/* Collage side */}
+          <Reveal direction="left">
+            <div className="relative grid grid-cols-2 gap-3 sm:gap-4">
+              {previewImages.map((img) => (
+                <div key={img.src} className="overflow-hidden rounded-[24px] shadow-xl shadow-navy/10 ring-1 ring-mist/50">
                   <Image
-                    src={m.img}
-                    alt={m.alt}
-                    width={800}
-                    height={1000}
-                    className="w-full object-cover transition-transform duration-700 group-hover:scale-105"
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    src={img.src}
+                    alt={img.alt}
+                    width={400}
+                    height={500}
+                    className="h-[220px] w-full object-cover transition-transform duration-700 hover:scale-105 sm:h-[320px]"
+                    sizes="(max-width: 1024px) 50vw, 25vw"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-deep/70 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-                  <div className="absolute inset-x-0 bottom-0 translate-y-full p-5 opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
-                    <p className="font-display text-lg font-bold text-white">Limah Fresh Team</p>
-                    <div className="mt-1.5 flex items-center gap-2">
-                      <span className="h-1 w-8 rounded-full bg-gradient-to-r from-aqua to-sky" />
-                      <span className="text-xs font-medium text-foam/80">Nairobi, Kenya</span>
-                    </div>
-                  </div>
                 </div>
-              </div>
-            </Reveal>
-          ))}
+              ))}
+            </div>
+          </Reveal>
+
+          {/* Text + CTA side */}
+          <Reveal direction="right">
+            <span className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-brand to-aqua px-4 py-2 text-[11px] font-bold uppercase tracking-[0.2em] text-white shadow-lg shadow-aqua/25">
+              <Camera className="h-3.5 w-3.5" /> Our Gallery
+            </span>
+            <h2 className="font-display mt-5 text-3xl font-extrabold tracking-tight text-navy sm:text-5xl">
+              Explore Our <span className="text-gradient-deep">Gallery</span>
+            </h2>
+            <p className="mt-5 max-w-lg text-[15px] leading-relaxed text-slate-600">
+              Discover our completed projects, workshop, facilities and skilled team — see the quality and care that goes into every drop.
+            </p>
+            <p className="mt-4 text-sm leading-relaxed text-slate-500">
+              From our state-of-the-art purification plant to successful deliveries across Nairobi, our gallery tells the story of reliability, hygiene, and passion for pure water.
+            </p>
+            <Link
+              href="/gallery"
+              className="btn-sheen group mt-8 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-brand to-aqua px-8 py-4 text-sm font-bold text-white shadow-xl shadow-aqua/25 transition hover:-translate-y-0.5"
+            >
+              Explore Full Gallery
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+            </Link>
+          </Reveal>
         </div>
       </div>
     </section>
@@ -239,7 +238,7 @@ export default function AboutPage() {
       <PageHero />
       <Story />
       <Purification />
-      <Team />
+      <GalleryCta />
     </>
   );
 }

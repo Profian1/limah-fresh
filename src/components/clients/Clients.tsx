@@ -7,19 +7,44 @@ import { Reveal } from "@/components/ui/Reveal";
 
 const LOGOS = [
   { src: "/clients/posta.svg", alt: "Posta Kenya", scale: 1, opacity: 0.9 },
-  { src: "/clients/kws.svg", alt: "Kenya Wildlife Service", scale: 1, opacity: 0.9 },
+  {
+    src: "/clients/kws.svg",
+    alt: "Kenya Wildlife Service",
+    scale: 1,
+    opacity: 0.9,
+  },
   { src: "/clients/kicc.svg", alt: "KICC", scale: 1, opacity: 0.9 },
   { src: "/clients/kntc.svg", alt: "KNTC", scale: 1, opacity: 0.9 },
   { src: "/clients/jamii.svg", alt: "Jamii Sacco", scale: 1, opacity: 0.9 },
-  { src: "/clients/superior.jpg", alt: "Superior Homes", scale: 1, opacity: 0.9 },
-  { src: "/clients/kissi%20.svg", alt: "Kisii Teaching & Referral Hospital", scale: 1.35, opacity: 1 },
+  {
+    src: "/clients/superior.jpg",
+    alt: "Superior Homes",
+    scale: 1,
+    opacity: 0.9,
+  },
+  {
+    src: "/clients/kissi%20.svg",
+    alt: "Kisii Teaching & Referral Hospital",
+    scale: 1.35,
+    opacity: 1,
+  },
   { src: "/clients/kmpdc.svg", alt: "KMPDC", scale: 1.45, opacity: 1 },
-  { src: "/clients/kaa.svg", alt: "Kenya Airports Authority", scale: 1.55, opacity: 1 },
+  {
+    src: "/clients/kaa.svg",
+    alt: "Kenya Airports Authority",
+    scale: 1.55,
+    opacity: 1,
+  },
   { src: "/clients/mas.svg", alt: "MAS", scale: 1.55, opacity: 1 },
   { src: "/clients/teule.svg", alt: "Teule", scale: 1.45, opacity: 1 },
   { src: "/clients/abynissia.svg", alt: "Abynissia", scale: 1.35, opacity: 1 },
   { src: "/clients/bahari.svg", alt: "Bahari", scale: 1, opacity: 0.9 },
-  { src: "/clients/disabilities.svg", alt: "Disabilities", scale: 1.35, opacity: 1 },
+  {
+    src: "/clients/disabilities.svg",
+    alt: "Disabilities",
+    scale: 1.35,
+    opacity: 1,
+  },
   { src: "/clients/halisi.svg", alt: "Halisi", scale: 1.5, opacity: 1 },
   { src: "/clients/hfgroup.svg", alt: "HF Group", scale: 1.45, opacity: 1 },
   { src: "/clients/mrm.svg", alt: "MRM", scale: 1.5, opacity: 1 },
@@ -55,7 +80,8 @@ function LogoCard({
   }, []);
 
   const getTilt = useCallback(() => {
-    if (prefersReducedMotion.current || !sectionRect || !mouseInSection) return "";
+    if (prefersReducedMotion.current || !sectionRect || !mouseInSection)
+      return "";
     const cx = sectionRect.left + sectionRect.width / 2;
     const cy = sectionRect.top + sectionRect.height / 2;
     const rotX = ((mousePos.y - cy) / sectionRect.height) * -6;
@@ -194,7 +220,11 @@ export function Clients() {
       onMouseLeave={handleMouseLeave}
     >
       {/* Background */}
-      <div className="absolute inset-0" style={{ background: "#FCFEFF" }} aria-hidden="true" />
+      <div
+        className="absolute inset-0"
+        style={{ background: "#FCFEFF" }}
+        aria-hidden="true"
+      />
 
       {/* Subtle blue radial gradient */}
       <div
@@ -227,7 +257,8 @@ export function Clients() {
             top: mousePos.y - 200,
             width: 400,
             height: 400,
-            background: "radial-gradient(circle, rgba(0,174,239,0.06) 0%, transparent 70%)",
+            background:
+              "radial-gradient(circle, rgba(0,174,239,0.06) 0%, transparent 70%)",
             transition: "left 0.4s ease-out, top 0.4s ease-out",
             zIndex: 0,
           }}
@@ -236,12 +267,55 @@ export function Clients() {
       )}
 
       {/* Floating bubbles */}
-      <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
-        <span className="animate-bubble-rise-slow absolute left-[8%] rounded-full border border-[rgba(0,174,239,0.08)]" style={{ width: 30, height: 30, bottom: "-30px", animationDelay: "0s" }} />
-        <span className="animate-bubble-rise absolute left-[25%] rounded-full border border-[rgba(0,174,239,0.08)]" style={{ width: 18, height: 18, bottom: "-20px", animationDelay: "3s" }} />
-        <span className="animate-bubble-rise-slow absolute left-[52%] rounded-full border border-[rgba(0,174,239,0.08)]" style={{ width: 40, height: 40, bottom: "-40px", animationDelay: "6s" }} />
-        <span className="animate-bubble-rise absolute left-[75%] rounded-full border border-[rgba(0,174,239,0.08)]" style={{ width: 22, height: 22, bottom: "-24px", animationDelay: "9s" }} />
-        <span className="animate-bubble-rise-slow absolute left-[90%] rounded-full border border-[rgba(0,174,239,0.08)]" style={{ width: 34, height: 34, bottom: "-34px", animationDelay: "12s" }} />
+      <div
+        className="pointer-events-none absolute inset-0 overflow-hidden"
+        aria-hidden="true"
+      >
+        <span
+          className="animate-bubble-rise-slow absolute left-[8%] rounded-full border border-[rgba(0,174,239,0.08)]"
+          style={{
+            width: 30,
+            height: 30,
+            bottom: "-30px",
+            animationDelay: "0s",
+          }}
+        />
+        <span
+          className="animate-bubble-rise absolute left-[25%] rounded-full border border-[rgba(0,174,239,0.08)]"
+          style={{
+            width: 18,
+            height: 18,
+            bottom: "-20px",
+            animationDelay: "3s",
+          }}
+        />
+        <span
+          className="animate-bubble-rise-slow absolute left-[52%] rounded-full border border-[rgba(0,174,239,0.08)]"
+          style={{
+            width: 40,
+            height: 40,
+            bottom: "-40px",
+            animationDelay: "6s",
+          }}
+        />
+        <span
+          className="animate-bubble-rise absolute left-[75%] rounded-full border border-[rgba(0,174,239,0.08)]"
+          style={{
+            width: 22,
+            height: 22,
+            bottom: "-24px",
+            animationDelay: "9s",
+          }}
+        />
+        <span
+          className="animate-bubble-rise-slow absolute left-[90%] rounded-full border border-[rgba(0,174,239,0.08)]"
+          style={{
+            width: 34,
+            height: 34,
+            bottom: "-34px",
+            animationDelay: "12s",
+          }}
+        />
       </div>
 
       {/* Content */}
@@ -255,7 +329,10 @@ export function Clients() {
       >
         {/* Label */}
         <Reveal className="text-center" delay={0}>
-          <span className="text-[13px] font-semibold uppercase tracking-[0.45em]" style={{ color: "#00AEEF" }}>
+          <span
+            className="text-[13px] font-semibold uppercase tracking-[0.45em]"
+            style={{ color: "#00AEEF" }}
+          >
             Trusted By
           </span>
         </Reveal>
@@ -269,27 +346,32 @@ export function Clients() {
             Trusted by Businesses Across Kenya
           </h2>
         </Reveal>
-
-        {/* Subtitle */}
-        <Reveal className="mx-auto mt-5 max-w-[760px] text-center" delay={160}>
-          <p className="text-[18px] leading-[1.8]" style={{ color: "#52606D" }}>
-            From corporate offices and hotels to schools, hospitals, restaurants, and retail businesses, organizations
-            across Kenya trust Limah Fresh to deliver safe, clean, and reliable drinking water every day.
-          </p>
-        </Reveal>
-
         {/* Decorative divider */}
         <Reveal className="mt-8 text-center" delay={240}>
           <div className="mx-auto flex items-center justify-center gap-3">
-            <span className="h-[2px] flex-1" style={{ maxWidth: 48, background: "linear-gradient(90deg, transparent, #00AEEF)" }} />
+            <span
+              className="h-[2px] flex-1"
+              style={{
+                maxWidth: 48,
+                background: "linear-gradient(90deg, transparent, #00AEEF)",
+              }}
+            />
             <span className="relative flex items-center justify-center">
-              <span className="absolute h-3 w-3 rounded-full bg-[rgba(0,174,239,0.15)] blur-sm" style={{ boxShadow: "0 0 8px rgba(0,174,239,0.3)" }} />
+              <span
+                className="absolute h-3 w-3 rounded-full bg-[rgba(0,174,239,0.15)] blur-sm"
+                style={{ boxShadow: "0 0 8px rgba(0,174,239,0.3)" }}
+              />
               <Droplets className="relative h-3.5 w-3.5 text-[#00AEEF]" />
             </span>
-            <span className="h-[2px] flex-1" style={{ maxWidth: 48, background: "linear-gradient(90deg, #00AEEF, transparent)" }} />
+            <span
+              className="h-[2px] flex-1"
+              style={{
+                maxWidth: 48,
+                background: "linear-gradient(90deg, #00AEEF, transparent)",
+              }}
+            />
           </div>
         </Reveal>
-
         {/* Logo grid */}
         <div className="mt-16">
           <div className="hidden sm:block">{renderPyramidDesktop()}</div>
@@ -298,10 +380,13 @@ export function Clients() {
 
         {/* Trust message */}
         <Reveal className="mt-14 text-center" delay={800}>
-          <p className="inline-flex items-center gap-2 text-[15px] font-medium" style={{ color: "#7B8794" }}>
+          <p
+            className="inline-flex items-center gap-2 text-[15px] font-medium"
+            style={{ color: "#7B8794" }}
+          >
             <CheckCircle className="h-4 w-4 text-[#00AEEF]" />
-            Delivering clean drinking water to homes, businesses, schools, hospitals, hotels, restaurants, and
-            institutions across Kenya.
+            Delivering clean drinking water to homes, businesses, schools,
+            hospitals, hotels, restaurants, and institutions across Kenya.
           </p>
         </Reveal>
       </div>

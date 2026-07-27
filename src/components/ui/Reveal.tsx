@@ -31,10 +31,14 @@ export function Reveal({
           }
         });
       },
-      { threshold: 0.12, rootMargin: "0px 0px -40px 0px" }
+      { threshold: 0.05, rootMargin: "0px" }
     );
     io.observe(el);
-    return () => io.disconnect();
+    const timeout = setTimeout(() => el.classList.add("revealed"), 1500);
+    return () => {
+      io.disconnect();
+      clearTimeout(timeout);
+    };
   }, []);
 
   const style: CSSProperties = { transitionDelay: `${delay}ms` };

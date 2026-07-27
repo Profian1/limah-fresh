@@ -33,8 +33,8 @@ function Hero() {
         className="object-cover opacity-70"
         sizes="200vw"
       />
-      <div className="absolute inset-0 bg-gradient-to-r from-deep/65 via-navy/65 to-brand/10" />
-      <div className="absolute inset-0 bg-gradient-to-t from-deep/60 via-transparent to-deep/25" />
+      <div className="absolute inset-0 bg-gradient-to-r from-deep/65 via-navy/45 to-brand/10" />
+      <div className="absolute inset-0 bg-gradient-to-t from-deep/40 via-transparent to-deep/25" />
 
       <div className="relative z-10 mx-auto w-full max-w-7xl px-6 py-20">
         <Reveal delay={120}>
@@ -208,21 +208,21 @@ function Testimonials() {
   const testimonials = [
     {
       quote:
-        "Limah Fresh has supplied our examination centres for years. Deliveries are punctual to the hour, and the tamper-proof seals give our teams complete confidence.",
-      name: "Procurement Office",
-      org: "National Examinations Council",
+        "LIMAH FRESH has provided our school with excellent service, clean high-quality drinking water with unmatched professionalism. We truly value and enjoy working with them and highly recommend their reliable services.",
+      name: "Head of Administration",
+      org: "BLESSEDVILLE SCHOOLS",
     },
     {
       quote:
-        "We run three dispensers across our head office floors. Their sanitization crew services them like clockwork — zero complaints from staff in two years.",
-      name: "Facilities Manager",
-      org: "Leading Postal & Logistics Parastatal",
+        "LIMAH FRESH has consistently delivered quality services and reliable drinking water to our media house. Their professionalism and timely delivery make them a partener we appreciate working with.",
+      name: "Head of Operations",
+      org: "TULIA DIGITAL MEDIA",
     },
     {
       quote:
-        "For our construction sites, the Limah Soft Water bowser is a lifeline — flexible volumes, fair pricing and a driver who actually arrives when promised.",
-      name: "Project Coordinator",
-      org: "Residential Developer, Nairobi",
+        "We've been using Limah Fresh for both water deliveries and dispenser maintenance, and the experience has been excellent. Their technicians are knowledgeable, and the service is fast and reliable. It's one less thing for us to worry about.",
+      name: "Sales Manager",
+      org: "RJ MARKETING",
     },
   ];
   return (
@@ -269,7 +269,7 @@ function CtaBand() {
         src="/bowser.jpeg"
         alt=""
         fill
-        className="object-cover opacity-40"
+        className="object-cover opacity-90"
         sizes="100vw"
       />
       <div className="absolute inset-0 bg-gradient-to-r from-navy/85 via-navy/65 to-brand/40" />

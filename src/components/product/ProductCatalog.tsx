@@ -3,7 +3,8 @@
 import { useMemo, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { LayoutGrid, Droplets, CupSoda } from "lucide-react";
-import { ProductCard, type CardProduct } from "./ProductCard";
+import { ProductCard } from "./ProductCard";
+import { type ProductData } from "@/data/products";
 
 const TABS = [
   { value: "all", label: "All Products", icon: LayoutGrid },
@@ -11,16 +12,17 @@ const TABS = [
   { value: "accessories", label: "Accessories", icon: CupSoda },
 ];
 
-export function ProductCatalog({ products }: { products: CardProduct[] }) {
+export function ProductCatalog({ products }: { products: ProductData[] }) {
   const params = useSearchParams();
   const initial = params.get("cat");
   const [tab, setTab] = useState(
-    TABS.some((t) => t.value === initial) ? (initial as string) : "all"
+    TABS.some((t) => t.value === initial) ? (initial as string) : "all",
   );
 
   const filtered = useMemo(
-    () => (tab === "all" ? products : products.filter((p) => p.category === tab)),
-    [tab, products]
+    () =>
+      tab === "all" ? products : products.filter((p) => p.category === tab),
+    [tab, products],
   );
 
   return (
@@ -50,11 +52,16 @@ export function ProductCatalog({ products }: { products: CardProduct[] }) {
       </div>
 
       <p className="mt-4 text-center text-sm font-medium text-slate-500">
-        Showing <span className="font-bold text-brand">{filtered.length}</span> of {products.length} products
+        Showing{" "}
+        <span className="font-bold text-brand">{filtered.length}</span> of{" "}
+        {products.length} products
       </p>
 
       {/* Grid */}
-      <div key={tab} className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-2 sm:gap-8 lg:grid-cols-3 xl:grid-cols-4">
+      <div
+        key={tab}
+        className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3 xl:grid-cols-4"
+      >
         {filtered.map((p, i) => (
           <ProductCard key={p.slug} product={p} index={i} />
         ))}

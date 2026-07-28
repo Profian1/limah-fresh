@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { Suspense } from "react";
 import { PHOTOS } from "@/lib/site";
-import { getProducts } from "@/lib/data";
+import { getAllProducts } from "@/data/products";
 import { Reveal } from "@/components/ui/Reveal";
 import { WaveDivider } from "@/components/art/WaveDivider";
 import { ProductCatalog } from "@/components/product/ProductCatalog";
@@ -15,8 +15,8 @@ export const metadata: Metadata = {
     "Shop Limah Fresh: bottled water in 500ml, 1L, 1.5L, 5L, 10L and 18.9L; floor-standing & desktop water dispensers (Ipcone, Nonga); disposable cups and accessories. Order instantly via WhatsApp.",
 };
 
-export default async function ProductsPage() {
-  const products = await getProducts();
+export default function ProductsPage() {
+  const products = getAllProducts();
 
   return (
     <>

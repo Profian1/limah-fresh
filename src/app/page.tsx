@@ -8,7 +8,7 @@ import {
   Truck,
 } from "lucide-react";
 import { SITE, waLink, generalInquiryMessage } from "@/lib/site";
-import { getFeaturedProducts } from "@/lib/data";
+import { getFeaturedProducts } from "@/data/products";
 import { Reveal } from "@/components/ui/Reveal";
 import { CountUp } from "@/components/ui/CountUp";
 import { WhatsAppIcon } from "@/components/art/icons";
@@ -213,8 +213,8 @@ function TrustRibbon() {
 
 /* ---------------------------- featured products ---------------------------- */
 
-async function Featured() {
-  const featured = await getFeaturedProducts();
+function Featured() {
+  const featured = getFeaturedProducts();
   return (
     <section className="relative bg-gradient-to-b from-ice to-white py-16 md:py-20">
       <div className="mx-auto max-w-7xl px-3 sm:px-6">
@@ -222,12 +222,13 @@ async function Featured() {
           <p className="text-xs font-bold uppercase tracking-[0.3em] text-aqua">
             Our Products
           </p>
+          <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-[#102A43] sm:text-5xl">
+            Pure Hydration in <span className="text-gradient">Every Size</span>
+          </h2>
         </Reveal>
-        <div className="grid grid-cols-2 gap-3 sm:grid-cols-2 sm:gap-8 lg:grid-cols-4">
+        <div className="grid grid-cols-2 gap-3 sm:grid-cols-2 sm:gap-6 lg:grid-cols-4">
           {featured.map((p, i) => (
-            <Reveal key={p.slug} delay={i * 110}>
-              <ProductCard product={p} index={i} />
-            </Reveal>
+            <ProductCard key={p.slug} product={p} index={i} />
           ))}
         </div>
       </div>

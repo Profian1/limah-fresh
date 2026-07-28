@@ -153,7 +153,7 @@ export const PRODUCTS: ProductData[] = [
     art: "cups",
     category: "accessories",
     volume: "100 pcs",
-    unitPrice: 450,
+    unitPrice: 100,
     sortOrder: 9,
     featured: false,
   },

@@ -17,7 +17,7 @@ import { QuoteButton } from "@/components/quote/QuoteButton";
 import { WhyChooseUs } from "@/components/why-choose-us/WhyChooseUs";
 import { Services } from "@/components/services/Services";
 import { Clients } from "@/components/clients/Clients";
-import { GalleryGrid } from "@/components/gallery/GalleryGrid";
+import { GalleryPreview } from "@/components/gallery/GalleryPreview";
 
 export const dynamic = "force-dynamic";
 
@@ -264,45 +264,6 @@ function StatsBand() {
             </Reveal>
           ))}
         </div>
-      </div>
-    </section>
-  );
-}
-
-/* ------------------------- gallery preview --------------------------- */
-
-const HOME_GALLERY_IMAGES = [
-  { src: "/limahstaff.jpg", alt: "The Limah Fresh team ready to serve", aspect: "aspect-video" },
-  { src: "/bowser.jpeg", alt: "Limah Soft Water bowser delivering to a construction site", aspect: "aspect-[4/3]" },
-  { src: "/operations.png", alt: "Inside the Limah Fresh purification facility", aspect: "aspect-video" },
-  { src: "/packed bottles.jpeg", alt: "Freshly packed bottles ready for dispatch", aspect: "aspect-square" },
-  { src: "/branded.jpg", alt: "Custom branded water bottles for a corporate event", aspect: "aspect-[3/4]" },
-  { src: "/pack.jpeg", alt: "Shrink-wrapped Limah Fresh water crates", aspect: "aspect-[4/3]" },
-];
-
-function GalleryPreview() {
-  return (
-    <section className="bg-white py-24">
-      <div className="mx-auto max-w-7xl px-6">
-        <Reveal className="mb-12 text-center">
-          <p className="text-xs font-bold uppercase tracking-[0.3em] text-aqua">See Our Work</p>
-          <h2 className="font-display mt-3 text-3xl font-extrabold tracking-tight text-navy sm:text-5xl">
-            Behind the <span className="text-gradient-deep">Scenes</span>
-          </h2>
-          <p className="mx-auto mt-4 max-w-xl text-sm leading-relaxed text-slate-600 sm:text-base">
-            A glimpse into our facilities, team, and the passion that drives every drop of Limah Fresh water.
-          </p>
-        </Reveal>
-        <GalleryGrid images={HOME_GALLERY_IMAGES} />
-        <Reveal className="mt-12 text-center">
-          <Link
-            href="/gallery"
-            className="btn-sheen group inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-brand to-aqua px-8 py-4 text-sm font-bold text-white shadow-xl shadow-aqua/25 transition hover:-translate-y-0.5"
-          >
-            View Full Gallery
-            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-          </Link>
-        </Reveal>
       </div>
     </section>
   );

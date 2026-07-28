@@ -94,29 +94,29 @@ function LogoCard({
   const scale = logo.scale;
   const w = Math.round(130 * scale);
   const h = Math.round(46 * scale);
-
-  // We use a CSS transform approach for mobile to ensure perfect centering
-  // without any flexbox overflow alignment bugs, while keeping relative logo scales.
-  const mobileScale = scale * 1.5;
+  const mobileW = Math.round(110 * scale);
+  const mobileH = Math.round(40 * scale);
 
   return (
     <Reveal direction="up" delay={globalDelay + colIndex * 40}>
       <div
         ref={cardRef}
-        className="group relative flex h-[90px] flex-1 min-w-0 sm:h-[90px] sm:w-[170px] sm:flex-none items-center justify-center rounded-[12px] sm:rounded-[18px] border border-[rgba(0,174,239,0.12)] bg-white p-3 sm:p-5 shadow-sm transition-all duration-[350ms] ease-out hover:-translate-y-[6px] hover:border-[#00AEEF] hover:shadow-[0_24px_40px_-12px_rgba(0,174,239,0.15)]"
+        className="group relative flex h-[100px] flex-1 min-w-0 sm:h-[90px] sm:w-[170px] sm:flex-none items-center justify-center rounded-[12px] sm:rounded-[18px] border border-[rgba(0,174,239,0.12)] bg-white p-2 sm:p-5 shadow-sm transition-all duration-[350ms] ease-out hover:-translate-y-[6px] hover:border-[#00AEEF] hover:shadow-[0_24px_40px_-12px_rgba(0,174,239,0.15)]"
         style={{ transform: getTilt() }}
       >
-        <div className="relative transition-all duration-[350ms] ease-out group-hover:scale-105 flex sm:hidden items-center justify-center w-full h-full">
-          <div className="relative w-full h-full flex items-center justify-center" style={{ transform: `scale(${mobileScale})` }}>
-            <Image
-              src={logo.src}
-              alt={logo.alt}
-              fill
-              className="object-contain transition-all duration-[350ms] ease-out"
-              sizes="180px"
-            />
-          </div>
+        {/* Mobile: fixed dimensions, no fill, no scale wrapper */}
+        <div className="relative flex sm:hidden items-center justify-center"
+          style={{ width: mobileW, height: mobileH }}>
+          <Image
+            src={logo.src}
+            alt={logo.alt}
+            width={mobileW}
+            height={mobileH}
+            className="object-contain"
+            sizes={`${mobileW}px`}
+          />
         </div>
+        {/* Desktop: unchanged */}
         <div
           className="relative transition-all duration-[350ms] ease-out group-hover:scale-105 hidden sm:block flex-shrink-0"
           style={{ width: w, height: h }}
@@ -125,8 +125,7 @@ function LogoCard({
             src={logo.src}
             alt={logo.alt}
             fill
-            className="object-contain transition-all duration-[350ms] ease-out group-hover:opacity-100"
-            style={{ opacity: logo.opacity }}
+            className="object-contain"
             sizes={`${w}px`}
           />
         </div>

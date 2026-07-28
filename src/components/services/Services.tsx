@@ -43,7 +43,7 @@ const CARDS = [
     cta: "Get Started",
     href: "/services#branded",
     image: "/branded.jpg",
-    gridClasses: "lg:col-start-3 lg:row-start-2 sm:col-span-2",
+    gridClasses: "lg:col-start-3 lg:row-start-2 col-span-2",
     alt: "Custom branded Limah Fresh water bottles",
   },
 ];

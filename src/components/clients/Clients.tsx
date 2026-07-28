@@ -6,21 +6,21 @@ import { CheckCircle, Droplets } from "lucide-react";
 import { Reveal } from "@/components/ui/Reveal";
 
 const LOGOS = [
-  { src: "/clients/posta.svg", alt: "Posta Kenya", scale: 1, opacity: 0.9 },
+  { src: "/clients/posta.svg", alt: "Posta Kenya", scale: 1, opacity: 1 },
   {
     src: "/clients/kws.svg",
     alt: "Kenya Wildlife Service",
     scale: 1,
-    opacity: 0.9,
+    opacity: 1,
   },
-  { src: "/clients/kicc.svg", alt: "KICC", scale: 1, opacity: 0.9 },
-  { src: "/clients/kntc.svg", alt: "KNTC", scale: 1, opacity: 0.9 },
-  { src: "/clients/jamii.svg", alt: "Jamii Sacco", scale: 1, opacity: 0.9 },
+  { src: "/clients/kicc.svg", alt: "KICC", scale: 1, opacity: 1 },
+  { src: "/clients/kntc.svg", alt: "KNTC", scale: 1, opacity: 1 },
+  { src: "/clients/jamii.svg", alt: "Jamii Sacco", scale: 1, opacity: 1 },
   {
     src: "/clients/superior.jpg",
     alt: "Superior Homes",
     scale: 1,
-    opacity: 0.9,
+    opacity: 1,
   },
   {
     src: "/clients/kissi%20.svg",
@@ -38,7 +38,7 @@ const LOGOS = [
   { src: "/clients/mas.svg", alt: "MAS", scale: 1.55, opacity: 1 },
   { src: "/clients/teule.svg", alt: "Teule", scale: 1.45, opacity: 1 },
   { src: "/clients/abynissia.svg", alt: "Abynissia", scale: 1.35, opacity: 1 },
-  { src: "/clients/bahari.svg", alt: "Bahari", scale: 1, opacity: 0.9 },
+  { src: "/clients/bahari.svg", alt: "Bahari", scale: 1, opacity: 1 },
   {
     src: "/clients/disabilities.svg",
     alt: "Disabilities",
@@ -97,24 +97,23 @@ function LogoCard({
 
   // We use a CSS transform approach for mobile to ensure perfect centering
   // without any flexbox overflow alignment bugs, while keeping relative logo scales.
-  const mobileScale = scale * 1.05; // 1.05 multiplier gives a great size that fills the card
+  const mobileScale = scale * 1.5;
 
   return (
     <Reveal direction="up" delay={globalDelay + colIndex * 40}>
       <div
         ref={cardRef}
-        className="group relative flex h-[70px] w-[31%] max-w-[125px] sm:h-[90px] sm:w-[170px] sm:max-w-none items-center justify-center rounded-[12px] sm:rounded-[18px] border border-[rgba(0,174,239,0.08)] bg-[rgba(255,255,255,0.55)] p-0 sm:p-5 backdrop-blur-[12px] transition-all duration-[350ms] ease-out hover:-translate-y-[6px] hover:border-[#00AEEF] hover:shadow-[0_24px_40px_-12px_rgba(0,174,239,0.15)]"
+        className="group relative flex h-[90px] flex-1 min-w-0 sm:h-[90px] sm:w-[170px] sm:flex-none items-center justify-center rounded-[12px] sm:rounded-[18px] border border-[rgba(0,174,239,0.12)] bg-white p-3 sm:p-5 shadow-sm transition-all duration-[350ms] ease-out hover:-translate-y-[6px] hover:border-[#00AEEF] hover:shadow-[0_24px_40px_-12px_rgba(0,174,239,0.15)]"
         style={{ transform: getTilt() }}
       >
-        <div className="relative transition-all duration-[350ms] ease-out group-hover:scale-105 flex sm:hidden items-center justify-center w-[90%] h-[90%]">
+        <div className="relative transition-all duration-[350ms] ease-out group-hover:scale-105 flex sm:hidden items-center justify-center w-full h-full">
           <div className="relative w-full h-full flex items-center justify-center" style={{ transform: `scale(${mobileScale})` }}>
             <Image
               src={logo.src}
               alt={logo.alt}
               fill
-              className="object-contain transition-all duration-[350ms] ease-out group-hover:opacity-100"
-              style={{ opacity: logo.opacity }}
-              sizes="120px"
+              className="object-contain transition-all duration-[350ms] ease-out"
+              sizes="180px"
             />
           </div>
         </div>

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { CheckCircle2, Loader2, Mail } from "lucide-react";
 
 const SUBJECTS = [
@@ -16,6 +16,14 @@ export function ContactForm() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [done, setDone] = useState(false);
+  const [csrfToken, setCsrfToken] = useState("");
+
+  useEffect(() => {
+    fetch("/api/csrf")
+      .then((r) => r.json())
+      .then((d) => setCsrfToken(d.token))
+      .catch(() => {});
+  }, []);
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -103,10 +111,19 @@ export function ContactForm() {
       {error && (
         <p className="sm:col-span-2 rounded-xl bg-red-50 px-4 py-3 text-sm font-medium text-red-600">{error}</p>
       )}
+      <input type="hidden" name="csrf_token" value={csrfToken} />
+      <input
+        name="_website"
+        type="text"
+        tabIndex={-1}
+        autoComplete="off"
+        className="absolute opacity-0 pointer-events-none h-0 w-0"
+        aria-hidden="true"
+      />
       <div className="sm:col-span-2">
         <button
           type="submit"
-          disabled={loading}
+          disabled={loading || !csrfToken}
           className="btn-sheen flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-brand to-aqua px-6 py-3.5 text-sm font-bold text-white shadow-lg shadow-aqua/30 transition hover:-translate-y-0.5 disabled:opacity-60"
         >
           {loading ? <Loader2 className="h-4 w-4 animate-spin" /> : <Mail className="h-4 w-4" />}

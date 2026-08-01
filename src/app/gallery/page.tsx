@@ -21,6 +21,7 @@ const FEATURED_PROJECTS = [
   { src: "/WhatsApp Image 2026-07-27 at 12.24.37 PM.jpeg", alt: "Limah Fresh water delivery in action", aspect: "aspect-[4/3]" },
   { src: "/WhatsApp Image 2026-07-27 at 12.24.37 PM (3).jpeg", alt: "Limah Fresh project delivery", aspect: "aspect-[3/4]" },
   { src: "/mix.jpeg", alt: "Various Limah Fresh water products", aspect: "aspect-[4/5]" },
+  { src: "/bowser.jpeg", alt: "Limah Soft Water bowser delivery", aspect: "aspect-[16/9]" },
 ];
 
 const WORKSHOP_FACILITIES = [

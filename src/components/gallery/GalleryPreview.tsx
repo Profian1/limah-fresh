@@ -15,11 +15,6 @@ const IMAGES = [
   { src: "/ourbowsers.jpeg", alt: "Limah Fresh fleet of water bowsers", span: "md:col-span-2", minH: "min-h-[160px] md:min-h-0" },
   { src: "/happy client.jpeg", alt: "Happy Limah Fresh client", span: "md:col-span-3", minH: "min-h-[160px] md:min-h-0" },
   { src: "/happy client 1.jpeg", alt: "Satisfied Limah Fresh customer", span: "md:col-span-3", minH: "min-h-[160px] md:min-h-0" },
-  { src: "/operations.png", alt: "Inside the Limah Fresh purification facility", span: "md:col-span-2", minH: "min-h-[160px] md:min-h-0" },
-  { src: "/bowser.jpeg", alt: "Limah Soft Water bowser delivery", span: "md:col-span-2", minH: "min-h-[160px] md:min-h-0" },
-  { src: "/soft.jpeg", alt: "Limah Soft Water bottles", span: "md:col-span-2", minH: "min-h-[160px] md:min-h-0" },
-  { src: "/pack.jpeg", alt: "Shrink-wrapped Limah Fresh water crates", span: "md:col-span-3", minH: "min-h-[160px] md:min-h-0" },
-  { src: "/row.jpeg", alt: "Neat row of Limah Fresh water bottles", span: "md:col-span-3", minH: "min-h-[160px] md:min-h-0" },
 ];
 
 export function GalleryPreview() {

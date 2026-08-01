@@ -98,23 +98,31 @@ function LogoCard({
   const mobileH = Math.round(40 * scale);
 
   return (
-    <Reveal direction="up" delay={globalDelay + colIndex * 40}>
+    <Reveal
+      direction="up"
+      delay={globalDelay + colIndex * 40}
+      className="min-w-0 basis-[calc((100%-1rem)/3)] sm:basis-auto"
+    >
       <div
         ref={cardRef}
-        className="group relative flex h-[100px] flex-1 min-w-0 sm:h-[90px] sm:w-[170px] sm:flex-none items-center justify-center rounded-[12px] sm:rounded-[18px] border border-[rgba(0,174,239,0.12)] bg-white p-2 sm:p-5 shadow-sm transition-all duration-[350ms] ease-out hover:-translate-y-[6px] hover:border-[#00AEEF] hover:shadow-[0_24px_40px_-12px_rgba(0,174,239,0.15)]"
+        className="group relative flex h-[100px] w-full sm:h-[90px] sm:w-[170px] sm:flex-none items-center justify-center rounded-[12px] sm:rounded-[18px] border border-[rgba(0,174,239,0.12)] bg-white p-2 sm:p-5 shadow-sm transition-all duration-[350ms] ease-out hover:-translate-y-[6px] hover:border-[#00AEEF] hover:shadow-[0_24px_40px_-12px_rgba(0,174,239,0.15)]"
         style={{ transform: getTilt() }}
       >
-        {/* Mobile: fixed dimensions, no fill, no scale wrapper */}
-        <div className="relative flex sm:hidden items-center justify-center"
-          style={{ width: mobileW, height: mobileH }}>
-          <Image
-            src={logo.src}
-            alt={logo.alt}
-            width={mobileW}
-            height={mobileH}
-            className="object-contain"
-            sizes={`${mobileW}px`}
-          />
+        {/* Mobile: fluid sizing, logo scales to fit inside the card */}
+        <div className="flex h-full w-full items-center justify-center sm:hidden">
+          <div
+            className="flex h-full items-center justify-center"
+            style={{ width: `${Math.min(100, 70 * scale)}%` }}
+          >
+            <Image
+              src={logo.src}
+              alt={logo.alt}
+              width={mobileW}
+              height={mobileH}
+              className="h-auto max-h-full w-auto max-w-full object-contain"
+              sizes="30vw"
+            />
+          </div>
         </div>
         {/* Desktop: unchanged */}
         <div
@@ -197,35 +205,21 @@ export function Clients() {
   };
 
   const renderMobileGrid = () => {
-    const PATTERN = [3, 2, 3, 2, 3, 2, 3, 2];
-    let idx = 0;
-    return PATTERN.map((rowSize, rowIdx) => {
-      const rowLogos = LOGOS.slice(idx, idx + rowSize);
-      idx += rowSize;
-      if (rowLogos.length === 0) return null;
-      return (
-        <div
-          key={rowIdx}
-          className="flex justify-center gap-1.5 sm:gap-2.5"
-          style={{ marginTop: rowIdx === 0 ? 0 : 8 }}
-        >
-          {rowLogos.map((logo, colIdx) => {
-            const delay = rowIdx * 100 + colIdx * 40;
-            return (
-              <LogoCard
-                key={logo.alt}
-                logo={logo}
-                globalDelay={delay}
-                colIndex={colIdx}
-                sectionRect={sectionRect}
-                mouseInSection={mouseInSection}
-                mousePos={mousePos}
-              />
-            );
-          })}
-        </div>
-      );
-    });
+    return (
+      <div className="flex flex-wrap justify-center gap-2">
+        {LOGOS.map((logo, i) => (
+          <LogoCard
+            key={logo.alt}
+            logo={logo}
+            globalDelay={i * 45}
+            colIndex={i % 3}
+            sectionRect={sectionRect}
+            mouseInSection={mouseInSection}
+            mousePos={mousePos}
+          />
+        ))}
+      </div>
+    );
   };
 
   return (

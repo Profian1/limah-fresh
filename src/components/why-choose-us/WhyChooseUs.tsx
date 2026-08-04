@@ -165,7 +165,7 @@ function Card({
         onMouseMove={handleMouseMove}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
-        className="group relative isolate cursor-default rounded-[24px] border border-aqua/10 bg-white/30 p-6 shadow-md shadow-navy/[0.04] backdrop-blur-[18px] transition-[transform,box-shadow,border-color,background-color] duration-[350ms] ease-out will-change-transform sm:p-8"
+        className="group relative isolate cursor-default rounded-[24px] border border-aqua/10 bg-white/30 p-5 shadow-md shadow-navy/[0.04] backdrop-blur-[18px] transition-[transform,box-shadow,border-color,background-color] duration-[350ms] ease-out will-change-transform xs:p-6 sm:p-8"
         style={{
           transform: transform || undefined,
           boxShadow: transform
@@ -218,7 +218,7 @@ function Card({
 
 export function WhyChooseUs() {
   return (
-    <section className="relative overflow-hidden py-[140px]">
+    <section className="relative overflow-hidden py-12 sm:py-16 md:py-20 xl:py-24">
       {/* background gradient */}
       <div
         className="absolute inset-0"
@@ -274,7 +274,7 @@ export function WhyChooseUs() {
       <div className="relative z-10 mx-auto max-w-[1300px] px-6">
         {/* section heading */}
         <Reveal className="mx-auto mb-16 max-w-3xl text-center">
-          <h2 className="font-display mt-3 text-3xl font-extrabold tracking-tight text-navy sm:text-4xl lg:text-5xl">
+          <h2 className="font-display mt-3 text-2xl font-extrabold tracking-tight text-navy xs:text-3xl sm:text-4xl lg:text-5xl">
             Why Choose <span className="text-gradient-deep">Limah Fresh?</span>
           </h2>
         </Reveal>

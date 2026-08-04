@@ -34,7 +34,7 @@ function PageHero() {
           </p>
         </Reveal>
         <Reveal delay={120}>
-          <h1 className="font-display mt-5 max-w-3xl text-4xl font-extrabold leading-[1.08] tracking-tight text-white sm:text-5xl">
+          <h1 className="font-display mt-5 max-w-3xl text-3xl font-extrabold leading-[1.08] tracking-tight text-white xs:text-4xl sm:text-5xl md:text-6xl">
             Water You Can Trust, <span className="text-gradient">Bottle After Bottle</span>
           </h1>
         </Reveal>
@@ -52,11 +52,11 @@ function PageHero() {
 
 function Story() {
   return (
-    <section className="bg-ice py-20">
+    <section className="bg-ice py-12 sm:py-16 md:py-20 xl:py-24">
       <div className="mx-auto grid max-w-7xl items-center gap-14 px-6 lg:grid-cols-2">
         <Reveal direction="left">
           <p className="text-xs font-bold uppercase tracking-[0.3em] text-aqua">Our Story</p>
-          <h2 className="font-display mt-3 text-3xl font-extrabold tracking-tight text-navy sm:text-4xl">
+          <h2 className="font-display mt-3 text-2xl font-extrabold tracking-tight text-navy xs:text-3xl sm:text-4xl">
             Ensuring You Love &amp; Enjoy Your Environment
           </h2>
           <p className="mt-6 text-[15px] leading-relaxed text-slate-700">
@@ -92,10 +92,10 @@ function Story() {
                 alt="Limah Fresh staff team"
                 width={1600}
                 height={1067}
-                className="h-[420px] w-full object-cover transition-transform duration-700 hover:scale-105"
+                className="h-[280px] w-full object-cover transition-transform duration-700 hover:scale-105 xs:h-[340px] sm:h-[380px] md:h-[420px]"
               />
             </div>
-            <div className="glass-dark absolute -bottom-6 -left-4 rounded-3xl p-5 sm:left-8">
+            <div className="glass-dark absolute -bottom-6 -left-2 rounded-3xl p-5 xs:-left-4 sm:left-8">
               <p className="font-display text-3xl font-extrabold text-white">
                 4-Step <span className="text-aqua">Purification</span>
               </p>
@@ -142,7 +142,7 @@ function Purification() {
     },
   ];
   return (
-    <section className="relative overflow-hidden bg-deep py-24">
+    <section className="relative overflow-hidden bg-deep py-12 sm:py-16 md:py-20 xl:py-24">
       <Image src="/operations.png" alt="" fill className="object-cover opacity-30" sizes="100vw" />
       <div className="absolute inset-0 bg-gradient-to-r from-deep/80 via-navy/60 to-brand/20" />
       <div className="relative mx-auto max-w-7xl px-6">
@@ -152,11 +152,11 @@ function Purification() {
             Four Barriers Between <span className="text-gradient">You &amp; Impurity</span>
           </h2>
         </Reveal>
-        <div className="relative grid gap-6 md:grid-cols-4">
+        <div className="relative grid gap-6 xs:grid-cols-2 md:grid-cols-4">
           <div className="pointer-events-none absolute left-[12%] right-[12%] top-10 hidden border-t-2 border-dashed border-aqua/30 md:block" />
           {steps.map((s, i) => (
             <Reveal key={s.title} delay={i * 140}>
-              <div className="group relative h-full rounded-3xl border border-white/10 bg-white/[0.06] p-7 backdrop-blur transition-all duration-500 hover:-translate-y-2 hover:border-aqua/40 hover:bg-white/10">
+              <div className="group relative h-full rounded-3xl border border-white/10 bg-white/[0.06] p-5 backdrop-blur transition-all duration-500 hover:-translate-y-2 hover:border-aqua/40 hover:bg-white/10 xs:p-6 sm:p-7">
                 <div className="flex items-center justify-between">
                   <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-aqua to-sky text-deep shadow-lg shadow-aqua/30 transition group-hover:scale-110 group-hover:-rotate-6">
                     <s.icon className="h-7 w-7" />
@@ -183,7 +183,7 @@ function GalleryCta() {
   ];
 
   return (
-    <section className="bg-ice py-24">
+    <section className="bg-ice py-12 sm:py-16 md:py-20 xl:py-24">
       <div className="mx-auto max-w-7xl px-6">
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
           {/* Collage side */}
@@ -196,7 +196,7 @@ function GalleryCta() {
                     alt={img.alt}
                     width={400}
                     height={500}
-                    className="h-[220px] w-full object-cover transition-transform duration-700 hover:scale-105 sm:h-[320px]"
+                    className="h-[180px] w-full object-cover transition-transform duration-700 hover:scale-105 xs:h-[240px] sm:h-[320px]"
                     sizes="(max-width: 1024px) 50vw, 25vw"
                   />
                 </div>

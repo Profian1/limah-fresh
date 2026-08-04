@@ -65,7 +65,7 @@ function Bowser() {
     "Volume, trip and monthly-contract billing options",
   ];
   return (
-    <section className="bg-ice py-24" id="bowser">
+    <section className="bg-ice py-12 sm:py-16 md:py-20 xl:py-24" id="bowser">
       <div className="mx-auto max-w-7xl px-6">
         <div className="grid items-center gap-14 lg:grid-cols-2">
           <Reveal direction="left">
@@ -113,7 +113,7 @@ function Bowser() {
                   alt="Limah Soft Water tanker bowser ready for delivery"
                   width={1600}
                   height={1067}
-                  className="h-[420px] w-full object-cover transition-transform duration-700 hover:scale-105"
+                  className="h-[280px] w-full object-cover transition-transform duration-700 hover:scale-105 xs:h-[340px] sm:h-[420px]"
                 />
                 <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-deep/90 to-transparent p-7 pt-20">
                   <p className="font-display text-2xl font-extrabold text-white">Limah Soft Water</p>
@@ -132,7 +132,7 @@ function Bowser() {
 
         {/* inline quote form */}
         <Reveal className="mt-20" direction="scale">
-          <div id="bowser-form" className="mx-auto max-w-3xl scroll-mt-28 rounded-[2rem] bg-white p-8 shadow-2xl shadow-navy/10 ring-1 ring-mist sm:p-10">
+          <div id="bowser-form" className="mx-auto max-w-3xl scroll-mt-28 rounded-[2rem] bg-white p-6 shadow-2xl shadow-navy/10 ring-1 ring-mist sm:p-8 md:p-10">
             <div className="mb-7 text-center">
               <span className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-brand to-aqua text-white shadow-lg shadow-aqua/25">
                 <Droplet className="h-6 w-6" />
@@ -163,7 +163,7 @@ function Maintenance() {
     "Service reminders — we track the calendar for you",
   ];
   return (
-    <section className="relative overflow-hidden bg-navy py-24">
+    <section className="relative overflow-hidden bg-navy py-12 sm:py-16 md:py-20 xl:py-24">
       <div className="relative mx-auto max-w-7xl px-6">
         <div className="grid items-center gap-14 lg:grid-cols-2">
           <Reveal direction="left" className="order-2 lg:order-1">
@@ -174,7 +174,7 @@ function Maintenance() {
                   alt="Technician-serviced office water dispenser in use"
                   width={1600}
                   height={1067}
-                  className="h-[420px] w-full object-cover transition-transform duration-700 hover:scale-105"
+                  className="h-[280px] w-full object-cover transition-transform duration-700 hover:scale-105 xs:h-[340px] sm:h-[420px]"
                 />
               </div>
               <div className="glass-dark absolute -bottom-6 left-6 rounded-3xl p-5">
@@ -254,7 +254,7 @@ function Contracts() {
     },
   ];
   return (
-    <section className="bg-white py-24">
+    <section className="bg-white py-12 sm:py-16 md:py-20 xl:py-24">
       <div className="mx-auto max-w-7xl px-6">
         <Reveal className="mb-14 text-center">
           <span className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-brand to-aqua px-4 py-2 text-[11px] font-bold uppercase tracking-[0.2em] text-white shadow-lg shadow-aqua/25">
@@ -267,7 +267,7 @@ function Contracts() {
             Never think about water again. Pick a rhythm — we handle refills, exchanges and dispenser care.
           </p>
         </Reveal>
-        <div className="grid gap-6 lg:grid-cols-3">
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {plans.map((plan, i) => (
             <Reveal key={plan.name} delay={i * 130}>
               <div
@@ -324,7 +324,7 @@ function Contracts() {
 
         {/* process */}
         <Reveal className="mt-20">
-          <div className="grid gap-px overflow-hidden rounded-3xl bg-mist sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-px overflow-hidden rounded-3xl bg-mist xs:grid-cols-2 md:grid-cols-4">
             {[
               ["01", "Request", "Call, WhatsApp or submit the quote form."],
               ["02", "Confirm", "We schedule around your site and timeline."],
@@ -354,7 +354,7 @@ function BrandedWater() {
     "Custom label design and premium packaging included",
   ];
   return (
-    <section className="bg-ice py-24" id="branded">
+    <section className="bg-ice py-12 sm:py-16 md:py-20 xl:py-24" id="branded">
       <div className="mx-auto max-w-7xl px-6">
         <div className="grid items-center gap-14 lg:grid-cols-2">
           <Reveal direction="left">
@@ -401,7 +401,7 @@ function BrandedWater() {
                 alt="Custom branded Limah Fresh water bottles"
                 width={1600}
                 height={1067}
-                className="h-[420px] w-full object-cover transition-transform duration-700 hover:scale-105"
+                className="h-[280px] w-full object-cover transition-transform duration-700 hover:scale-105 xs:h-[340px] sm:h-[420px]"
               />
             </div>
           </Reveal>

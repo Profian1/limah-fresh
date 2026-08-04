@@ -17,8 +17,8 @@ export function Footer() {
       <div className="pointer-events-none absolute -left-32 top-1/3 h-96 w-96 rounded-full bg-brand/20 blur-3xl" />
       <div className="pointer-events-none absolute -right-32 bottom-0 h-96 w-96 rounded-full bg-aqua/15 blur-3xl" />
 
-      <div className="relative mx-auto max-w-7xl px-6 pb-28 pt-16 md:pb-10">
-        <div className="grid gap-12 lg:grid-cols-[1.4fr_1fr_1fr_1.3fr]">
+      <div className="relative mx-auto max-w-7xl px-4 pb-28 pt-12 sm:px-6 sm:pt-16 md:pb-10 lg:px-8">
+        <div className="grid gap-8 sm:gap-10 sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1.3fr]">
           <div>
             <Logo dark />
             <p className="mt-5 max-w-xs text-sm leading-relaxed text-mist/70">

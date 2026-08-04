@@ -55,7 +55,7 @@ export default function ContactPage() {
             </p>
           </Reveal>
           <Reveal delay={120}>
-            <h1 className="font-display mt-5 max-w-3xl text-4xl font-extrabold leading-[1.08] tracking-tight text-white sm:text-5xl">
+              <h1 className="font-display mt-5 max-w-3xl text-3xl font-extrabold leading-[1.08] tracking-tight text-white xs:text-4xl sm:text-5xl md:text-6xl">
               Let&apos;s Talk <span className="text-gradient">Water</span>
             </h1>
           </Reveal>
@@ -69,8 +69,8 @@ export default function ContactPage() {
       </section>
 
       {/* Info cards */}
-      <section className="bg-ice py-16">
-        <div className="mx-auto grid max-w-7xl gap-5 px-6 sm:grid-cols-2 lg:grid-cols-4">
+      <section className="bg-ice py-12 sm:py-16 md:py-20">
+        <div className="mx-auto grid max-w-7xl gap-5 px-6 xs:grid-cols-2 md:grid-cols-4">
           {cards.map((c, i) => (
             <Reveal key={c.title} delay={i * 110}>
               <div className="group flex h-full flex-col rounded-3xl border border-mist bg-white p-7 transition-all duration-500 hover:-translate-y-1.5 hover:border-aqua/50 hover:shadow-xl hover:shadow-aqua/10">
@@ -100,7 +100,7 @@ export default function ContactPage() {
       </section>
 
       {/* Form + map */}
-      <section className="bg-white py-20">
+      <section className="bg-white py-12 sm:py-16 md:py-20 xl:py-24">
         <div className="mx-auto grid max-w-7xl items-stretch gap-10 px-6 lg:grid-cols-2">
           <Reveal direction="left">
             <div className="mb-7">
@@ -127,7 +127,7 @@ export default function ContactPage() {
                   Minutes from JKIA and the SGR — easy drive-in for bottle pickups and bowser dispatches.
                 </p>
               </div>
-              <div className="map-frame relative flex-1 overflow-hidden rounded-3xl shadow-xl shadow-navy/10 ring-1 ring-mist" style={{ minHeight: 420 }}>
+              <div className="map-frame relative flex-1 overflow-hidden rounded-3xl shadow-xl shadow-navy/10 ring-1 ring-mist min-h-[320px] sm:min-h-[420px]">
                 <iframe
                   title="Limah E.A. Limited — Amee Holdings, North Airport Road, Nairobi"
                   src={`https://www.google.com/maps?q=${encodeURIComponent(SITE.mapQuery)}&output=embed`}
@@ -156,8 +156,8 @@ export default function ContactPage() {
       </section>
 
       {/* WhatsApp strip */}
-      <section className="px-0 pb-20">
-        <div className="mx-4 overflow-hidden rounded-[2.5rem] bg-gradient-to-r from-[#128C7E] to-[#25D366] p-10 sm:mx-6 sm:p-14">
+      <section className="px-0 pb-12 sm:pb-16 md:pb-20">
+        <div className="mx-4 overflow-hidden rounded-[2.5rem] bg-gradient-to-r from-[#128C7E] to-[#25D366] p-8 sm:mx-6 sm:p-12 md:p-14">
           <Reveal direction="scale">
             <div className="flex flex-col items-center justify-between gap-6 lg:flex-row lg:text-left">
               <div className="flex items-center gap-5">

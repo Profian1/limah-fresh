@@ -43,7 +43,7 @@ function Hero() {
         {/* Text + CTA panel — pinned to very bottom */}
         <div className="relative z-20 px-6 pb-30 pt-8">
           <Reveal delay={120}>
-            <h1 className="font-display text-[2.1rem] font-extrabold leading-[1.1] tracking-tight text-white">
+            <h1 className="font-display text-[2.1rem] font-extrabold leading-[1.1] tracking-tight text-white xs:text-[2.4rem]">
               Pure Hydration,
               <br />
               Delivered to <span className="text-gradient">Your Doorstep</span>
@@ -103,7 +103,7 @@ function Hero() {
 
         <div className="relative z-10 mx-auto w-full max-w-7xl px-6 py-20">
           <Reveal delay={120}>
-            <h1 className="font-display mt-6 text-[2.6rem] font-extrabold leading-[1.05] tracking-tight text-white sm:text-6xl xl:text-7xl">
+            <h1 className="font-display mt-6 text-[2.6rem] font-extrabold leading-[1.05] tracking-tight text-white xs:text-5xl sm:text-6xl xl:text-7xl">
               Pure Hydration,
               <br />
               Delivered to <span className="text-gradient">Your Doorstep</span>
@@ -216,8 +216,8 @@ function TrustRibbon() {
 function Featured() {
   const featured = getFeaturedProducts();
   return (
-    <section className="relative bg-gradient-to-b from-ice to-white py-16 md:py-20">
-      <div className="mx-auto max-w-7xl px-3 sm:px-6">
+    <section className="relative bg-gradient-to-b from-ice to-white py-12 sm:py-16 md:py-20 xl:py-24">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12">
         <Reveal className="mb-8 text-center md:mb-12">
           <p className="text-xs font-bold uppercase tracking-[0.3em] text-aqua">
             Our Products
@@ -226,7 +226,7 @@ function Featured() {
             Pure Hydration in <span className="text-gradient">Every Size</span>
           </h2>
         </Reveal>
-        <div className="grid grid-cols-2 gap-3 sm:grid-cols-2 sm:gap-6 lg:grid-cols-4">
+        <div className="grid grid-cols-2 gap-3 xs:gap-4 sm:gap-6 md:grid-cols-3 lg:grid-cols-4">
           {featured.map((p, i) => (
             <ProductCard key={p.slug} product={p} index={i} />
           ))}
@@ -246,16 +246,16 @@ function StatsBand() {
     { value: 100, suffix: "%", label: "Batches lab-tested" },
   ];
   return (
-    <section className="bg-white pt-8 pb-24">
+    <section className="bg-white py-12 sm:py-16 md:py-20">
       <div className="mx-auto max-w-7xl px-6">
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-6 xs:grid-cols-2 lg:grid-cols-4">
           {stats.map((s, i) => (
             <Reveal key={s.label} delay={i * 100}>
-              <div className="flex h-full flex-col items-center rounded-3xl bg-ice px-6 py-10 text-center">
+              <div className="flex h-full flex-col items-center rounded-3xl bg-ice px-4 py-8 text-center xs:px-6 sm:py-10">
                 <CountUp
                   end={s.value}
                   suffix={s.suffix}
-                  className="font-display text-4xl font-extrabold text-navy sm:text-5xl"
+                  className="font-display text-3xl font-extrabold text-navy xs:text-4xl sm:text-5xl"
                 />
                 <p className="mt-2 text-xs font-bold uppercase tracking-[0.18em] text-brand/80">
                   {s.label}
@@ -293,7 +293,7 @@ function Testimonials() {
     },
   ];
   return (
-    <section className="bg-white py-24">
+    <section className="bg-white py-12 sm:py-16 md:py-20 xl:py-24">
       <div className="mx-auto max-w-7xl px-6">
         <Reveal className="mb-12 text-center">
           <p className="text-xs font-bold uppercase tracking-[0.3em] text-aqua">
@@ -304,10 +304,10 @@ function Testimonials() {
             <span className="text-gradient-deep">Cannot Slip</span>
           </h2>
         </Reveal>
-        <div className="grid gap-6 md:grid-cols-3">
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {testimonials.map((t, i) => (
             <Reveal key={t.org} delay={i * 130}>
-              <figure className="relative flex h-full flex-col rounded-3xl border border-mist/70 bg-gradient-to-b from-ice to-white p-8 transition-all duration-500 hover:-translate-y-1.5 hover:shadow-xl hover:shadow-aqua/10">
+              <figure className="relative flex h-full flex-col rounded-3xl border border-mist/70 bg-gradient-to-b from-ice to-white p-5 transition-all duration-500 hover:-translate-y-1.5 hover:shadow-xl hover:shadow-aqua/10 sm:p-6 md:p-8">
                 <Quote className="h-8 w-8 text-aqua/50" />
                 <blockquote className="mt-4 flex-1 text-sm leading-relaxed text-slate-700">
                   "{t.quote}"
@@ -331,7 +331,7 @@ function Testimonials() {
 
 function CtaBand() {
   return (
-    <section className="relative overflow-hidden px-6 py-20">
+    <section className="relative overflow-hidden px-4 py-16 xs:px-6 sm:py-20 md:py-24">
       <Image
         src="/bowser.jpeg"
         alt=""
@@ -341,10 +341,10 @@ function CtaBand() {
       />
       <div className="absolute inset-0 bg-gradient-to-r from-navy/85 via-navy/65 to-brand/40" />
       <Reveal direction="scale" className="relative z-10">
-        <div className="wave-dots relative mx-auto max-w-6xl overflow-hidden rounded-[2.5rem] bg-gradient-to-br from-brand via-aqua to-sky p-10 text-center shadow-2xl shadow-brand/30 sm:p-16">
+        <div className="wave-dots relative mx-auto max-w-6xl overflow-hidden rounded-[2.5rem] bg-gradient-to-br from-brand via-aqua to-sky p-8 text-center shadow-2xl shadow-brand/30 sm:p-12 md:p-16">
           <div className="pointer-events-none absolute -left-24 -top-24 h-72 w-72 rounded-full bg-white/10 blur-3xl" />
           <Truck className="mx-auto h-12 w-12 text-white" />
-          <h2 className="font-display mx-auto mt-6 max-w-3xl text-3xl font-extrabold leading-tight tracking-tight text-white sm:text-5xl">
+          <h2 className="font-display mx-auto mt-6 max-w-3xl text-2xl font-extrabold leading-tight tracking-tight text-white xs:text-3xl sm:text-4xl md:text-5xl">
             Need Bulk Water for Construction, Events or Commercial Use?
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-sm leading-relaxed text-white/90 sm:text-base">

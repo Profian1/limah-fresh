@@ -31,7 +31,7 @@ export default function ProductsPage() {
             </p>
           </Reveal>
           <Reveal delay={120}>
-            <h1 className="font-display mt-5 max-w-3xl text-4xl font-extrabold leading-[1.08] tracking-tight text-white sm:text-5xl">
+              <h1 className="font-display mt-5 max-w-3xl text-3xl font-extrabold leading-[1.08] tracking-tight text-white xs:text-4xl sm:text-5xl md:text-6xl">
               Every Size of <span className="text-gradient">Pure Refreshment</span>
             </h1>
           </Reveal>
@@ -46,8 +46,8 @@ export default function ProductsPage() {
       </section>
 
       {/* Catalog */}
-      <section className="bg-ice py-16">
-        <div className="mx-auto max-w-7xl px-3 sm:px-6">
+      <section className="bg-ice py-12 sm:py-16 md:py-20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12">
           <Suspense>
             <ProductCatalog products={products} />
           </Suspense>

@@ -60,7 +60,7 @@ function GalleryHero() {
           </p>
         </Reveal>
         <Reveal delay={120}>
-          <h1 className="font-display mt-5 max-w-3xl text-4xl font-extrabold leading-[1.08] tracking-tight text-white sm:text-5xl">
+          <h1 className="font-display mt-5 max-w-3xl text-3xl font-extrabold leading-[1.08] tracking-tight text-white xs:text-4xl sm:text-5xl md:text-6xl">
             Our <span className="text-gradient">Gallery</span>
           </h1>
         </Reveal>
@@ -77,7 +77,7 @@ function GalleryHero() {
 
 function GallerySection({ id, title, subtitle, images }: { id: string; title: string; subtitle: string; images: { src: string; alt: string; aspect: string }[] }) {
   return (
-    <section id={id} className="bg-ice py-20 first-of-type:pt-16 last-of-type:pb-32">
+    <section id={id} className="bg-ice py-12 first-of-type:pt-16 last-of-type:pb-32 sm:py-16 md:py-20">
       <div className="mx-auto max-w-7xl px-6">
         <Reveal className="mb-12 text-center">
           <p className="text-xs font-bold uppercase tracking-[0.3em] text-aqua">{subtitle}</p>
@@ -94,10 +94,10 @@ function GallerySection({ id, title, subtitle, images }: { id: string; title: st
 
 function CtaSection() {
   return (
-    <section className="relative overflow-hidden bg-navy px-6 py-24">
+    <section className="relative overflow-hidden bg-navy px-6 py-12 sm:py-16 md:py-20 xl:py-24">
       <div className="absolute inset-0 bg-gradient-to-br from-brand/20 via-transparent to-transparent" />
       <Reveal direction="up" className="relative z-10 text-center">
-        <h2 className="font-display mx-auto max-w-2xl text-3xl font-extrabold tracking-tight text-white sm:text-5xl">
+        <h2 className="font-display mx-auto max-w-2xl text-2xl font-extrabold tracking-tight text-white xs:text-3xl sm:text-4xl md:text-5xl">
           Ready to Transform Your Space?
         </h2>
         <p className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-mist/90">
@@ -106,7 +106,7 @@ function CtaSection() {
         <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
           <Link
             href="/services#bowser-form"
-            className="btn-sheen inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-brand to-aqua px-8 py-4 text-sm font-bold text-white shadow-xl shadow-aqua/25 transition hover:-translate-y-0.5"
+            className="btn-sheen inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-brand to-aqua px-6 py-3.5 text-sm font-bold text-white shadow-xl shadow-aqua/25 transition hover:-translate-y-0.5 xs:px-8 xs:py-4"
           >
             Request a Quote
             <ArrowRight className="h-4 w-4" />
@@ -115,7 +115,7 @@ function CtaSection() {
             href={waLink(generalInquiryMessage())}
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center justify-center gap-2 rounded-full bg-[#25D366] px-8 py-4 text-sm font-bold text-white shadow-xl shadow-[#25D366]/25 transition hover:-translate-y-0.5"
+            className="inline-flex items-center justify-center gap-2 rounded-full bg-[#25D366] px-6 py-3.5 text-sm font-bold text-white shadow-xl shadow-[#25D366]/25 transition hover:-translate-y-0.5 xs:px-8 xs:py-4"
           >
             <WhatsAppIcon className="h-4 w-4" /> Contact Us
           </a>

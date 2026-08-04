@@ -21,7 +21,7 @@ export function GalleryPreview() {
   const [lightboxIndex, setLightboxIndex] = useState(-1);
 
   return (
-    <section className="bg-white py-24">
+    <section className="bg-white py-12 sm:py-16 md:py-20 xl:py-24">
       <div className="mx-auto max-w-7xl px-6">
         <Reveal className="mb-12 text-center">
           <p className="text-xs font-bold uppercase tracking-[0.3em] text-aqua">See Our Work</p>

@@ -50,14 +50,14 @@ const CARDS = [
 
 export function Services() {
   return (
-    <section className="bg-white py-24 lg:py-32">
+    <section className="bg-white py-12 sm:py-16 md:py-20 lg:py-24 xl:py-28">
       <div className="mx-auto max-w-7xl px-6">
         {/* Section heading */}
         <Reveal className="mb-16 text-center">
           <p className="text-xs font-bold uppercase tracking-[0.3em] text-[#00AEEF]">
             Our Services
           </p>
-          <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-[#102A43] sm:text-5xl">
+          <h2 className="mt-3 text-2xl font-extrabold tracking-tight text-[#102A43] xs:text-3xl sm:text-4xl md:text-5xl">
             What We Do
           </h2>
 
@@ -88,7 +88,7 @@ export function Services() {
         </Reveal>
 
         {/* Grid */}
-        <div className="grid grid-cols-2 gap-4 md:auto-rows-[320px] lg:grid-cols-3 lg:gap-8 lg:auto-rows-[380px]">
+        <div className="grid grid-cols-2 gap-3 xs:gap-4 md:auto-rows-[320px] lg:grid-cols-3 lg:gap-8 lg:auto-rows-[380px]">
           {CARDS.map((card, i) => (
             <Reveal
               key={card.title}
@@ -97,7 +97,7 @@ export function Services() {
             >
               <Link
                 href={card.href}
-                className="group/card relative flex min-h-[320px] h-full flex-col justify-end overflow-hidden rounded-[28px] bg-[#EAF4FA] transition-all duration-350 ease-out hover:-translate-y-2 hover:shadow-[0_24px_48px_rgba(0,0,0,0.12)]"
+                className="group/card relative flex min-h-[280px] h-full flex-col justify-end overflow-hidden rounded-[28px] bg-[#EAF4FA] transition-all duration-350 ease-out hover:-translate-y-2 hover:shadow-[0_24px_48px_rgba(0,0,0,0.12)] xs:min-h-[320px]"
               >
                 <Image
                   src={card.image}

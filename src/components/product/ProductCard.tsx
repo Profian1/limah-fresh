@@ -22,7 +22,7 @@ export function ProductCard({
     <Reveal delay={index * 100}>
       <article className="group relative flex h-full flex-col overflow-hidden rounded-[20px] border border-[rgba(0,174,239,0.08)] bg-white shadow-[0_8px_30px_rgba(0,0,0,0.04)] transition-all duration-300 ease-out hover:-translate-y-2 hover:border-[#00AEEF] hover:shadow-[0_20px_48px_rgba(0,174,239,0.12)]">
         {/* Product image */}
-        <div className="flex items-center justify-center overflow-hidden rounded-t-[20px] bg-white p-3 h-[190px] sm:h-[210px] sm:p-4 lg:h-[230px]">
+        <div className="flex items-center justify-center overflow-hidden rounded-t-[20px] bg-white p-3 h-[170px] xs:h-[190px] sm:h-[200px] sm:p-4 md:h-[210px] lg:h-[230px]">
           {product.image ? (
             <Image
               src={product.image}
@@ -61,7 +61,7 @@ export function ProductCard({
             <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-slate-400">
               {product.packPrice ? "Starting From" : "Price"}
             </p>
-            <p className="text-[20px] font-extrabold leading-tight text-[#00AEEF] sm:text-[24px]">
+            <p className="text-[18px] font-extrabold leading-tight text-[#00AEEF] xs:text-[20px] sm:text-[22px] md:text-[24px]">
               {formatPrice(product.unitPrice)}
             </p>
             {product.packPrice && product.packLabel && (

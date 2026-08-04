@@ -105,7 +105,7 @@ function LogoCard({
     >
       <div
         ref={cardRef}
-        className="group relative flex h-[100px] w-full sm:h-[90px] sm:w-[170px] sm:flex-none items-center justify-center rounded-[12px] sm:rounded-[18px] border border-[rgba(0,174,239,0.12)] bg-white p-2 sm:p-5 shadow-sm transition-all duration-[350ms] ease-out hover:-translate-y-[6px] hover:border-[#00AEEF] hover:shadow-[0_24px_40px_-12px_rgba(0,174,239,0.15)]"
+        className="group relative flex h-[90px] w-full sm:h-[90px] sm:w-[170px] sm:flex-none items-center justify-center rounded-[12px] sm:rounded-[18px] border border-[rgba(0,174,239,0.12)] bg-white p-2 sm:p-5 shadow-sm transition-all duration-[350ms] ease-out hover:-translate-y-[6px] hover:border-[#00AEEF] hover:shadow-[0_24px_40px_-12px_rgba(0,174,239,0.15)] xs:h-[100px]"
         style={{ transform: getTilt() }}
       >
         {/* Mobile: fluid sizing, logo scales to fit inside the card */}
@@ -225,7 +225,7 @@ export function Clients() {
   return (
     <section
       ref={sectionRef}
-      className="relative overflow-hidden pt-[140px] pb-[60px]"
+      className="relative overflow-hidden pt-12 sm:pt-16 md:pt-20 xl:pt-28 pb-12 sm:pb-16"
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
     >
@@ -350,7 +350,7 @@ export function Clients() {
         {/* Heading */}
         <Reveal className="mx-auto mt-5 max-w-[700px] text-center" delay={80}>
           <h2
-            className="text-[34px] leading-[1.2] font-bold tracking-[-0.02em] sm:text-[42px] lg:text-[52px]"
+            className="text-[28px] leading-[1.2] font-bold tracking-[-0.02em] xs:text-[34px] sm:text-[42px] lg:text-[52px]"
             style={{ color: "#102A43" }}
           >
             Trusted by Businesses Across Kenya

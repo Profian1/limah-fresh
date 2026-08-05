@@ -19,7 +19,19 @@ import { WaveDivider } from "@/components/art/WaveDivider";
 export const metadata: Metadata = {
   title: "About Us",
   description:
-    "Limah E.A. Limited — incorporated November 20, 2013. Our 4-step purification: micro-filtration, reverse osmosis, ozonation and UV sterilization.",
+    "Limah E.A. Limited — incorporated November 20, 2013 under Cap 486. KEBS-certified. Our 4-step purification: micro-filtration, reverse osmosis, ozonation and UV sterilization. Serving Kenya since 2013.",
+  keywords: [
+    "about Limah Fresh",
+    "water purification Kenya",
+    "KEBS certified water",
+    "Limah E.A. Limited",
+    "reverse osmosis water Nairobi",
+  ],
+  openGraph: {
+    title: "About Limah Fresh — Pure Drinking Water Since 2013",
+    description:
+      "Limah E.A. Limited — KEBS-certified purified drinking water. 4-step purification process serving homes, offices and institutions across Kenya.",
+  },
 };
 
 function PageHero() {

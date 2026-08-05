@@ -11,13 +11,24 @@ import { WhatsAppIcon } from "@/components/art/icons";
 export const metadata: Metadata = {
   title: "Gallery",
   description:
-    "Explore the Limah Fresh gallery showcasing our facilities, team in action, and featured projects across Kenya.",
+    "Explore the Limah Fresh gallery: our Nairobi purification plant, water bottling facility, delivery fleet, team in action, and featured projects across Kenya since 2013.",
+  keywords: [
+    "Limah Fresh gallery",
+    "water company Kenya photos",
+    "water purification plant Nairobi",
+    "Limah Fresh facilities",
+  ],
+  openGraph: {
+    title: "Limah Fresh Gallery — Our Facilities & Team",
+    description:
+      "See behind the scenes at Limah Fresh — purification plant, bottling facility, delivery fleet, and our dedicated team serving Kenya.",
+  },
 };
 
 const FEATURED_PROJECTS = [
   { src: "/ourbowsers.jpeg", alt: "Limah Fresh fleet of water bowsers", aspect: "aspect-[16/9]" },
-  { src: "/branded.png", alt: "Custom branded water bottles for a corporate event", aspect: "aspect-[3/4]" },
-  { src: "/dispensers.png", alt: "Office water dispenser maintenance in progress", aspect: "aspect-[4/3]" },
+  { src: "/custom-branded-water.png", alt: "Custom branded water bottles for a corporate event", aspect: "aspect-[3/4]" },
+  { src: "/dispenser-maintenance.png", alt: "Office water dispenser maintenance in progress", aspect: "aspect-[4/3]" },
   { src: "/team6.jpeg", alt: "Limah Fresh water delivery personnel in action", aspect: "aspect-[4/3]" },
   { src: "/WhatsApp Image 2026-07-27 at 12.24.37 PM (3).jpeg", alt: "Limah Fresh project delivery", aspect: "aspect-[3/4]" },
   { src: "/24packenh.png", alt: "Shrink-wrapped 24-packs of Limah Fresh water", aspect: "aspect-[4/5]" },

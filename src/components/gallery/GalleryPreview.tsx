@@ -9,7 +9,7 @@ import { Lightbox } from "@/components/gallery/Lightbox";
 
 const IMAGES = [
   { src: "/limahstaff.jpg", alt: "The Limah Fresh team ready to serve", span: "md:col-span-4 md:row-span-2", aspect: "aspect-[4/3] md:aspect-auto" },
-  { src: "/branded.png", alt: "Custom branded water bottles for a corporate event", span: "md:col-span-2 md:row-span-2", aspect: "aspect-[4/5] md:aspect-auto" },
+  { src: "/custom-branded-water.png", alt: "Custom branded water bottles for a corporate event", span: "md:col-span-2 md:row-span-2", aspect: "aspect-[4/5] md:aspect-auto" },
   { src: "/company.jpeg", alt: "Limah Fresh company premises", span: "md:col-span-2", aspect: "aspect-[4/3] md:aspect-auto" },
   { src: "/front.jpeg", alt: "Front exterior of Limah Fresh", span: "md:col-span-2", aspect: "aspect-[4/3] md:aspect-auto" },
   { src: "/ourbowsers.jpeg", alt: "Limah Fresh fleet of water bowsers", span: "md:col-span-2", aspect: "aspect-[4/3] md:aspect-auto" },

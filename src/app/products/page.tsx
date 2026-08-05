@@ -12,7 +12,25 @@ export const dynamic = "force-dynamic";
 export const metadata: Metadata = {
   title: "Products Catalog",
   description:
-    "Shop Limah Fresh: bottled water in 500ml, 1L, 1.5L, 5L, 10L and 18.9L; floor-standing & desktop water dispensers (Ipcone, Nonga); disposable cups and accessories. Order instantly via WhatsApp.",
+    "Shop Limah Fresh: bottled water in 500ml, 1L, 1.5L, 5L, 10L and 20L; floor-standing & desktop water dispensers; disposable cups and accessories. Packs and cases available. Order instantly via WhatsApp.",
+  keywords: [
+    "bottled water prices Nairobi",
+    "500ml water Kenya",
+    "1 litre water bottle",
+    "5 litre water",
+    "10 litre water",
+    "18.9 litre refill",
+    "20 litre bottled water",
+    "water dispenser Kenya",
+    "disposable cups Nairobi",
+    "Limah Fresh products",
+    "water pack prices",
+  ],
+  openGraph: {
+    title: "Limah Fresh Products Catalog — Bottled Water & Dispensers",
+    description:
+      "Browse Limah Fresh products: bottled water 500ml to 20L, packs, water dispensers, disposable cups. Order via WhatsApp with delivery across Nairobi.",
+  },
 };
 
 export default function ProductsPage() {

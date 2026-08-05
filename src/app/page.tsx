@@ -45,11 +45,11 @@ function Hero() {
         {/* Text + CTA panel — pinned to very bottom */}
         <div className="relative z-20 px-6 pb-30 pt-8">
           <Reveal delay={120}>
-            <h1 className="font-display text-[2.1rem] font-extrabold leading-[1.1] tracking-tight text-white xs:text-[2.4rem]">
+            <h2 className="font-display text-[2.1rem] font-extrabold leading-[1.1] tracking-tight text-white xs:text-[2.4rem]">
               Pure Hydration,
               <br />
               Delivered to <span className="text-gradient">Your Doorstep</span>
-            </h1>
+            </h2>
           </Reveal>
           <Reveal delay={240}>
             <p className="mt-5 text-base leading-relaxed text-mist/85">
@@ -271,6 +271,71 @@ function StatsBand() {
   );
 }
 
+/* ------------------------------- faq --------------------------------- */
+
+const FAQ_ITEMS = [
+  {
+    q: "What products does Limah Fresh sell?",
+    a: "We sell purified bottled drinking water in sizes from 500ml to 20 litres, including single bottles, packs, and refillable 20L bottles. We also supply water dispensers, disposable cups, bulk water bowsers (Limah Soft Water), custom branded water bottles, and dispenser maintenance services.",
+  },
+  {
+    q: "Do you deliver?",
+    a: "Yes, we offer free delivery across Nairobi. Same-day dispatch is available for orders placed during business hours (Mon–Fri 8 AM–5:30 PM, Sat 8 AM–3 PM). Sunday deliveries are available on request.",
+  },
+  {
+    q: "What areas do you serve?",
+    a: "We deliver across Greater Nairobi including the CBD, Westlands, Karen, Langata, Kilimani, Eastlands, Embakasi, South B/C, Industrial Area, and surrounding estates. For areas beyond Nairobi, please contact us to check availability.",
+  },
+  {
+    q: "What bottle sizes are available?",
+    a: "Our bottled water comes in 500ml, 1 litre, 1.5 litres, 5 litres, 10 litres, and 20-litre refill bottles. We also offer 20L soft and hard polycarbonate bottles with tamper-proof seals, plus pack options: 500ml × 24, 1L × 12, and 1.5L × 6.",
+  },
+  {
+    q: "How can I place an order?",
+    a: "You can order instantly via WhatsApp, call us on 0718 013 391, fill out the contact form on our website, or visit our plant at Amee Holdings, North Airport Road, Nairobi. Orders are confirmed within minutes during business hours.",
+  },
+  {
+    q: "Why choose Limah Fresh over other water brands?",
+    a: "Limah Fresh is KEBS Diamond Mark certified with a rigorous 4-step purification process (micro-filtration, reverse osmosis, ozonation, and UV sterilization). We have served Kenya since 2013 with over 950,000 litres purified annually. We are trusted by institutions like KICC, Kenya Wildlife Service, Kenya Airports Authority, and many more.",
+  },
+  {
+    q: "What are your operating hours?",
+    a: "Our plant and office are open Monday to Friday from 8:00 AM to 5:30 PM, and Saturday from 8:00 AM to 3:00 PM. We are closed on Sundays and public holidays, but delivery arrangements can be made on request.",
+  },
+];
+
+function FaqSection() {
+  return (
+    <section className="bg-ice py-12 sm:py-16 md:py-20 xl:py-24">
+      <div className="mx-auto max-w-3xl px-6">
+        <Reveal className="mb-12 text-center">
+          <p className="text-xs font-bold uppercase tracking-[0.3em] text-aqua">
+            Got Questions?
+          </p>
+          <h2 className="font-display mt-3 text-3xl font-extrabold tracking-tight text-navy sm:text-5xl">
+            Frequently Asked <span className="text-gradient-deep">Questions</span>
+          </h2>
+        </Reveal>
+
+        <dl className="divide-y divide-mist">
+          {FAQ_ITEMS.map((item, i) => (
+            <Reveal key={i} delay={i * 80}>
+              <div className="py-5 sm:py-6">
+                <dt className="font-display text-base font-bold text-navy sm:text-lg">
+                  {item.q}
+                </dt>
+                <dd className="mt-2 text-sm leading-relaxed text-slate-600 sm:text-base">
+                  {item.a}
+                </dd>
+              </div>
+            </Reveal>
+          ))}
+        </dl>
+      </div>
+    </section>
+  );
+}
+
 /* ------------------------- testimonials --------------------------- */
 
 function Testimonials() {
@@ -283,7 +348,7 @@ function Testimonials() {
     },
     {
       quote:
-        "LIMAH FRESH has consistently delivered quality services and reliable drinking water to our media house. Their professionalism and timely delivery make them a partener we appreciate working with.",
+        "LIMAH FRESH has consistently delivered quality services and reliable drinking water to our media house. Their professionalism and timely delivery make them a partner we appreciate working with.",
       name: "Head of Operations",
       org: "TULIA DIGITAL MEDIA",
     },
@@ -393,6 +458,7 @@ export default function HomePage() {
       <WhyChooseUs />
       <Clients />
       <StatsBand />
+      <FaqSection />
       <CtaBand />
       <Testimonials />
     </>

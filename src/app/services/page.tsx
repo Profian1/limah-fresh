@@ -11,7 +11,22 @@ import { ContractsSection } from "@/components/services/ContractsSection";
 export const metadata: Metadata = {
   title: "Bulk Water Bowser & Services",
   description:
-    "Limah Soft Water bowsers for construction, events and institutions; dispenser supply, maintenance & sanitization; scheduled home and office delivery contracts across Nairobi.",
+    "Limah Soft Water bowsers for construction, events and institutions; dispenser supply, maintenance & sanitization; scheduled home and office delivery contracts across Nairobi. Custom branded water available.",
+  keywords: [
+    "water bowser Nairobi",
+    "bulk water delivery Kenya",
+    "dispenser maintenance Nairobi",
+    "branded water bottles Kenya",
+    "water delivery contract Nairobi",
+    "Limah Soft Water",
+    "corporate water supply",
+    "event water delivery",
+  ],
+  openGraph: {
+    title: "Limah Fresh — Bulk Water Bowsers & Services",
+    description:
+      "Limah Soft Water bowsers, dispenser maintenance, branded water bottles and delivery contracts — serving homes, offices, and institutions across Nairobi.",
+  },
 };
 
 function PageHero() {

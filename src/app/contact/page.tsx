@@ -10,7 +10,18 @@ import { WhatsAppIcon } from "@/components/art/icons";
 export const metadata: Metadata = {
   title: "Contact Us",
   description:
-    "Reach Limah E.A. Limited — Amee Holdings, North Airport Road, Nairobi. Call 011 602 2104 / 0718 013 432 / 0718 013 391 / 0722 998 182 or email info@limaheastafrica.co.ke.",
+    "Reach Limah E.A. Limited — Amee Holdings, North Airport Road, Nairobi. Call 0718 013 391 or email info@limahfresh.co.ke. Get directions, business hours, and a quick contact form.",
+  keywords: [
+    "contact Limah Fresh",
+    "water company Nairobi contact",
+    "Limah Fresh phone number",
+    "water delivery contact Kenya",
+  ],
+  openGraph: {
+    title: "Contact Limah Fresh — Pure Drinking Water",
+    description:
+      "Reach Limah E.A. Limited — Amee Holdings, North Airport Road, Nairobi. Call 0718 013 391 or email info@limahfresh.co.ke.",
+  },
 };
 
 const cards = [

@@ -22,21 +22,21 @@ export function ProductCard({
     <Reveal delay={index * 100}>
       <article className="group relative flex h-full flex-col overflow-hidden rounded-[20px] border border-[rgba(0,174,239,0.08)] bg-white shadow-[0_8px_30px_rgba(0,0,0,0.04)] transition-all duration-300 ease-out hover:-translate-y-2 hover:border-[#00AEEF] hover:shadow-[0_20px_48px_rgba(0,174,239,0.12)]">
         {/* Product image */}
-        <div className="flex items-center justify-center overflow-hidden rounded-t-[20px] bg-white p-3 h-[170px] xs:h-[190px] sm:h-[200px] sm:p-4 md:h-[210px] lg:h-[230px]">
+        <div className="relative w-full aspect-[4/5] overflow-hidden rounded-t-[20px] bg-gradient-to-b from-[#f8fcff] to-white flex items-center justify-center">
           {product.image ? (
             <Image
               src={product.image}
               alt={product.name}
-              width={400}
-              height={400}
-              className="max-h-full max-w-full object-contain object-center transition-all duration-300 group-hover:scale-105"
+              fill
+              className="object-contain object-center p-2.5 transition-transform duration-300 group-hover:scale-105"
               sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+              priority={index < 4}
             />
           ) : (
-            <div className="flex items-center justify-center transition-all duration-300 group-hover:scale-105">
+            <div className="flex items-center justify-center w-full h-full p-4 transition-transform duration-300 group-hover:scale-105">
               <ProductArt
                 variant={product.art}
-                className="h-28 w-auto sm:h-36"
+                className="h-[85%] w-auto max-w-[85%] max-h-[85%] object-contain"
               />
             </div>
           )}

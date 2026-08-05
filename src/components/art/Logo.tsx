@@ -7,7 +7,8 @@ export function LogoMark({ className }: { className?: string }) {
       alt="Limah Fresh"
       width={64}
       height={64}
-      className={className}
+      className={`object-contain ${className || ""}`}
+      sizes="64px"
       priority
     />
   );
@@ -20,7 +21,8 @@ export function Logo({ compact = false }: { dark?: boolean; compact?: boolean })
       alt="Limah Fresh"
       width={compact ? 120 : 160}
       height={compact ? 48 : 64}
-      className="shrink-0"
+      className="shrink-0 object-contain"
+      sizes={compact ? "120px" : "160px"}
       priority
     />
   );

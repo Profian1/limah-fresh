@@ -26,7 +26,7 @@ const CARDS = [
     title: "Dispenser Maintenance",
     cta: "Book Service",
     href: "/services",
-    image: "/dispenser.jpg",
+    image: "/dispensers.png",
     gridClasses: "lg:col-start-2 lg:row-span-2 lg:row-start-1",
     alt: "Technician servicing a water dispenser",
   },
@@ -34,7 +34,7 @@ const CARDS = [
     title: "Home & Office Contracts",
     cta: "View Plans",
     href: "/services",
-    image: "/limahstaff.jpg",
+    image: "/company.jpeg",
     gridClasses: "lg:col-start-1 lg:row-start-2",
     alt: "Limah Fresh team ready to serve",
   },
@@ -42,7 +42,7 @@ const CARDS = [
     title: "Custom Branded Water",
     cta: "Get Started",
     href: "/services#branded",
-    image: "/branded.jpg",
+    image: "/branded.png",
     gridClasses: "lg:col-start-3 lg:row-start-2 col-span-2",
     alt: "Custom branded Limah Fresh water bottles",
   },
@@ -105,6 +105,7 @@ export function Services() {
                   fill
                   className="object-cover transition-transform duration-500 ease-out group-hover/card:scale-105"
                   sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw"
+                  loading="lazy"
                 />
 
                 {/* Text + CTA bar with local overlay */}

@@ -121,6 +121,7 @@ function LogoCard({
               height={mobileH}
               className="h-auto max-h-full w-auto max-w-full object-contain"
               sizes="30vw"
+              loading="lazy"
             />
           </div>
         </div>
@@ -135,6 +136,7 @@ function LogoCard({
             fill
             className="object-contain"
             sizes={`${w}px`}
+            loading="lazy"
           />
         </div>
       </div>

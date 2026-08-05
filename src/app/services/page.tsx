@@ -113,7 +113,9 @@ function Bowser() {
                   alt="Limah Soft Water tanker bowser ready for delivery"
                   width={1600}
                   height={1067}
-                  className="h-[280px] w-full object-cover transition-transform duration-700 hover:scale-105 xs:h-[340px] sm:h-[420px]"
+                  className="w-full aspect-[3/2] object-cover transition-transform duration-700 hover:scale-105"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  loading="lazy"
                 />
                 <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-deep/90 to-transparent p-7 pt-20">
                   <p className="font-display text-2xl font-extrabold text-white">Limah Soft Water</p>
@@ -170,11 +172,13 @@ function Maintenance() {
             <div className="relative">
               <div className="overflow-hidden rounded-[2rem] shadow-2xl shadow-deep/40 ring-1 ring-white/10">
                 <Image
-                  src="/dispenser.jpg"
+                  src="/dispensers.png"
                   alt="Technician-serviced office water dispenser in use"
                   width={1600}
                   height={1067}
-                  className="h-[280px] w-full object-cover transition-transform duration-700 hover:scale-105 xs:h-[340px] sm:h-[420px]"
+                  className="w-full aspect-[3/2] object-cover transition-transform duration-700 hover:scale-105"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  loading="lazy"
                 />
               </div>
               <div className="glass-dark absolute -bottom-6 left-6 rounded-3xl p-5">
@@ -397,11 +401,13 @@ function BrandedWater() {
           <Reveal direction="right">
             <div className="overflow-hidden rounded-[2rem] shadow-2xl shadow-navy/20 ring-1 ring-mist">
               <Image
-                src="/branded.jpg"
+                src="/branded.png"
                 alt="Custom branded Limah Fresh water bottles"
                 width={1600}
                 height={1067}
-                className="h-[280px] w-full object-cover transition-transform duration-700 hover:scale-105 xs:h-[340px] sm:h-[420px]"
+                className="w-full aspect-[3/2] object-cover transition-transform duration-700 hover:scale-105"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                loading="lazy"
               />
             </div>
           </Reveal>

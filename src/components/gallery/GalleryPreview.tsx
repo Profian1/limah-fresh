@@ -8,13 +8,13 @@ import { Reveal } from "@/components/ui/Reveal";
 import { Lightbox } from "@/components/gallery/Lightbox";
 
 const IMAGES = [
-  { src: "/limahstaff.jpg", alt: "The Limah Fresh team ready to serve", span: "md:col-span-4 md:row-span-2", minH: "min-h-[200px] md:min-h-0" },
-  { src: "/branded.jpg", alt: "Custom branded water bottles for a corporate event", span: "md:col-span-2 md:row-span-2", minH: "min-h-[200px] md:min-h-0" },
-  { src: "/company.jpeg", alt: "Limah Fresh company premises", span: "md:col-span-2", minH: "min-h-[160px] md:min-h-0" },
-  { src: "/front.jpeg", alt: "Front exterior of Limah Fresh", span: "md:col-span-2", minH: "min-h-[160px] md:min-h-0" },
-  { src: "/ourbowsers.jpeg", alt: "Limah Fresh fleet of water bowsers", span: "md:col-span-2", minH: "min-h-[160px] md:min-h-0" },
-  { src: "/happy client.jpeg", alt: "Happy Limah Fresh client", span: "md:col-span-3", minH: "min-h-[160px] md:min-h-0" },
-  { src: "/happy client 1.jpeg", alt: "Satisfied Limah Fresh customer", span: "md:col-span-3", minH: "min-h-[160px] md:min-h-0" },
+  { src: "/limahstaff.jpg", alt: "The Limah Fresh team ready to serve", span: "md:col-span-4 md:row-span-2", aspect: "aspect-[4/3] md:aspect-auto" },
+  { src: "/branded.png", alt: "Custom branded water bottles for a corporate event", span: "md:col-span-2 md:row-span-2", aspect: "aspect-[4/5] md:aspect-auto" },
+  { src: "/company.jpeg", alt: "Limah Fresh company premises", span: "md:col-span-2", aspect: "aspect-[4/3] md:aspect-auto" },
+  { src: "/front.jpeg", alt: "Front exterior of Limah Fresh", span: "md:col-span-2", aspect: "aspect-[4/3] md:aspect-auto" },
+  { src: "/ourbowsers.jpeg", alt: "Limah Fresh fleet of water bowsers", span: "md:col-span-2", aspect: "aspect-[4/3] md:aspect-auto" },
+  { src: "/happy client.jpeg", alt: "Happy Limah Fresh client", span: "md:col-span-3", aspect: "aspect-[4/3] md:aspect-auto" },
+  { src: "/happy client 1.jpeg", alt: "Satisfied Limah Fresh customer", span: "md:col-span-3", aspect: "aspect-[4/3] md:aspect-auto" },
 ];
 
 export function GalleryPreview() {
@@ -38,7 +38,7 @@ export function GalleryPreview() {
           {IMAGES.map((img, i) => (
             <Reveal key={i} delay={i * 60} className={`col-span-1 ${img.span}`}>
               <div
-                className={`group relative h-full ${img.minH} cursor-pointer overflow-hidden rounded-2xl bg-mist shadow-lg shadow-navy/5 transition-all duration-500 hover:-translate-y-1 hover:shadow-xl hover:shadow-aqua/10`}
+                className={`group relative w-full h-full ${img.aspect} cursor-pointer overflow-hidden rounded-2xl bg-mist shadow-lg shadow-navy/5 transition-all duration-500 hover:-translate-y-1 hover:shadow-xl hover:shadow-aqua/10`}
                 onClick={() => setLightboxIndex(i)}
               >
                 <Image
@@ -47,6 +47,7 @@ export function GalleryPreview() {
                   fill
                   className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                   sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                  loading="lazy"
                 />
                 <div className="absolute inset-0 flex items-center justify-center bg-deep/0 transition-colors duration-500 group-hover:bg-deep/30">
                   <span className="translate-y-4 rounded-full bg-white/20 px-4 py-2 text-sm font-bold text-white opacity-0 backdrop-blur transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">

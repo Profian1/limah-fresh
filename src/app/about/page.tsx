@@ -92,7 +92,9 @@ function Story() {
                 alt="Limah Fresh staff team"
                 width={1600}
                 height={1067}
-                className="h-[280px] w-full object-cover transition-transform duration-700 hover:scale-105 xs:h-[340px] sm:h-[380px] md:h-[420px]"
+                className="w-full aspect-[3/2] object-cover transition-transform duration-700 hover:scale-105"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                loading="lazy"
               />
             </div>
             <div className="glass-dark absolute -bottom-6 -left-2 rounded-3xl p-5 xs:-left-4 sm:left-8">
@@ -196,8 +198,9 @@ function GalleryCta() {
                     alt={img.alt}
                     width={400}
                     height={500}
-                    className="h-[180px] w-full object-cover transition-transform duration-700 hover:scale-105 xs:h-[240px] sm:h-[320px]"
+                    className="w-full aspect-[4/5] object-cover transition-transform duration-700 hover:scale-105"
                     sizes="(max-width: 1024px) 50vw, 25vw"
+                    loading="lazy"
                   />
                 </div>
               ))}

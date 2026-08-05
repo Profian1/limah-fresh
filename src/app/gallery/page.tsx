@@ -16,11 +16,11 @@ export const metadata: Metadata = {
 
 const FEATURED_PROJECTS = [
   { src: "/ourbowsers.jpeg", alt: "Limah Fresh fleet of water bowsers", aspect: "aspect-[16/9]" },
-  { src: "/branded.jpg", alt: "Custom branded water bottles for a corporate event", aspect: "aspect-[3/4]" },
-  { src: "/dispenser.jpg", alt: "Office water dispenser maintenance in progress", aspect: "aspect-[4/3]" },
-  { src: "/WhatsApp Image 2026-07-27 at 12.24.37 PM.jpeg", alt: "Limah Fresh water delivery in action", aspect: "aspect-[4/3]" },
+  { src: "/branded.png", alt: "Custom branded water bottles for a corporate event", aspect: "aspect-[3/4]" },
+  { src: "/dispensers.png", alt: "Office water dispenser maintenance in progress", aspect: "aspect-[4/3]" },
+  { src: "/team6.jpeg", alt: "Limah Fresh water delivery personnel in action", aspect: "aspect-[4/3]" },
   { src: "/WhatsApp Image 2026-07-27 at 12.24.37 PM (3).jpeg", alt: "Limah Fresh project delivery", aspect: "aspect-[3/4]" },
-  { src: "/mix.jpeg", alt: "Various Limah Fresh water products", aspect: "aspect-[4/5]" },
+  { src: "/24packenh.png", alt: "Shrink-wrapped 24-packs of Limah Fresh water", aspect: "aspect-[4/5]" },
   { src: "/bowser.jpeg", alt: "Limah Soft Water bowser delivery", aspect: "aspect-[16/9]" },
 ];
 

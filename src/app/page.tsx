@@ -96,7 +96,7 @@ function Hero() {
           fill
           priority
           className="object-cover opacity-70"
-          sizes="200vw"
+          sizes="100vw"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-deep/65 via-navy/45 to-brand/10" />
         <div className="absolute inset-0 bg-gradient-to-t from-deep/40 via-transparent to-deep/25" />

@@ -4,6 +4,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { CheckCircle, Droplets } from "lucide-react";
 import { Reveal } from "@/components/ui/Reveal";
+import { usePrefersReducedMotion } from "@/hooks/usePrefersReducedMotion";
 
 const LOGOS = [
   { src: "/clients/posta.svg", alt: "Posta Kenya", scale: 1, opacity: 1 },
@@ -71,13 +72,7 @@ function LogoCard({
   mousePos: { x: number; y: number };
 }) {
   const cardRef = useRef<HTMLDivElement>(null);
-  const prefersReducedMotion = useRef(false);
-
-  useEffect(() => {
-    prefersReducedMotion.current = window.matchMedia(
-      "(prefers-reduced-motion: reduce)",
-    ).matches;
-  }, []);
+  const prefersReducedMotion = usePrefersReducedMotion();
 
   const getTilt = useCallback(() => {
     if (prefersReducedMotion.current || !sectionRect || !mouseInSection)

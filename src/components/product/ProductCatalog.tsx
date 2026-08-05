@@ -17,7 +17,7 @@ export function ProductCatalog({ products }: { products: ProductData[] }) {
   const params = useSearchParams();
   const initial = params.get("cat");
   const [tab, setTab] = useState(
-    TABS.some((t) => t.value === initial) ? (initial as string) : "all",
+    TABS.some((t) => t.value === initial) ? (initial ?? "all") : "all",
   );
 
   const filtered = useMemo(

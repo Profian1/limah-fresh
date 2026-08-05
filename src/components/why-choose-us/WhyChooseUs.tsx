@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useRef, useState } from "react";
 import {
   ShieldCheck,
   BadgeCheck,
@@ -12,6 +12,7 @@ import {
   Users,
 } from "lucide-react";
 import { Reveal } from "@/components/ui/Reveal";
+import { usePrefersReducedMotion } from "@/hooks/usePrefersReducedMotion";
 
 const CARDS = [
   {
@@ -113,13 +114,7 @@ function Card({
   const [glow, setGlow] = useState("");
   const [rippleStyle, setRippleStyle] = useState<React.CSSProperties>({});
   const [rippleActive, setRippleActive] = useState(false);
-  const prefersReducedMotion = useRef(false);
-
-  useEffect(() => {
-    prefersReducedMotion.current = window.matchMedia(
-      "(prefers-reduced-motion: reduce)",
-    ).matches;
-  }, []);
+  const prefersReducedMotion = usePrefersReducedMotion();
 
   const handleMouseMove = useCallback((e: React.MouseEvent) => {
     if (prefersReducedMotion.current || !cardRef.current) return;
@@ -207,7 +202,7 @@ function Card({
           </h3>
 
           {/* description */}
-          <p className="mt-2.5 text-[13px] leading-relaxed text-slate-500">
+          <p className="mt-2.5 text-[13px] leading-relaxed text-slate-600">
             {card.description}
           </p>
         </div>

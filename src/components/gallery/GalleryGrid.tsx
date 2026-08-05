@@ -24,8 +24,11 @@ export function GalleryGrid({ images }: GalleryGridProps) {
         {images.map((img, i) => (
           <Reveal key={i} delay={i * 50}>
             <div
+              role="button"
+              tabIndex={0}
               className="group relative cursor-pointer overflow-hidden rounded-2xl bg-mist shadow-lg shadow-navy/5 transition-all duration-500 hover:-translate-y-1 hover:shadow-xl hover:shadow-aqua/10"
               onClick={() => setLightboxIndex(i)}
+              onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); setLightboxIndex(i); } }}
             >
               {/* Image Container */}
               <div className={`relative w-full ${img.aspect || "aspect-[3/4]"}`}>

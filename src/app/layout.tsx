@@ -36,9 +36,12 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" className={`${inter.variable} ${sora.variable}`}>
       <body className="antialiased pb-16 md:pb-0">
+        <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-3 focus:left-3 focus:z-[100] focus:rounded-lg focus:bg-white focus:px-5 focus:py-3 focus:text-navy focus:font-bold focus:shadow-xl focus:outline-none">
+          Skip to main content
+        </a>
         <QuoteProvider>
           <Header />
-          <main>{children}</main>
+          <main id="main-content">{children}</main>
           <Footer />
           <MobileNav />
           <WhatsAppFloat />

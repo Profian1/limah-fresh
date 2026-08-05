@@ -1,5 +1,6 @@
 "use client";
 
+import { memo } from "react";
 import Image from "next/image";
 import { Reveal } from "@/components/ui/Reveal";
 import { ProductArt } from "@/components/art/ProductArt";
@@ -7,7 +8,7 @@ import { WhatsAppIcon } from "@/components/art/icons";
 import { type ProductData, formatPrice } from "@/data/products";
 import { ArrowRight } from "lucide-react";
 
-export function ProductCard({
+export const ProductCard = memo(function ProductCard({
   product,
   index = 0,
 }: {
@@ -50,7 +51,7 @@ export function ProductCard({
               {product.name}
             </h3>
             {product.volume && (
-              <p className="mt-0.5 text-[11px] font-medium text-slate-400">
+              <p className="mt-0.5 text-[11px] font-medium text-slate-500">
                 {product.volume}
               </p>
             )}
@@ -58,14 +59,14 @@ export function ProductCard({
 
           {/* Pricing */}
           <div className="mt-auto pt-3">
-            <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-slate-400">
+            <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-slate-500">
               {product.packPrice ? "Starting From" : "Price"}
             </p>
             <p className="text-[18px] font-extrabold leading-tight text-[#00AEEF] xs:text-[20px] sm:text-[22px] md:text-[24px]">
               {formatPrice(product.unitPrice)}
             </p>
             {product.packPrice && product.packLabel && (
-              <p className="mt-0.5 text-[11px] font-medium text-slate-400">
+              <p className="mt-0.5 text-[11px] font-medium text-slate-500">
                 {product.packLabel} • {formatPrice(product.packPrice)}
               </p>
             )}
@@ -86,4 +87,4 @@ export function ProductCard({
       </article>
     </Reveal>
   );
-}
+});

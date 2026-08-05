@@ -1,5 +1,3 @@
-"use client";
-
 import { ArrowRight, Droplets } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";

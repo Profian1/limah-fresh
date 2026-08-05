@@ -4,13 +4,6 @@
  * To update prices, names, pack info, images, or descriptions:
  *   → edit this file only — no component or page code needs changing.
  */
-import { waLink, productOrderMessage } from "@/lib/site";
-
-export interface PackPricing {
-  label: string;    // "24 Pieces"
-  quantity: number;
-  price: number;    // "KSh 560"
-}
 
 export interface ProductData {
   id: number;
@@ -220,13 +213,4 @@ export function getFeaturedProducts(limit: number = 4): ProductData[] {
 /** All products sorted by sortOrder. */
 export function getAllProducts(): ProductData[] {
   return [...PRODUCTS].sort((a, b) => a.sortOrder - b.sortOrder);
-}
-
-export function getWhatsAppLink(
-  product: ProductData,
-  qty: number = 1,
-) {
-  return waLink(
-    productOrderMessage(product.name, qty, product.volume, product.unitPrice),
-  );
 }

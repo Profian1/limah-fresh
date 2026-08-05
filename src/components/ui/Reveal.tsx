@@ -1,23 +1,21 @@
 "use client";
 
-import { useEffect, useRef, type CSSProperties, type ReactNode } from "react";
+import { memo, useEffect, useRef, type CSSProperties, type ReactNode } from "react";
 
 type Direction = "up" | "left" | "right" | "scale";
 
-export function Reveal({
+export const Reveal = memo(function Reveal({
   children,
   className = "",
   delay = 0,
   direction = "up",
-  as: Tag = "div",
 }: {
   children: ReactNode;
   className?: string;
   delay?: number;
   direction?: Direction;
-  as?: "div" | "section" | "span" | "li" | "article";
 }) {
-  const ref = useRef<HTMLElement | null>(null);
+  const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const el = ref.current;
@@ -31,7 +29,7 @@ export function Reveal({
           }
         });
       },
-      { threshold: 0.05, rootMargin: "0px" }
+      { threshold: 0.05, rootMargin: "0px" },
     );
     io.observe(el);
     const timeout = setTimeout(() => el.classList.add("revealed"), 1500);
@@ -44,14 +42,13 @@ export function Reveal({
   const style: CSSProperties = { transitionDelay: `${delay}ms` };
 
   return (
-    <Tag
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      ref={ref as any}
+    <div
+      ref={ref}
       className={className}
       style={style}
       data-reveal={direction === "up" ? "" : direction}
     >
       {children}
-    </Tag>
+    </div>
   );
-}
+});

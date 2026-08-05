@@ -130,7 +130,7 @@ export function ContactForm() {
           {loading ? "Sending…" : "Send Message"}
         </button>
         <p className="mt-3 text-center text-xs text-slate-500">
-          Reaches info@limaheastafrica.co.ke · We reply within business hours.
+          Reaches info@limahfresh.co.ke · We reply within business hours.
         </p>
       </div>
     </form>

@@ -38,8 +38,11 @@ export function GalleryPreview() {
           {IMAGES.map((img, i) => (
             <Reveal key={i} delay={i * 60} className={`col-span-1 ${img.span}`}>
               <div
+                role="button"
+                tabIndex={0}
                 className={`group relative w-full h-full ${img.aspect} cursor-pointer overflow-hidden rounded-2xl bg-mist shadow-lg shadow-navy/5 transition-all duration-500 hover:-translate-y-1 hover:shadow-xl hover:shadow-aqua/10`}
                 onClick={() => setLightboxIndex(i)}
+                onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); setLightboxIndex(i); } }}
               >
                 <Image
                   src={img.src}

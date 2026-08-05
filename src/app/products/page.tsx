@@ -48,7 +48,7 @@ export default function ProductsPage() {
       {/* Catalog */}
       <section className="bg-ice py-12 sm:py-16 md:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12">
-          <Suspense>
+          <Suspense fallback={<p className="py-12 text-center text-sm text-slate-500">Loading products...</p>}>
             <ProductCatalog products={products} />
           </Suspense>
         </div>

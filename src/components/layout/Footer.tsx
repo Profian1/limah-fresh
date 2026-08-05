@@ -102,7 +102,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-14 border-t border-white/10 pt-6 text-center text-xs text-mist/55">
+        <div className="mt-14 border-t border-white/10 pt-6 text-center text-xs text-mist/70">
           <p>
             © {new Date().getFullYear()} {SITE.company} — {SITE.slogan}. All rights reserved.
           </p>

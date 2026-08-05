@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, PhoneCall } from "lucide-react";
-import { SITE, waLink, generalInquiryMessage } from "@/lib/site";
+import { ArrowRight } from "lucide-react";
+import { waLink, generalInquiryMessage } from "@/lib/site";
 import { Reveal } from "@/components/ui/Reveal";
 import { WaveDivider } from "@/components/art/WaveDivider";
 import { GalleryGrid } from "@/components/gallery/GalleryGrid";

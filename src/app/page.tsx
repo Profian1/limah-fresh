@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import dynamicImport from "next/dynamic";
 import {
   ArrowRight,
   BadgeCheck,
@@ -14,10 +15,11 @@ import { CountUp } from "@/components/ui/CountUp";
 import { WhatsAppIcon } from "@/components/art/icons";
 import { ProductCard } from "@/components/product/ProductCard";
 import { QuoteButton } from "@/components/quote/QuoteButton";
-import { WhyChooseUs } from "@/components/why-choose-us/WhyChooseUs";
 import { Services } from "@/components/services/Services";
-import { Clients } from "@/components/clients/Clients";
-import { GalleryPreview } from "@/components/gallery/GalleryPreview";
+
+const WhyChooseUs = dynamicImport(() => import("@/components/why-choose-us/WhyChooseUs").then((m) => ({ default: m.WhyChooseUs })));
+const Clients = dynamicImport(() => import("@/components/clients/Clients").then((m) => ({ default: m.Clients })));
+const GalleryPreview = dynamicImport(() => import("@/components/gallery/GalleryPreview").then((m) => ({ default: m.GalleryPreview })));
 
 export const dynamic = "force-dynamic";
 
@@ -338,6 +340,7 @@ function CtaBand() {
         fill
         className="object-cover opacity-90"
         sizes="100vw"
+        loading="lazy"
       />
       <div className="absolute inset-0 bg-gradient-to-r from-navy/85 via-navy/65 to-brand/40" />
       <Reveal direction="scale" className="relative z-10">

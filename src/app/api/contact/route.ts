@@ -3,7 +3,7 @@ import { z } from "zod";
 import { db } from "@/db";
 import { inquiries } from "@/db/schema";
 import { createLogger } from "@/lib/logger";
-import { sanitize, validateToken, checkRateLimit } from "@/lib/security";
+import { sanitize, validateToken, checkRateLimit, extractIp } from "@/lib/security";
 import { sendContactEmails } from "@/lib/email";
 import type { ContactEmailData } from "@/lib/email/types";
 
@@ -39,12 +39,6 @@ const contactSchema = z.object({
   csrf_token: z.string(),
   _website: z.string().optional(),
 });
-
-function extractIp(request: Request): string {
-  const forwarded = request.headers.get("x-forwarded-for");
-  if (forwarded) return forwarded.split(",")[0].trim();
-  return "unknown";
-}
 
 export async function POST(req: Request) {
   const ip = extractIp(req);

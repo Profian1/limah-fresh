@@ -365,6 +365,7 @@ function CtaBand() {
             <a
               href={waLink(
                 "Hello Limah Fresh, I would like to request a water bowser delivery quote.",
+                SITE.whatsappBowser,
               )}
               target="_blank"
               rel="noreferrer"

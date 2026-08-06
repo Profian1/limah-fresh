@@ -149,11 +149,11 @@ export default function ContactPage() {
                     <div className="map-frame relative flex-1 overflow-hidden rounded-3xl shadow-xl shadow-navy/10 ring-1 ring-mist min-h-[200px] sm:min-h-[200px]">
                       <iframe
                         title={`Limah E.A. Limited — ${loc.label}, ${loc.address}`}
-                        src={`https://www.google.com/maps?q=${encodeURIComponent(loc.mapQuery)}&output=embed`}
+                        src={"mapEmbedUrl" in loc && loc.mapEmbedUrl ? loc.mapEmbedUrl : `https://www.google.com/maps?q=${encodeURIComponent(loc.mapQuery)}&output=embed`}
                         className="absolute inset-0 h-full w-full border-0"
                         loading="lazy"
                         allowFullScreen
-                        referrerPolicy="no-referrer-when-downgrade"
+                        referrerPolicy="strict-origin-when-cross-origin"
                       />
                       <div className="pointer-events-none absolute bottom-4 left-4 right-4 sm:right-auto">
                         <div className="glass-dark pointer-events-auto flex items-center gap-3 rounded-2xl px-4 py-3">

@@ -21,13 +21,15 @@ export const SITE = {
     {
       label: "Shop",
       address: "Maziwa, Kahawa West, Nairobi",
-      mapQuery: "Maziwa, Kahawa West, Nairobi, Kenya",
+      mapQuery: "LIMAH FRESH, Kahawa West, Nairobi, Kenya",
+      mapEmbedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.9519146353505!2d36.902245973412825!3d-1.1940694355290362!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f3f00476d499b%3A0x7f5075bb78d4c36e!2sLIMAH%20FRESH!5e0!3m2!1sen!2ske!4v1786014003497!5m2!1sen!2ske",
       description: "Visit our shop in Kahawa West for walk-in purchases and inquiries.",
-      lat: -1.2345,
-      lng: 36.8900,
+      lat: -1.1940694355290362,
+      lng: 36.902245973412825,
     },
   ],
   whatsappPrimary: "254718013391",
+  whatsappBowser: "254718013432",
   phones: [
     { label: "Sales & Orders", value: "0718 013 391", raw: "+254718013391" },
     { label: "Shop Line", value: "0742 336 747", raw: "+254742336747" },

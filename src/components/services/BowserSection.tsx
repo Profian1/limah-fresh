@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { CheckCircle2, ClipboardList, Truck } from "lucide-react";
-import { waLink, bowserMessage } from "@/lib/site";
+import { waLink, bowserMessage, SITE } from "@/lib/site";
 import { Reveal } from "@/components/ui/Reveal";
 import { WhatsAppIcon } from "@/components/art/icons";
 import { QuoteButton } from "@/components/quote/QuoteButton";
@@ -48,7 +48,7 @@ export function BowserSection() {
                 <ClipboardList className="h-4 w-4" /> Request a Quote
               </QuoteButton>
               <a
-                href={waLink(bowserMessage())}
+                href={waLink(bowserMessage(), SITE.whatsappBowser)}
                 target="_blank"
                 rel="noreferrer"
                 className="inline-flex items-center gap-2 rounded-full bg-[#25D366] px-7 py-3.5 text-sm font-bold text-white shadow-xl shadow-[#25D366]/25 transition hover:-translate-y-0.5"

@@ -47,7 +47,7 @@ function PageHero() {
         </Reveal>
         <Reveal delay={240}>
           <p className="mt-5 max-w-2xl text-base leading-relaxed text-mist/85 sm:text-lg">
-            From 10,000-litre bowser drops to full dispenser care — the services Kenya&apos;s institutions
+            From 5,000-litre bowser drops to full dispenser care — the services Kenya&apos;s institutions
             rely on, run by one accountable team.
           </p>
         </Reveal>

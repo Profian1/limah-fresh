@@ -1,8 +1,10 @@
 "use client";
 
 import { BadgeCheck, CalendarClock, CheckCircle2, Droplets, PhoneCall, Truck } from "lucide-react";
+import { waLink } from "@/lib/site";
 import { Reveal } from "@/components/ui/Reveal";
 import { QuoteButton } from "@/components/quote/QuoteButton";
+import { WhatsAppIcon } from "@/components/art/icons";
 
 const plans = [
   {
@@ -91,16 +93,30 @@ export function ContractsSection() {
                     </li>
                   ))}
                 </ul>
-                <QuoteButton
-                  service="delivery_contract"
-                  className={`btn-sheen mt-8 inline-flex items-center justify-center gap-2 rounded-full px-6 py-3.5 text-sm font-bold transition hover:-translate-y-0.5 ${
-                    plan.featured
-                      ? "bg-white text-navy shadow-xl shadow-deep/25"
-                      : "bg-gradient-to-r from-brand to-aqua text-white shadow-lg shadow-aqua/25"
-                  }`}
-                >
-                  <PhoneCall className="h-4 w-4" /> Get {plan.name} Quote
-                </QuoteButton>
+                <div className="mt-8 space-y-3">
+                  <QuoteButton
+                    service="delivery_contract"
+                    className={`btn-sheen inline-flex w-full items-center justify-center gap-2 rounded-full px-6 py-3.5 text-sm font-bold transition hover:-translate-y-0.5 ${
+                      plan.featured
+                        ? "bg-white text-navy shadow-xl shadow-deep/25"
+                        : "bg-gradient-to-r from-brand to-aqua text-white shadow-lg shadow-aqua/25"
+                    }`}
+                  >
+                    <PhoneCall className="h-4 w-4" /> Get {plan.name} Quote
+                  </QuoteButton>
+                  <a
+                    href={waLink("Hello Limah Fresh, I would like to discuss a water delivery contract for my home/office.")}
+                    target="_blank"
+                    rel="noreferrer"
+                    className={`inline-flex w-full items-center justify-center gap-2 rounded-full px-6 py-3.5 text-sm font-bold transition hover:-translate-y-0.5 ${
+                      plan.featured
+                        ? "bg-[#25D366] text-white shadow-xl shadow-[#25D366]/25"
+                        : "bg-[#25D366] text-white shadow-lg shadow-[#25D366]/25"
+                    }`}
+                  >
+                    <WhatsAppIcon className="h-4 w-4" /> WhatsApp Inquiry
+                  </a>
+                </div>
               </div>
             </Reveal>
           ))}

@@ -1,7 +1,11 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  allowedDevOrigins: ["http://localhost:3000", "192.168.1.23"],
+  allowedDevOrigins: [
+    "https://limah-fresh.com",
+    "https://olive-landowner-fraternal.ngrok-free.dev",
+    ...(process.env.TUNNEL_ORIGIN ? [process.env.TUNNEL_ORIGIN] : []),
+  ],
 
   poweredByHeader: false,
 

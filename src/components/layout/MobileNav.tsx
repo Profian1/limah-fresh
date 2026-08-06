@@ -8,7 +8,7 @@ const NAV_ITEMS = [
   { href: "/", label: "Home", icon: Home },
   { href: "/about", label: "About", icon: Info },
   { href: "/products", label: "Products", icon: Package },
-  { href: "/services", label: "Services", icon: Truck },
+  { href: "/services", label: "Bulk", icon: Truck },
   { href: "/gallery", label: "Gallery", icon: ImageIcon },
   { href: "/contact", label: "Contact", icon: Phone },
 ];

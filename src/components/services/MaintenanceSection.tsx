@@ -2,8 +2,10 @@
 
 import Image from "next/image";
 import { CheckCircle2, Sparkles, Wrench } from "lucide-react";
+import { waLink } from "@/lib/site";
 import { Reveal } from "@/components/ui/Reveal";
 import { QuoteButton } from "@/components/quote/QuoteButton";
+import { WhatsAppIcon } from "@/components/art/icons";
 
 const list = [
   "Scheduled deep-cleaning & sanitization cycles",
@@ -58,13 +60,21 @@ export function MaintenanceSection() {
                 </li>
               ))}
             </ul>
-            <div className="mt-9">
+            <div className="mt-9 flex flex-wrap gap-3">
               <QuoteButton
                 service="dispenser_maintenance"
                 className="btn-sheen inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-aqua to-sky px-7 py-3.5 text-sm font-bold text-deep shadow-xl shadow-aqua/25 transition hover:-translate-y-0.5"
               >
                 <Wrench className="h-4 w-4" /> Book a Service Visit
               </QuoteButton>
+              <a
+                href={waLink("Hello Limah Fresh, I would like to book a dispenser maintenance or sanitization service.")}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 rounded-full bg-[#25D366] px-7 py-3.5 text-sm font-bold text-white shadow-xl shadow-[#25D366]/25 transition hover:-translate-y-0.5"
+              >
+                <WhatsAppIcon className="h-4 w-4" /> WhatsApp to Book
+              </a>
             </div>
           </Reveal>
         </div>

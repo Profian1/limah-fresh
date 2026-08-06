@@ -1,14 +1,14 @@
 "use client";
 
 import Image from "next/image";
-import { CheckCircle2, ClipboardList, Droplet, Truck } from "lucide-react";
+import { CheckCircle2, ClipboardList, Truck } from "lucide-react";
 import { waLink, bowserMessage } from "@/lib/site";
 import { Reveal } from "@/components/ui/Reveal";
 import { WhatsAppIcon } from "@/components/art/icons";
-import { QuoteForm } from "@/components/forms/QuoteForm";
+import { QuoteButton } from "@/components/quote/QuoteButton";
 
 const features = [
-  "Food-grade tankers, 5,000L – 30,000L+ per trip",
+  "Food-grade tankers, 5,000L – 10,000L+ per trip",
   "Ideal for construction, events, institutions & commercial sites",
   "Scheduled or emergency same-day dispatch in Nairobi",
   "Driver-assisted offloading with food-grade hose",
@@ -41,12 +41,12 @@ export function BowserSection() {
               ))}
             </ul>
             <div className="mt-9 flex flex-wrap gap-3">
-              <a
-                href="#bowser-form"
+              <QuoteButton
+                service="bowser"
                 className="btn-sheen inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-brand to-aqua px-7 py-3.5 text-sm font-bold text-white shadow-xl shadow-aqua/25 transition hover:-translate-y-0.5"
               >
                 <ClipboardList className="h-4 w-4" /> Request a Quote
-              </a>
+              </QuoteButton>
               <a
                 href={waLink(bowserMessage())}
                 target="_blank"
@@ -78,28 +78,11 @@ export function BowserSection() {
               </div>
               <div className="absolute -top-6 right-6 animate-float rounded-3xl bg-white px-6 py-4 shadow-xl shadow-navy/10 ring-1 ring-mist">
                 <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-brand">Capacity per trip</p>
-                <p className="font-display text-2xl font-extrabold text-navy">5,000L – 30,000L+</p>
+                <p className="font-display text-2xl font-extrabold text-navy">5,000L – 10,000L+</p>
               </div>
             </div>
           </Reveal>
         </div>
-
-        <Reveal className="mt-20" direction="scale">
-          <div id="bowser-form" className="mx-auto max-w-3xl scroll-mt-28 rounded-[2rem] bg-white p-6 shadow-2xl shadow-navy/10 ring-1 ring-mist sm:p-8 md:p-10">
-            <div className="mb-7 text-center">
-              <span className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-brand to-aqua text-white shadow-lg shadow-aqua/25">
-                <Droplet className="h-6 w-6" />
-              </span>
-              <h3 className="font-display mt-4 text-2xl font-extrabold text-navy sm:text-3xl">
-                Request a Bowser / Quote
-              </h3>
-              <p className="mt-2 text-sm text-slate-600">
-                Tell us the location, volume and date — we&apos;ll confirm availability and pricing fast.
-              </p>
-            </div>
-            <QuoteForm defaultService="bowser" accent />
-          </div>
-        </Reveal>
       </div>
     </section>
   );

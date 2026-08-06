@@ -10,7 +10,7 @@ import { WhatsAppIcon } from "@/components/art/icons";
 export const metadata: Metadata = {
   title: "Contact Us",
   description:
-    "Reach Limah E.A. Limited — Amee Holdings, North Airport Road, Nairobi. Call 0718 013 391 or email info@limahfresh.co.ke. Get directions, business hours, and a quick contact form.",
+    "Reach Limah E.A. Limited — Amee Holdings, North Airport Road (Company & Plant) and Maziwa, Kahawa West (Shop), Nairobi. Call 0718 013 391 or email info@limahfresh.co.ke. Get directions, business hours, and a quick contact form.",
   keywords: [
     "contact Limah Fresh",
     "water company Nairobi contact",
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Contact Limah Fresh — Pure Drinking Water",
     description:
-      "Reach Limah E.A. Limited — Amee Holdings, North Airport Road, Nairobi. Call 0718 013 391 or email info@limahfresh.co.ke.",
+      "Reach Limah E.A. Limited — Amee Holdings, North Airport Road (Company & Plant) and Maziwa, Kahawa West (Shop), Nairobi.",
   },
 };
 
@@ -28,8 +28,14 @@ const cards = [
   {
     icon: MapPin,
     title: "Visit Our Plant",
-    lines: [SITE.address, SITE.poBox],
-    action: { label: "Get directions", href: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(SITE.mapQuery)}`, external: true },
+    lines: [SITE.locations[0].address, SITE.poBox],
+    action: { label: "Get directions", href: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(SITE.locations[0].mapQuery)}`, external: true },
+  },
+  {
+    icon: MapPin,
+    title: "Visit Our Shop",
+    lines: [SITE.locations[1].address],
+    action: { label: "Get directions", href: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(SITE.locations[1].mapQuery)}`, external: true },
   },
   {
     icon: Phone,
@@ -81,7 +87,7 @@ export default function ContactPage() {
 
       {/* Info cards */}
       <section className="bg-ice py-12 sm:py-16 md:py-20">
-        <div className="mx-auto grid max-w-7xl gap-5 px-6 xs:grid-cols-2 md:grid-cols-4">
+        <div className="mx-auto grid max-w-7xl gap-5 px-6 xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
           {cards.map((c, i) => (
             <Reveal key={c.title} delay={i * 110}>
               <div className="group flex h-full flex-col rounded-3xl border border-mist bg-white p-7 transition-all duration-500 hover:-translate-y-1.5 hover:border-aqua/50 hover:shadow-xl hover:shadow-aqua/10">
@@ -132,34 +138,37 @@ export default function ContactPage() {
               <div className="mb-7">
                 <p className="text-xs font-bold uppercase tracking-[0.3em] text-aqua">Find Us</p>
                 <h2 className="font-display mt-3 text-3xl font-extrabold tracking-tight text-navy sm:text-4xl">
-                  North Airport Road, Nairobi
+                  Two Locations in Nairobi
                 </h2>
-                <p className="mt-3 text-sm text-slate-600">
-                  Minutes from JKIA and the SGR — easy drive-in for bottle pickups and bowser dispatches.
-                </p>
               </div>
-              <div className="map-frame relative flex-1 overflow-hidden rounded-3xl shadow-xl shadow-navy/10 ring-1 ring-mist min-h-[320px] sm:min-h-[420px]">
-                <iframe
-                  title="Limah E.A. Limited — Amee Holdings, North Airport Road, Nairobi"
-                  src={`https://www.google.com/maps?q=${encodeURIComponent(SITE.mapQuery)}&output=embed`}
-                  className="absolute inset-0 h-full w-full border-0"
-                  loading="lazy"
-                  allowFullScreen
-                  referrerPolicy="no-referrer-when-downgrade"
-                />
-                <div className="pointer-events-none absolute bottom-5 left-5 right-5 sm:right-auto">
-                  <div className="glass-dark pointer-events-auto flex items-center gap-4 rounded-2xl px-5 py-4">
-                    <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-aqua to-sky text-deep">
-                      <MapPin className="h-5 w-5" />
-                    </span>
-                    <div>
-                      <p className="font-display text-sm font-extrabold text-white">{SITE.company}</p>
-                      <p className="text-xs text-mist/85">
-                        {SITE.address}, {SITE.poBox}
-                      </p>
+              <div className="flex flex-col gap-6 flex-1">
+                {SITE.locations.map((loc) => (
+                  <div key={loc.label} className="flex flex-col flex-1">
+                    <p className="mb-2 text-sm font-bold text-navy">{loc.label} — {loc.address}</p>
+                    <p className="mb-3 text-xs text-slate-600">{loc.description}</p>
+                    <div className="map-frame relative flex-1 overflow-hidden rounded-3xl shadow-xl shadow-navy/10 ring-1 ring-mist min-h-[200px] sm:min-h-[200px]">
+                      <iframe
+                        title={`Limah E.A. Limited — ${loc.label}, ${loc.address}`}
+                        src={`https://www.google.com/maps?q=${encodeURIComponent(loc.mapQuery)}&output=embed`}
+                        className="absolute inset-0 h-full w-full border-0"
+                        loading="lazy"
+                        allowFullScreen
+                        referrerPolicy="no-referrer-when-downgrade"
+                      />
+                      <div className="pointer-events-none absolute bottom-4 left-4 right-4 sm:right-auto">
+                        <div className="glass-dark pointer-events-auto flex items-center gap-3 rounded-2xl px-4 py-3">
+                          <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-aqua to-sky text-deep">
+                            <MapPin className="h-4 w-4" />
+                          </span>
+                          <div>
+                            <p className="font-display text-xs font-extrabold text-white">{loc.label}</p>
+                            <p className="text-[11px] text-mist/85">{loc.address}</p>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
-                </div>
+                ))}
               </div>
             </div>
           </Reveal>

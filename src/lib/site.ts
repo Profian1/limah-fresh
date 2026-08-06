@@ -7,6 +7,26 @@ export const SITE = {
   address: "Amee Holdings, North Airport Road",
   poBox: "P.O. Box 36075-00200, Nairobi, Kenya",
   mapQuery: "North Airport Road, Embakasi, Nairobi, Kenya",
+  shopAddress: "Maziwa, Kahawa West, Nairobi",
+  shopMapQuery: "Maziwa, Kahawa West, Nairobi, Kenya",
+  locations: [
+    {
+      label: "Company & Plant",
+      address: "Amee Holdings, North Airport Road",
+      mapQuery: "North Airport Road, Embakasi, Nairobi, Kenya",
+      description: "Minutes from JKIA and the SGR — easy drive-in for bottle pickups and bowser dispatches.",
+      lat: -1.3191,
+      lng: 36.8804,
+    },
+    {
+      label: "Shop",
+      address: "Maziwa, Kahawa West, Nairobi",
+      mapQuery: "Maziwa, Kahawa West, Nairobi, Kenya",
+      description: "Visit our shop in Kahawa West for walk-in purchases and inquiries.",
+      lat: -1.2345,
+      lng: 36.8900,
+    },
+  ],
   whatsappPrimary: "254718013391",
   phones: [
     { label: "Sales & Orders", value: "0718 013 391", raw: "+254718013391" },

@@ -9,7 +9,7 @@ import { QuoteButton } from "@/components/quote/QuoteButton";
 
 const features = [
   "Food-grade tankers, 5,000L – 10,000L+ per trip",
-  "Ideal for construction, events, institutions & commercial sites",
+  "Ideal for homes,estates, institutions & commercial sites",
   "Scheduled or emergency same-day dispatch in Nairobi",
   "Driver-assisted offloading with food-grade hose",
   "Volume, trip and monthly-contract billing options",
@@ -29,7 +29,7 @@ export function BowserSection() {
             </h2>
             <p className="mt-5 text-[15px] leading-relaxed text-slate-700">
               When a bottle won&apos;t cut it, our bowsers roll in. Limah Soft Water is clean,
-              treated soft water delivered in volume — for construction sites topping up tanks, hotels and
+              treated soft water delivered in volume — for homes, institutions, construction sites, estates, hotels and
               events pushing through peak season, and institutions bridging supply gaps.
             </p>
             <ul className="mt-7 space-y-3.5">

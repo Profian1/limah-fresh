@@ -9,7 +9,7 @@ import { QuoteButton } from "@/components/quote/QuoteButton";
 
 const features = [
   "Food-grade tankers, 5,000L – 10,000L+ per trip",
-  "Ideal for homes,estates, institutions & commercial sites",
+  "Ideal for homes, estates, institutions & commercial sites",
   "Scheduled or emergency same-day dispatch in Nairobi",
   "Driver-assisted offloading with food-grade hose",
   "Volume, trip and monthly-contract billing options",

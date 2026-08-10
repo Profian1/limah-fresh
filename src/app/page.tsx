@@ -388,13 +388,13 @@ export default function HomePage() {
     <>
       <Hero />
       <TrustRibbon />
-      <Featured />
       <Services />
+      <Featured />
+      <CtaBand />
       <GalleryPreview />
       <WhyChooseUs />
       <Clients />
       <StatsBand />
-      <CtaBand />
       <Testimonials />
     </>
   );

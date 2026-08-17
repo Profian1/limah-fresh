@@ -75,8 +75,7 @@ function LogoCard({
   const prefersReducedMotion = usePrefersReducedMotion();
 
   const getTilt = useCallback(() => {
-    if (prefersReducedMotion.current || !sectionRect || !mouseInSection)
-      return "";
+    if (prefersReducedMotion || !sectionRect || !mouseInSection) return "";
     const cx = sectionRect.left + sectionRect.width / 2;
     const cy = sectionRect.top + sectionRect.height / 2;
     const rotX = ((mousePos.y - cy) / sectionRect.height) * -6;
@@ -84,7 +83,7 @@ function LogoCard({
     const clampedX = Math.max(-3, Math.min(3, rotX));
     const clampedY = Math.max(-3, Math.min(3, rotY));
     return `perspective(600px) rotateX(${clampedX.toFixed(2)}deg) rotateY(${clampedY.toFixed(2)}deg)`;
-  }, [sectionRect, mouseInSection, mousePos]);
+  }, [prefersReducedMotion, sectionRect, mouseInSection, mousePos]);
 
   const scale = logo.scale;
   const w = Math.round(130 * scale);

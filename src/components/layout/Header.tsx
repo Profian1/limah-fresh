@@ -21,9 +21,10 @@ export function Header() {
   }, []);
 
   useEffect(() => {
-    const id = window.setTimeout(() => setOpen(false), 0);
-    return () => window.clearTimeout(id);
-  }, [pathname]);
+    const onPopState = () => setOpen(false);
+    window.addEventListener("popstate", onPopState);
+    return () => window.removeEventListener("popstate", onPopState);
+  }, []);
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
@@ -152,6 +153,7 @@ export function Header() {
               <Link
                 key={link.href}
                 href={link.href}
+                onClick={() => setOpen(false)}
                 style={{ transitionDelay: `${80 + i * 60}ms` }}
                 className={`group flex items-center justify-between rounded-2xl px-4 py-3.5 text-lg font-bold transition-all duration-500 ${
                   open ? "translate-x-0 opacity-100" : "translate-x-8 opacity-0"

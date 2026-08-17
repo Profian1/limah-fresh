@@ -133,7 +133,7 @@ function Card({
   const prefersReducedMotion = usePrefersReducedMotion();
 
   const handleMouseMove = useCallback((e: React.MouseEvent) => {
-    if (prefersReducedMotion.current || !cardRef.current) return;
+    if (prefersReducedMotion || !cardRef.current) return;
     const rect = cardRef.current.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
@@ -147,7 +147,7 @@ function Card({
     setGlow(
       `radial-gradient(circle at ${((x / rect.width) * 100).toFixed(1)}% ${((y / rect.height) * 100).toFixed(1)}%, rgba(0,180,216,0.12) 0%, transparent 60%)`,
     );
-  }, []);
+  }, [prefersReducedMotion]);
 
   const handleMouseEnter = useCallback((e: React.MouseEvent) => {
     if (!cardRef.current) return;

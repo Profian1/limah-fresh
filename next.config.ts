@@ -32,7 +32,7 @@ const nextConfig: NextConfig = {
           { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=()" },
           {
             key: "Content-Security-Policy",
-            value: "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https://images.pexels.com https://maps.googleapis.com; connect-src 'self' https://wa.me; font-src 'self' https://fonts.gstatic.com; frame-src https://www.google.com;",
+            value: "default-src 'self'; base-uri 'self'; object-src 'none'; form-action 'self'; frame-ancestors 'none'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https://images.pexels.com https://maps.googleapis.com; connect-src 'self'; font-src 'self' https://fonts.gstatic.com; frame-src https://www.google.com;",
           },
         ],
       },

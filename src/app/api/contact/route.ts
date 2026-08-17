@@ -1,46 +1,57 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
 import { createLogger } from "@/lib/logger";
-import { sanitize, validateToken, checkRateLimit, extractIp } from "@/lib/security";
+import {
+  sanitize,
+  validateToken,
+  checkRateLimit,
+  extractIp,
+  isPost,
+  methodNotAllowed,
+  readJsonBody,
+} from "@/lib/security";
 import { sendContactEmails } from "@/lib/email";
 import type { ContactEmailData } from "@/lib/email/types";
 
 const log = createLogger("api/contact");
 
-const contactSchema = z.object({
-  name: z
-    .string()
-    .trim()
-    .min(2, "Please enter your name.")
-    .max(120)
-    .transform(sanitize),
-  email: z
-    .string()
-    .trim()
-    .email("Please enter a valid email address.")
-    .max(160)
-    .transform(sanitize),
-  phone: z
-    .string()
-    .trim()
-    .max(20)
-    .optional()
-    .or(z.literal(""))
-    .transform((v) => (v ? sanitize(v) : v)),
-  subject: z.string().trim().min(2).max(120).transform(sanitize),
-  message: z
-    .string()
-    .trim()
-    .min(5, "Please write a short message.")
-    .max(2000)
-    .transform(sanitize),
-  csrf_token: z.string(),
-  _website: z.string().optional(),
-});
+const contactSchema = z
+  .object({
+    name: z
+      .string()
+      .trim()
+      .min(2, "Please enter your name.")
+      .max(120)
+      .transform(sanitize),
+    email: z
+      .string()
+      .trim()
+      .email("Please enter a valid email address.")
+      .max(160)
+      .transform(sanitize),
+    phone: z
+      .string()
+      .trim()
+      .max(20)
+      .optional()
+      .or(z.literal(""))
+      .transform((v) => (v ? sanitize(v) : v)),
+    subject: z.string().trim().min(2).max(120).transform(sanitize),
+    message: z
+      .string()
+      .trim()
+      .min(5, "Please write a short message.")
+      .max(2000)
+      .transform(sanitize),
+    csrf_token: z.string().min(1).max(128),
+    _website: z.string().max(500).optional(),
+  })
+  .strict();
 
 export async function POST(req: Request) {
-  const ip = extractIp(req);
+  if (!isPost(req)) return methodNotAllowed();
 
+  const ip = extractIp(req);
   const rateCheck = checkRateLimit(ip);
   if (!rateCheck.allowed) {
     log.warn("Rate limit exceeded", { ip });
@@ -50,9 +61,11 @@ export async function POST(req: Request) {
     );
   }
 
+  const body = await readJsonBody(req);
+  if (!body.ok) return body.response;
+
   try {
-    const body = await req.json();
-    const parsed = contactSchema.safeParse(body);
+    const parsed = contactSchema.safeParse(body.data);
 
     if (!parsed.success) {
       return NextResponse.json(
@@ -93,7 +106,9 @@ export async function POST(req: Request) {
 
     return NextResponse.json({ ok: true });
   } catch (err) {
-    log.error("Contact submission failed", { error: String(err) });
+    log.error("Contact submission failed", {
+      error: err instanceof Error ? err.message : String(err),
+    });
     return NextResponse.json(
       {
         error:

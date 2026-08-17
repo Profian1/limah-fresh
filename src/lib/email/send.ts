@@ -3,7 +3,17 @@ import { smtpTransport } from "./transport";
 import { adminContactEmail } from "./templates/admin-contact";
 import { adminQuoteEmail } from "./templates/admin-quote";
 import { customerConfirmationEmail } from "./templates/customer-confirmation";
-import type { ContactEmailData, QuoteEmailData, ConfirmationData, EmailMessage } from "./types";
+import {
+  contactPlainText,
+  quotePlainText,
+  confirmationPlainText,
+} from "./plain-text";
+import type {
+  ContactEmailData,
+  QuoteEmailData,
+  ConfirmationData,
+  EmailMessage,
+} from "./types";
 
 const log = createLogger("email/send");
 const ADMIN_EMAIL = process.env.ADMIN_EMAIL || "info@limahfresh.co.ke";
@@ -37,7 +47,9 @@ async function sendDualEmail(
   results.forEach((result, i) => {
     const label = labels[i];
     if (result.status === "rejected") {
-      log.error(`${label} failed`, { error: String(result.reason) });
+      log.error(`${label} failed`, {
+        error: result.reason instanceof Error ? result.reason.message : String(result.reason),
+      });
     } else if (!result.value.success) {
       log.warn(`${label} not sent`);
     } else {
@@ -55,9 +67,19 @@ export function sendContactEmails(data: ContactEmailData) {
     );
 
     await sendDualEmail(
-      { to: ADMIN_EMAIL, subject: "New Contact Form Submission", html: adminHtml },
+      {
+        to: ADMIN_EMAIL,
+        subject: "New Contact Form Submission",
+        html: adminHtml,
+        text: contactPlainText(data),
+      },
       data.email
-        ? { to: data.email, subject: "Thank You for Contacting Limah Fresh", html: customerHtml }
+        ? {
+            to: data.email,
+            subject: "Thank You for Contacting Limah Fresh",
+            html: customerHtml,
+            text: confirmationPlainText(data.name, "contact"),
+          }
         : null,
       "contact",
     );
@@ -73,9 +95,19 @@ export function sendQuoteEmails(data: QuoteEmailData) {
     );
 
     await sendDualEmail(
-      { to: ADMIN_EMAIL, subject: `New Quote Request — ${data.reference}`, html: adminHtml },
+      {
+        to: ADMIN_EMAIL,
+        subject: `New Quote Request — ${data.reference}`,
+        html: adminHtml,
+        text: quotePlainText(data),
+      },
       data.email
-        ? { to: data.email, subject: "Thank You for Your Quote Request — Limah Fresh", html: customerHtml }
+        ? {
+            to: data.email,
+            subject: "Thank You for Your Quote Request — Limah Fresh",
+            html: customerHtml,
+            text: confirmationPlainText(data.name, "quote"),
+          }
         : null,
       "quote",
     );

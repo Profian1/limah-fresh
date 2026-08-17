@@ -3,11 +3,28 @@ import { z } from "zod";
 import { randomUUID } from "crypto";
 import { serviceLabel } from "@/lib/site";
 import { createLogger } from "@/lib/logger";
-import { sanitize, validateToken, checkRateLimit, extractIp } from "@/lib/security";
+import {
+  sanitize,
+  validateToken,
+  checkRateLimit,
+  extractIp,
+  isPost,
+  methodNotAllowed,
+  readJsonBody,
+} from "@/lib/security";
 import { sendQuoteEmails } from "@/lib/email";
 import type { QuoteEmailData } from "@/lib/email/types";
 
 const log = createLogger("api/quote");
+
+const SERVICE_TYPES = [
+  "bowser",
+  "dispenser_maintenance",
+  "delivery_contract",
+  "bulk_bottled",
+  "branded_water",
+  "general",
+] as const;
 
 function optionalText(max: number) {
   return z
@@ -19,57 +36,53 @@ function optionalText(max: number) {
     .transform((v) => (v ? sanitize(v) : v));
 }
 
-const quoteSchema = z.object({
-  serviceType: z
-    .string()
-    .trim()
-    .refine(
-      (v) =>
-        [
-          "bowser",
-          "dispenser_maintenance",
-          "delivery_contract",
-          "bulk_bottled",
-          "branded_water",
-          "general",
-        ].includes(v),
-      { message: "Please choose a valid service type." },
-    ),
-  name: z
-    .string()
-    .trim()
-    .min(2, "Please enter your name.")
-    .max(120)
-    .transform(sanitize),
-  company: optionalText(160),
-  phone: z
-    .string()
-    .trim()
-    .min(7, "Please enter a valid phone number.")
-    .max(20)
-    .transform(sanitize),
-  email: z
-    .union([
-      z.literal(""),
-      z
-        .string()
-        .trim()
-        .email("Please enter a valid email.")
-        .max(160)
-        .transform(sanitize),
-    ])
-    .optional(),
-  location: optionalText(200),
-  volume: optionalText(80),
-  deliveryDate: optionalText(40),
-  message: optionalText(1000),
-  csrf_token: z.string(),
-  _website: z.string().optional(),
-});
+const quoteSchema = z
+  .object({
+    serviceType: z
+      .string()
+      .trim()
+      .refine(
+        (v): v is (typeof SERVICE_TYPES)[number] =>
+          (SERVICE_TYPES as readonly string[]).includes(v),
+        { message: "Please choose a valid service type." },
+      ),
+    name: z
+      .string()
+      .trim()
+      .min(2, "Please enter your name.")
+      .max(120)
+      .transform(sanitize),
+    company: optionalText(160),
+    phone: z
+      .string()
+      .trim()
+      .min(7, "Please enter a valid phone number.")
+      .max(20)
+      .transform(sanitize),
+    email: z
+      .union([
+        z.literal(""),
+        z
+          .string()
+          .trim()
+          .email("Please enter a valid email.")
+          .max(160)
+          .transform(sanitize),
+      ])
+      .optional(),
+    location: optionalText(200),
+    volume: optionalText(80),
+    deliveryDate: optionalText(40),
+    message: optionalText(1000),
+    csrf_token: z.string().min(1).max(128),
+    _website: z.string().max(500).optional(),
+  })
+  .strict();
 
 export async function POST(req: Request) {
-  const ip = extractIp(req);
+  if (!isPost(req)) return methodNotAllowed();
 
+  const ip = extractIp(req);
   const rateCheck = checkRateLimit(ip);
   if (!rateCheck.allowed) {
     log.warn("Rate limit exceeded", { ip });
@@ -79,9 +92,11 @@ export async function POST(req: Request) {
     );
   }
 
+  const body = await readJsonBody(req);
+  if (!body.ok) return body.response;
+
   try {
-    const body = await req.json();
-    const parsed = quoteSchema.safeParse(body);
+    const parsed = quoteSchema.safeParse(body.data);
 
     if (!parsed.success) {
       return NextResponse.json(
@@ -146,7 +161,9 @@ export async function POST(req: Request) {
       whatsAppSummary: lines.join("\n"),
     });
   } catch (err) {
-    log.error("Quote submission failed", { error: String(err) });
+    log.error("Quote submission failed", {
+      error: err instanceof Error ? err.message : String(err),
+    });
     return NextResponse.json(
       {
         error:

@@ -1,3 +1,4 @@
+import { escapeHtml } from "@/lib/security";
 import type { ConfirmationData } from "../types";
 import { emailShell } from "./shared";
 
@@ -19,7 +20,7 @@ export function customerConfirmationEmail(
       ? "We have successfully received your quote request."
       : "We have successfully received your message.";
 
-  const content = `<h2 style="margin:0 0 12px;font-size:18px;font-weight:700;color:${TEXT};font-family:system-ui,-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;">Hello ${data.name},</h2>
+  const content = `<h2 style="margin:0 0 12px;font-size:18px;font-weight:700;color:${TEXT};font-family:system-ui,-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;">Hello ${escapeHtml(data.name)},</h2>
 <p style="margin:0 0 8px;font-size:15px;color:${MUTED};line-height:1.6;">Thank you for contacting <strong style="color:${TEXT};">Limah Fresh</strong>.</p>
 <p style="margin:0 0 8px;font-size:15px;color:${MUTED};line-height:1.6;">${greetingLine} Our team is currently reviewing your submission, and a member of our customer service team will contact you shortly.</p>
 

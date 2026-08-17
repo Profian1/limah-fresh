@@ -1,3 +1,5 @@
+import { escapeHtml } from "@/lib/security";
+
 const BRAND_BLUE = "#0077b6";
 const NAVY = "#023e8a";
 const WHITE = "#ffffff";
@@ -17,11 +19,11 @@ export function emailShell({ title, preheader, content }: EmailShell): string {
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>${title}</title>
+  <title>${escapeHtml(title)}</title>
   <!--[if mso]><noscript><xml><o:OfficeDocumentSettings><o:PixelsPerInch>96</o:PixelsPerInch></o:OfficeDocumentSettings></xml></noscript><![endif]-->
 </head>
 <body style="margin:0;padding:0;background-color:${BODY_BG};font-family:system-ui,-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;">
-  <span style="display:none;font-size:1px;color:${BODY_BG};max-height:0;overflow:hidden;">${preheader}</span>
+  <span style="display:none;font-size:1px;color:${BODY_BG};max-height:0;overflow:hidden;">${escapeHtml(preheader)}</span>
 
   <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:${BODY_BG};">
     <tr>
@@ -86,9 +88,9 @@ export function emailShell({ title, preheader, content }: EmailShell): string {
 }
 
 export function fieldRow(label: string, value: string): string {
-  const display = value || "\u2014";
+  const display = value ? escapeHtml(value) : "\u2014";
   return `<tr>
-    <td style="padding:8px 0;border-bottom:1px solid #e2e8f0;font-size:13px;font-weight:700;color:${TEXT};vertical-align:top;width:130px;">${label}</td>
+    <td style="padding:8px 0;border-bottom:1px solid #e2e8f0;font-size:13px;font-weight:700;color:${TEXT};vertical-align:top;width:130px;">${escapeHtml(label)}</td>
     <td style="padding:8px 0;border-bottom:1px solid #e2e8f0;font-size:14px;color:${TEXT};line-height:1.5;">${display}</td>
   </tr>`;
 }
@@ -97,7 +99,7 @@ export function button(href: string, label: string): string {
   return `<table role="presentation" cellpadding="0" cellspacing="0" style="margin-top:20px;">
     <tr>
       <td align="center" bgcolor="${BRAND_BLUE}" style="border-radius:8px;">
-        <a href="${href}" target="_blank" style="display:inline-block;padding:12px 28px;font-size:14px;font-weight:700;color:${WHITE};text-decoration:none;border-radius:8px;font-family:system-ui,-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;">${label}</a>
+        <a href="${escapeHtml(href)}" target="_blank" style="display:inline-block;padding:12px 28px;font-size:14px;font-weight:700;color:${WHITE};text-decoration:none;border-radius:8px;font-family:system-ui,-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;">${escapeHtml(label)}</a>
       </td>
     </tr>
   </table>`;

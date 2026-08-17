@@ -21,7 +21,8 @@ export function Header() {
   }, []);
 
   useEffect(() => {
-    setOpen(false);
+    const id = window.setTimeout(() => setOpen(false), 0);
+    return () => window.clearTimeout(id);
   }, [pathname]);
 
   useEffect(() => {

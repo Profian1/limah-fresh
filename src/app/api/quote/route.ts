@@ -1,8 +1,6 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
 import { randomUUID } from "crypto";
-import { db } from "@/db";
-import { quoteRequests } from "@/db/schema";
 import { serviceLabel } from "@/lib/site";
 import { createLogger } from "@/lib/logger";
 import { sanitize, validateToken, checkRateLimit, extractIp } from "@/lib/security";
@@ -106,19 +104,6 @@ export async function POST(req: Request) {
     }
 
     const reference = `LF-${randomUUID().slice(0, 8).toUpperCase()}`;
-
-    await db.insert(quoteRequests).values({
-      reference,
-      serviceType: d.serviceType,
-      name: d.name,
-      company: d.company || null,
-      phone: d.phone,
-      email: d.email || null,
-      location: d.location || null,
-      volume: d.volume || null,
-      deliveryDate: d.deliveryDate || null,
-      message: d.message || null,
-    });
 
     const lines = [
       `Hello Limah Fresh, I just submitted quote request ${reference} on your website.`,

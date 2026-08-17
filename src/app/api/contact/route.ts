@@ -1,7 +1,5 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
-import { db } from "@/db";
-import { inquiries } from "@/db/schema";
 import { createLogger } from "@/lib/logger";
 import { sanitize, validateToken, checkRateLimit, extractIp } from "@/lib/security";
 import { sendContactEmails } from "@/lib/email";
@@ -75,14 +73,6 @@ export async function POST(req: Request) {
         { status: 403 },
       );
     }
-
-    await db.insert(inquiries).values({
-      name: d.name,
-      email: d.email,
-      phone: d.phone || null,
-      subject: d.subject,
-      message: d.message,
-    });
 
     const timestamp = new Date().toLocaleString("en-KE", {
       timeZone: "Africa/Nairobi",

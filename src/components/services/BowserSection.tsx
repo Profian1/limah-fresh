@@ -25,7 +25,8 @@ export function BowserSection() {
               <Truck className="h-3.5 w-3.5" /> Service 01
             </span>
             <h2 className="font-display mt-5 text-3xl font-extrabold tracking-tight text-navy sm:text-5xl">
-              Bulk Water Bowsers — <span className="text-gradient-deep">"Limah Soft Water"</span>
+              Bulk Water Bowsers —{" "}
+              <span className="text-gradient-deep">&ldquo;Limah Soft Water&rdquo;</span>
             </h2>
             <p className="mt-5 text-[15px] leading-relaxed text-slate-700">
               When a bottle won&apos;t cut it, our bowsers roll in. Limah Soft Water is clean,

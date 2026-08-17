@@ -312,7 +312,7 @@ function Testimonials() {
               <figure className="relative flex h-full flex-col rounded-3xl border border-mist/70 bg-gradient-to-b from-ice to-white p-5 transition-all duration-500 hover:-translate-y-1.5 hover:shadow-xl hover:shadow-aqua/10 sm:p-6 md:p-8">
                 <Quote className="h-8 w-8 text-aqua/50" />
                 <blockquote className="mt-4 flex-1 text-sm leading-relaxed text-slate-700">
-                  "{t.quote}"
+                  &ldquo;{t.quote}&rdquo;
                 </blockquote>
                 <figcaption className="mt-6 border-t border-mist pt-4">
                   <p className="font-display text-sm font-bold text-navy">

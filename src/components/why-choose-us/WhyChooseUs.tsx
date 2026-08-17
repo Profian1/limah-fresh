@@ -65,36 +65,52 @@ const CARDS = [
   },
 ];
 
+const FLOATING_BUBBLES = [
+  { width: 62, height: 62, left: "12%", delay: "1.2s", duration: "9s" },
+  { width: 84, height: 84, left: "28%", delay: "3.4s", duration: "11s" },
+  { width: 48, height: 48, left: "47%", delay: "5.1s", duration: "8.5s" },
+  { width: 74, height: 74, left: "66%", delay: "7.2s", duration: "12s" },
+  { width: 56, height: 56, left: "81%", delay: "2.6s", duration: "9.5s" },
+  { width: 90, height: 90, left: "93%", delay: "6.4s", duration: "13s" },
+];
+
+const FLOATING_RINGS = [
+  { width: 142, height: 142, left: "16%", top: "28%", delay: "0.8s", duration: "7s" },
+  { width: 196, height: 196, left: "42%", top: "52%", delay: "1.9s", duration: "8s" },
+  { width: 164, height: 164, left: "68%", top: "20%", delay: "3.1s", duration: "6.5s" },
+  { width: 220, height: 220, left: "84%", top: "62%", delay: "2.4s", duration: "9s" },
+];
+
 function FloatingBubbles() {
   return (
     <div
       className="pointer-events-none absolute inset-0 overflow-hidden"
       aria-hidden="true"
     >
-      {[...Array(6)].map((_, i) => (
+      {FLOATING_BUBBLES.map((bubble) => (
         <span
-          key={i}
+          key={`${bubble.left}-${bubble.width}`}
           className="absolute rounded-full bg-aqua/8"
           style={{
-            width: `${40 + Math.random() * 80}px`,
-            height: `${40 + Math.random() * 80}px`,
-            left: `${5 + Math.random() * 90}%`,
-            animationDelay: `${Math.random() * 9}s`,
-            animationDuration: `${8 + Math.random() * 6}s`,
+            width: `${bubble.width}px`,
+            height: `${bubble.height}px`,
+            left: bubble.left,
+            animationDelay: bubble.delay,
+            animationDuration: bubble.duration,
           }}
         />
       ))}
-      {[...Array(4)].map((_, i) => (
+      {FLOATING_RINGS.map((ring) => (
         <span
-          key={`r-${i}`}
+          key={`${ring.left}-${ring.width}`}
           className="absolute rounded-full border border-aqua/12"
           style={{
-            width: `${100 + Math.random() * 160}px`,
-            height: `${100 + Math.random() * 160}px`,
-            left: `${10 + Math.random() * 80}%`,
-            top: `${15 + Math.random() * 70}%`,
-            animationDelay: `${Math.random() * 4}s`,
-            animationDuration: `${5 + Math.random() * 4}s`,
+            width: `${ring.width}px`,
+            height: `${ring.height}px`,
+            left: ring.left,
+            top: ring.top,
+            animationDelay: ring.delay,
+            animationDuration: ring.duration,
           }}
         />
       ))}

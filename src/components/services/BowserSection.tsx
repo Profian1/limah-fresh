@@ -62,7 +62,7 @@ export function BowserSection() {
             <div className="relative">
               <div className="overflow-hidden rounded-[2rem] shadow-2xl shadow-navy/20 ring-1 ring-mist">
                 <Image
-                  src="/bowser.jpeg"
+                  src="/bowser.webp"
                   alt="Limah Soft Water tanker bowser ready for delivery"
                   width={1600}
                   height={1067}

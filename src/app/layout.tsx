@@ -68,7 +68,7 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: "/limah-fresh.svg",
-    apple: "/limahfresh-logo.png",
+    apple: "/limah-fresh.svg",
   },
   manifest: "/site.webmanifest",
   formatDetection: {
@@ -94,7 +94,7 @@ const jsonLd = {
       name: SITE.name,
       legalName: "Limah E.A. Limited",
       url: siteUrl,
-      logo: `${siteUrl}/limahfresh-logo.png`,
+      logo: `${siteUrl}/limah-fresh.svg`,
       foundingDate: "2013-11-20",
       description: siteDescription,
       sameAs: [
@@ -115,7 +115,7 @@ const jsonLd = {
       "@type": "LocalBusiness",
       "@id": `${siteUrl}/#localbusiness-plant`,
       name: `${SITE.name} — Company & Plant`,
-      image: `${siteUrl}/limahfresh-logo.png`,
+      image: `${siteUrl}/limah-fresh.svg`,
       parentOrganization: { "@id": `${siteUrl}/#organization` },
       address: {
         "@type": "PostalAddress",
@@ -156,7 +156,7 @@ const jsonLd = {
       "@type": "LocalBusiness",
       "@id": `${siteUrl}/#localbusiness-shop`,
       name: `${SITE.name} — Shop`,
-      image: `${siteUrl}/limahfresh-logo.png`,
+      image: `${siteUrl}/limah-fresh.svg`,
       parentOrganization: { "@id": `${siteUrl}/#organization` },
       address: {
         "@type": "PostalAddress",

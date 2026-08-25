@@ -24,7 +24,7 @@ export function MaintenanceSection() {
             <div className="relative">
               <div className="overflow-hidden rounded-[2rem] shadow-2xl shadow-deep/40 ring-1 ring-white/10">
                 <Image
-                  src="/dispenser-maintenance.png"
+                  src="/dispenser-maintenance.webp"
                   alt="Technician-serviced office water dispenser in use"
                   width={1600}
                   height={1067}

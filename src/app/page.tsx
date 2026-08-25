@@ -32,7 +32,7 @@ function Hero() {
       <section className="relative flex min-h-screen flex-col justify-end overflow-hidden bg-deep md:hidden">
         {/* Full-bleed mobile hero image */}
         <Image
-          src="/mobile-hero-background.png"
+          src="/mobile-hero-background.webp"
           alt="Limah Fresh pure water"
           fill
           priority
@@ -93,7 +93,7 @@ function Hero() {
       {/* ── DESKTOP / TABLET layout (≥ 768px): full-bleed background, unchanged ── */}
       <section className="relative hidden min-h-screen items-center overflow-hidden bg-deep md:flex">
         <Image
-          src="/hero background.png"
+          src="/hero background.webp"
           alt=""
           fill
           priority
@@ -335,7 +335,7 @@ function CtaBand() {
   return (
     <section className="relative overflow-hidden px-4 py-16 xs:px-6 sm:py-20 md:py-24">
       <Image
-        src="/bowser.jpeg"
+        src="/bowser.webp"
         alt=""
         fill
         className="object-cover opacity-90"

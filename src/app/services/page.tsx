@@ -32,7 +32,7 @@ export const metadata: Metadata = {
 function PageHero() {
   return (
     <section className="relative overflow-hidden bg-deep">
-      <Image src="/bowser.jpeg" alt="" fill priority className="object-cover opacity-60" sizes="100vw" />
+      <Image src="/bowser.webp" alt="" fill priority className="object-cover opacity-60" sizes="100vw" />
       <div className="absolute inset-0 bg-gradient-to-r from-deep/80 via-navy/60 to-brand/25" />
       <div className="relative z-10 mx-auto max-w-7xl px-6 pb-20 pt-16 sm:pb-24">
         <Reveal>

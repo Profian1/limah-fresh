@@ -1,0 +1,16 @@
+{
+  "name": "Limah Fresh — Pure Drinking Water",
+  "short_name": "Limah Fresh",
+  "description": "KEBS-certified purified drinking water in Nairobi. Bottled water 500ml–20L, water dispensers, bulk bowser supply & dispenser maintenance.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#00AEEF",
+  "icons": [
+    {
+      "src": "/limahfresh-logo.png",
+      "sizes": "160x64",
+      "type": "image/png"
+    }
+  ]
+}

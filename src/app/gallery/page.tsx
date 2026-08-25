@@ -26,43 +26,43 @@ export const metadata: Metadata = {
 };
 
 const FEATURED_PROJECTS = [
-  { src: "/ourbowsers.jpeg", alt: "Limah Fresh fleet of water bowsers", aspect: "aspect-[16/9]" },
-  { src: "/custom-branded-water.png", alt: "Custom branded water bottles for a corporate event", aspect: "aspect-[3/4]" },
-  { src: "/dispenser-maintenance.png", alt: "Office water dispenser maintenance in progress", aspect: "aspect-[4/3]" },
-  { src: "/team6.jpeg", alt: "Limah Fresh water delivery personnel in action", aspect: "aspect-[4/3]" },
-  { src: "/WhatsApp Image 2026-07-27 at 12.24.37 PM (3).jpeg", alt: "Limah Fresh project delivery", aspect: "aspect-[3/4]" },
-  { src: "/24packenh.png", alt: "Shrink-wrapped 24-packs of Limah Fresh water", aspect: "aspect-[4/5]" },
-  { src: "/bowser.jpeg", alt: "Limah Soft Water bowser delivery", aspect: "aspect-[16/9]" },
+  { src: "/ourbowsers.webp", alt: "Limah Fresh fleet of water bowsers", aspect: "aspect-[16/9]" },
+  { src: "/custom-branded-water.webp", alt: "Custom branded water bottles for a corporate event", aspect: "aspect-[3/4]" },
+  { src: "/dispenser-maintenance.webp", alt: "Office water dispenser maintenance in progress", aspect: "aspect-[4/3]" },
+  { src: "/team6.webp", alt: "Limah Fresh water delivery personnel in action", aspect: "aspect-[4/3]" },
+  { src: "/WhatsApp Image 2026-07-27 at 12.24.37 PM (3).webp", alt: "Limah Fresh project delivery", aspect: "aspect-[3/4]" },
+  { src: "/24packenh.webp", alt: "Shrink-wrapped 24-packs of Limah Fresh water", aspect: "aspect-[4/5]" },
+  { src: "/bowser.webp", alt: "Limah Soft Water bowser delivery", aspect: "aspect-[16/9]" },
 ];
 
 const WORKSHOP_FACILITIES = [
-  { src: "/company.jpeg", alt: "Limah Fresh company premises", aspect: "aspect-[16/9]" },
-  { src: "/front.jpeg", alt: "Front exterior of Limah Fresh", aspect: "aspect-[16/9]" },
-  { src: "/operations.png", alt: "Inside the Limah Fresh purification facility", aspect: "aspect-video" },
-  { src: "/packed bottles.jpeg", alt: "Freshly packed bottles ready for dispatch", aspect: "aspect-square" },
-  { src: "/pack.jpeg", alt: "Shrink-wrapped Limah Fresh water crates", aspect: "aspect-[4/3]" },
-  { src: "/row.jpeg", alt: "Neat row of Limah Fresh water bottles", aspect: "aspect-video" },
-  { src: "/soft.jpeg", alt: "Limah Soft Water bottles", aspect: "aspect-[4/3]" },
-  { src: "/24 pack 2.jpeg", alt: "24-pack of purified water", aspect: "aspect-square" },
+  { src: "/company.webp", alt: "Limah Fresh company premises", aspect: "aspect-[16/9]" },
+  { src: "/front.webp", alt: "Front exterior of Limah Fresh", aspect: "aspect-[16/9]" },
+  { src: "/operations.webp", alt: "Inside the Limah Fresh purification facility", aspect: "aspect-video" },
+  { src: "/packed bottles.webp", alt: "Freshly packed bottles ready for dispatch", aspect: "aspect-square" },
+  { src: "/pack.webp", alt: "Shrink-wrapped Limah Fresh water crates", aspect: "aspect-[4/3]" },
+  { src: "/row.webp", alt: "Neat row of Limah Fresh water bottles", aspect: "aspect-video" },
+  { src: "/soft.webp", alt: "Limah Soft Water bottles", aspect: "aspect-[4/3]" },
+  { src: "/24 pack 2.webp", alt: "24-pack of purified water", aspect: "aspect-square" },
 ];
 
 const TEAM_IN_ACTION = [
-  { src: "/limahstaff.jpg", alt: "The Limah Fresh team ready to serve", aspect: "aspect-video" },
-  { src: "/happy client.jpeg", alt: "Happy Limah Fresh client", aspect: "aspect-[3/4]" },
-  { src: "/happy client 1.jpeg", alt: "Satisfied Limah Fresh customer", aspect: "aspect-square" },
-  { src: "/team1.jpg", alt: "Our delivery personnel out in the field", aspect: "aspect-square" },
-  { src: "/team2.jpg", alt: "Technical staff reviewing operations", aspect: "aspect-[3/4]" },
-  { src: "/team3.jpg", alt: "Quality control inspection", aspect: "aspect-[4/3]" },
-  { src: "/team4.jpeg", alt: "Customer service and dispatch team", aspect: "aspect-square" },
-  { src: "/team5.jpg", alt: "Loading water bowsers for a major project", aspect: "aspect-[4/5]" },
-  { src: "/team7.jpg", alt: "Team members collaborating", aspect: "aspect-[3/4]" },
-  { src: "/team8.jpg", alt: "Staff at the production line", aspect: "aspect-[4/3]" },
+  { src: "/limahstaff.webp", alt: "The Limah Fresh team ready to serve", aspect: "aspect-video" },
+  { src: "/happy client.webp", alt: "Happy Limah Fresh client", aspect: "aspect-[3/4]" },
+  { src: "/happy client 1.webp", alt: "Satisfied Limah Fresh customer", aspect: "aspect-square" },
+  { src: "/team1.webp", alt: "Our delivery personnel out in the field", aspect: "aspect-square" },
+  { src: "/team2.webp", alt: "Technical staff reviewing operations", aspect: "aspect-[3/4]" },
+  { src: "/team3.webp", alt: "Quality control inspection", aspect: "aspect-[4/3]" },
+  { src: "/team4.webp", alt: "Customer service and dispatch team", aspect: "aspect-square" },
+  { src: "/team5.webp", alt: "Loading water bowsers for a major project", aspect: "aspect-[4/5]" },
+  { src: "/team7.webp", alt: "Team members collaborating", aspect: "aspect-[3/4]" },
+  { src: "/team8.webp", alt: "Staff at the production line", aspect: "aspect-[4/3]" },
 ];
 
 function GalleryHero() {
   return (
     <section className="relative overflow-hidden bg-deep">
-      <Image src="/hero background.png" alt="" fill priority className="object-cover opacity-60" sizes="100vw" />
+      <Image src="/hero background.webp" alt="" fill priority className="object-cover opacity-60" sizes="100vw" />
       <div className="absolute inset-0 bg-gradient-to-r from-deep/90 via-navy/70 to-brand/30" />
       <div className="relative z-10 mx-auto flex max-w-7xl flex-col items-center text-center px-6 pb-20 pt-16 sm:pb-24">
         <Reveal>

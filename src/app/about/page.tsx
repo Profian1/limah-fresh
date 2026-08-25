@@ -100,7 +100,7 @@ function Story() {
           <div className="relative">
             <div className="overflow-hidden rounded-[2rem] shadow-2xl shadow-navy/20 ring-1 ring-mist">
               <Image
-                src="/limahstaff.jpg"
+                src="/limahstaff.webp"
                 alt="Limah Fresh staff team"
                 width={1600}
                 height={1067}
@@ -157,7 +157,7 @@ function Purification() {
   ];
   return (
     <section className="relative overflow-hidden bg-deep py-12 sm:py-16 md:py-20 xl:py-24">
-      <Image src="/operations.png" alt="" fill className="object-cover opacity-30" sizes="100vw" />
+      <Image src="/operations.webp" alt="" fill className="object-cover opacity-30" sizes="100vw" />
       <div className="absolute inset-0 bg-gradient-to-r from-deep/80 via-navy/60 to-brand/20" />
       <div className="relative mx-auto max-w-7xl px-6">
         <Reveal className="mb-16 text-center">
@@ -192,8 +192,8 @@ function Purification() {
 
 function GalleryCta() {
   const previewImages = [
-    { src: "/limahstaff.jpg", alt: "The Limah Fresh team ready to serve" },
-    { src: "/bowser.jpeg", alt: "Limah Soft Water bowser delivering to a construction site" },
+    { src: "/limahstaff.webp", alt: "The Limah Fresh team ready to serve" },
+    { src: "/bowser.webp", alt: "Limah Soft Water bowser delivering to a construction site" },
   ];
 
   return (

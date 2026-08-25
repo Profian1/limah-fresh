@@ -59,7 +59,7 @@ export function BrandedSection() {
           <Reveal direction="right">
             <div className="overflow-hidden rounded-[2rem] bg-white shadow-2xl shadow-navy/20 ring-1 ring-mist">
               <Image
-                src="/custom-branded-water.png"
+                src="/custom-branded-water.webp"
                 alt="Custom branded Limah Fresh water bottles"
                 width={1600}
                 height={1067}

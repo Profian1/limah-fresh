@@ -3,7 +3,7 @@ import Image from "next/image";
 export function Logo({ compact = false }: { dark?: boolean; compact?: boolean }) {
   return (
     <Image
-      src="/limahfresh-logo.png"
+      src="/limah-fresh.svg"
       alt="Limah Fresh"
       width={compact ? 120 : 160}
       height={compact ? 48 : 64}

@@ -1,8 +1,9 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  output: "standalone",
   allowedDevOrigins: [
-    "https://limah-fresh.com",
+    "https://limah-fresh.co.ke",
     "https://olive-landowner-fraternal.ngrok-free.dev",
     ...(process.env.TUNNEL_ORIGIN ? [process.env.TUNNEL_ORIGIN] : []),
   ],

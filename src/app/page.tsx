@@ -21,8 +21,6 @@ const WhyChooseUs = dynamicImport(() => import("@/components/why-choose-us/WhyCh
 const Clients = dynamicImport(() => import("@/components/clients/Clients").then((m) => ({ default: m.Clients })));
 const GalleryPreview = dynamicImport(() => import("@/components/gallery/GalleryPreview").then((m) => ({ default: m.GalleryPreview })));
 
-export const dynamic = "force-dynamic";
-
 /* ---------------------------------- hero ---------------------------------- */
 
 function Hero() {
@@ -348,7 +346,7 @@ function CtaBand() {
           <div className="pointer-events-none absolute -left-24 -top-24 h-72 w-72 rounded-full bg-white/10 blur-3xl" />
           <Truck className="mx-auto h-12 w-12 text-white" />
           <h2 className="font-display mx-auto mt-6 max-w-3xl text-2xl font-extrabold leading-tight tracking-tight text-white xs:text-3xl sm:text-4xl md:text-5xl">
-            Need Bulk Water for Construction, Events or Commercial Use?
+            Need Bulk Water for Homes, Institutions, Estates, Hotels or Commercial Use?
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-sm leading-relaxed text-white/90 sm:text-base">
             Limah Soft Water bowsers deliver clean soft water across Nairobi —

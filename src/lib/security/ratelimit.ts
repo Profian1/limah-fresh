@@ -38,15 +38,12 @@ export function checkRateLimit(ip: string): {
   allowed: boolean;
   remaining: number;
 } {
-  if (!ip || ip === "unknown") {
-    return { allowed: false, remaining: 0 };
-  }
-
+  const key = ip || "unknown";
   const now = Date.now();
-  const entry = store.get(ip);
+  const entry = store.get(key);
 
   if (!entry || now - entry.windowStart >= WINDOW_MS) {
-    store.set(ip, { count: 1, windowStart: now });
+    store.set(key, { count: 1, windowStart: now });
     return { allowed: true, remaining: MAX_REQUESTS - 1 };
   }
 

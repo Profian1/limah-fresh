@@ -38,7 +38,7 @@ export function QuoteForm({
     fetch("/api/csrf")
       .then((r) => r.json())
       .then((d) => setCsrfToken(d.token))
-      .catch(() => {});
+      .catch(() => setError("Could not initialise the form. Please refresh the page."));
   }, []);
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {

@@ -7,8 +7,6 @@ import { Reveal } from "@/components/ui/Reveal";
 import { WaveDivider } from "@/components/art/WaveDivider";
 import { ProductCatalog } from "@/components/product/ProductCatalog";
 
-export const dynamic = "force-dynamic";
-
 export const metadata: Metadata = {
   title: "Products Catalog",
   description:

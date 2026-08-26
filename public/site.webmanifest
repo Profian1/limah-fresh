@@ -8,9 +8,9 @@
   "theme_color": "#00AEEF",
   "icons": [
     {
-      "src": "/limahfresh-logo.png",
-      "sizes": "160x64",
-      "type": "image/png"
+      "src": "/limah-fresh.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
     }
   ]
 }

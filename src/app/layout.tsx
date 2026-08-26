@@ -17,7 +17,7 @@ const siteDescription =
   "Limah Fresh by Limah E.A. Limited — KEBS-certified purified drinking water in Nairobi. Bottled water 500ml–20L, water dispensers, bulk bowser supply (Limah Soft Water), dispenser maintenance and scheduled home & office delivery.";
 const siteUrl = "https://limahfresh.co.ke";
 const ogImage = {
-  url: "/og-image.png",
+  url: "/company.webp",
   width: 1200,
   height: 630,
   alt: `${SITE.name} — ${SITE.slogan}`,

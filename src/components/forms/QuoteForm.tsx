@@ -1,6 +1,4 @@
-"use client";
-
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { CheckCircle2, Loader2, Send } from "lucide-react";
 import { SERVICE_TYPES, waLink, SITE } from "@/lib/site";
 import { WhatsAppIcon } from "@/components/art/icons";
@@ -19,6 +17,8 @@ interface QuoteResult {
   summary: string;
 }
 
+const API_BASE = import.meta.env.VITE_API_URL || "/backend/api";
+
 export function QuoteForm({
   defaultService = "bowser",
   accent = false,
@@ -32,14 +32,6 @@ export function QuoteForm({
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [result, setResult] = useState<QuoteResult | null>(null);
-  const [csrfToken, setCsrfToken] = useState("");
-
-  useEffect(() => {
-    fetch("/api/csrf")
-      .then((r) => r.json())
-      .then((d) => setCsrfToken(d.token))
-      .catch(() => setError("Could not initialise the form. Please refresh the page."));
-  }, []);
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -49,14 +41,14 @@ export function QuoteForm({
     const data = Object.fromEntries(new FormData(form).entries());
 
     try {
-      const res = await fetch("/api/quote", {
+      const res = await fetch(`${API_BASE}/send-email.php`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
+        body: JSON.stringify({ ...data, type: "quote" }),
       });
       const json = await res.json();
       if (!res.ok) {
-        setError(json.error ?? "Something went wrong. Please try again.");
+        setError(json.message ?? "Something went wrong. Please try again.");
         return;
       }
       setResult({ reference: json.reference, summary: json.whatsAppSummary });
@@ -150,7 +142,6 @@ export function QuoteForm({
         <input name="message" placeholder="Access notes, timing, site details…" className="field" />
       </div>
 
-      <input type="hidden" name="csrf_token" value={csrfToken} />
       <input
         name="_website"
         type="text"
@@ -166,7 +157,7 @@ export function QuoteForm({
       <div className="sm:col-span-2">
         <button
           type="submit"
-          disabled={loading || !csrfToken}
+          disabled={loading}
           className={`btn-sheen flex w-full items-center justify-center gap-2 rounded-full px-6 py-3.5 text-sm font-bold text-white shadow-lg transition hover:-translate-y-0.5 disabled:opacity-60 ${
             accent ? "bg-navy shadow-navy/30" : "bg-gradient-to-r from-brand to-aqua shadow-aqua/30"
           }`}

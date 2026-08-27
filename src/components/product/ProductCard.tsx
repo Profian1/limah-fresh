@@ -1,7 +1,4 @@
-"use client";
-
 import { memo } from "react";
-import Image from "next/image";
 import { Reveal } from "@/components/ui/Reveal";
 import { ProductArt } from "@/components/art/ProductArt";
 import { WhatsAppIcon } from "@/components/art/icons";
@@ -22,16 +19,13 @@ export const ProductCard = memo(function ProductCard({
   return (
     <Reveal delay={index * 100}>
       <article className="group relative flex h-full flex-col overflow-hidden rounded-[20px] border border-[rgba(0,174,239,0.08)] bg-white shadow-[0_8px_30px_rgba(0,0,0,0.04)] transition-all duration-300 ease-out hover:-translate-y-2 hover:border-[#00AEEF] hover:shadow-[0_20px_48px_rgba(0,174,239,0.12)]">
-        {/* Product image */}
         <div className="relative w-full aspect-[4/5] overflow-hidden rounded-t-[20px] bg-gradient-to-b from-[#f8fcff] to-white flex items-center justify-center">
           {product.image ? (
-            <Image
+            <img
               src={product.image}
               alt={product.name}
-              fill
-              className="object-contain object-center p-2.5 transition-transform duration-300 group-hover:scale-105"
-              sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
-              priority={index < 4}
+              className="absolute inset-0 h-full w-full object-contain object-center p-2.5 transition-transform duration-300 group-hover:scale-105"
+              loading={index < 4 ? "eager" : "lazy"}
             />
           ) : (
             <div className="flex items-center justify-center w-full h-full p-4 transition-transform duration-300 group-hover:scale-105">
@@ -43,9 +37,7 @@ export const ProductCard = memo(function ProductCard({
           )}
         </div>
 
-        {/* Body */}
         <div className="flex flex-1 flex-col p-3 sm:p-4">
-          {/* Name + volume */}
           <div>
             <h3 className="text-[13px] leading-snug font-bold text-[#102A43] sm:text-[15px]">
               {product.name}
@@ -57,7 +49,6 @@ export const ProductCard = memo(function ProductCard({
             )}
           </div>
 
-          {/* Pricing */}
           <div className="mt-auto pt-3">
             <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-slate-500">
               {product.packPrice ? "Starting From" : "Price"}
@@ -71,7 +62,6 @@ export const ProductCard = memo(function ProductCard({
               </p>
             )}
 
-            {/* Order button */}
             <a
               href={href}
               target="_blank"

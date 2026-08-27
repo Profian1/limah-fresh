@@ -1,0 +1,7 @@
+{
+  "name": "limah-fresh/backend",
+  "description": "Limah Fresh PHP email backend",
+  "require": {
+    "phpmailer/phpmailer": "^6.9"
+  }
+}

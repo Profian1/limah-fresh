@@ -1,7 +1,4 @@
-"use client";
-
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { Link, useLocation } from "react-router-dom";
 import { Home, Info, Package, Truck, Phone, Image as ImageIcon } from "lucide-react";
 
 const NAV_ITEMS = [
@@ -14,7 +11,7 @@ const NAV_ITEMS = [
 ];
 
 export function MobileNav() {
-  const pathname = usePathname();
+  const pathname = useLocation().pathname;
 
   return (
     <nav className="fixed bottom-0 inset-x-0 z-[65] border-t border-mist bg-white/90 backdrop-blur-xl shadow-lg shadow-navy/10 md:hidden">
@@ -25,7 +22,7 @@ export function MobileNav() {
           return (
             <Link
               key={item.href}
-              href={item.href}
+              to={item.href}
               className={`flex flex-col items-center gap-0.5 py-2.5 px-3 transition ${
                 active ? "text-brand" : "text-slate-500 hover:text-navy"
               }`}

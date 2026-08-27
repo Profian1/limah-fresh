@@ -1,5 +1,3 @@
-"use client";
-
 import { useState, useEffect } from "react";
 import { CheckCircle2, Loader2, Mail } from "lucide-react";
 
@@ -12,18 +10,12 @@ const SUBJECTS = [
   "Feedback",
 ];
 
+const API_BASE = import.meta.env.VITE_API_URL || "/backend/api";
+
 export function ContactForm() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [done, setDone] = useState(false);
-  const [csrfToken, setCsrfToken] = useState("");
-
-  useEffect(() => {
-    fetch("/api/csrf")
-      .then((r) => r.json())
-      .then((d) => setCsrfToken(d.token))
-      .catch(() => setError("Could not initialise the form. Please refresh the page."));
-  }, []);
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -32,14 +24,14 @@ export function ContactForm() {
     const form = e.currentTarget;
     const data = Object.fromEntries(new FormData(form).entries());
     try {
-      const res = await fetch("/api/contact", {
+      const res = await fetch(`${API_BASE}/send-email.php`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
+        body: JSON.stringify({ ...data, type: "contact" }),
       });
       const json = await res.json();
       if (!res.ok) {
-        setError(json.error ?? "Something went wrong. Please try again.");
+        setError(json.message ?? "Something went wrong. Please try again.");
         return;
       }
       setDone(true);
@@ -111,7 +103,6 @@ export function ContactForm() {
       {error && (
         <p className="sm:col-span-2 rounded-xl bg-red-50 px-4 py-3 text-sm font-medium text-red-600">{error}</p>
       )}
-      <input type="hidden" name="csrf_token" value={csrfToken} />
       <input
         name="_website"
         type="text"
@@ -123,7 +114,7 @@ export function ContactForm() {
       <div className="sm:col-span-2">
         <button
           type="submit"
-          disabled={loading || !csrfToken}
+          disabled={loading}
           className="btn-sheen flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-brand to-aqua px-6 py-3.5 text-sm font-bold text-white shadow-lg shadow-aqua/30 transition hover:-translate-y-0.5 disabled:opacity-60"
         >
           {loading ? <Loader2 className="h-4 w-4 animate-spin" /> : <Mail className="h-4 w-4" />}

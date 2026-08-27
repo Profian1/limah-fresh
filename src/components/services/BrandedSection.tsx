@@ -1,6 +1,3 @@
-"use client";
-
-import Image from "next/image";
 import { CheckCircle2, Gift } from "lucide-react";
 import { waLink } from "@/lib/site";
 import { Reveal } from "@/components/ui/Reveal";
@@ -58,13 +55,10 @@ export function BrandedSection() {
           </Reveal>
           <Reveal direction="right">
             <div className="overflow-hidden rounded-[2rem] bg-white shadow-2xl shadow-navy/20 ring-1 ring-mist">
-              <Image
+              <img
                 src="/custom-branded-water.webp"
                 alt="Custom branded Limah Fresh water bottles"
-                width={1600}
-                height={1067}
                 className="w-full aspect-[3/2] object-contain p-6 transition-transform duration-700 hover:scale-105"
-                sizes="(max-width: 1024px) 100vw, 50vw"
                 loading="lazy"
               />
             </div>

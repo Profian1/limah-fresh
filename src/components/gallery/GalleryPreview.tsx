@@ -1,8 +1,5 @@
-"use client";
-
 import { useState } from "react";
-import Image from "next/image";
-import Link from "next/link";
+import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { Reveal } from "@/components/ui/Reveal";
 import { Lightbox } from "@/components/gallery/Lightbox";
@@ -33,7 +30,6 @@ export function GalleryPreview() {
           </p>
         </Reveal>
 
-        {/* Photo collage grid */}
         <div className="grid grid-cols-2 gap-3 md:grid-cols-6 md:gap-5 auto-rows-[minmax(160px,auto)]">
           {IMAGES.map((img, i) => (
             <Reveal key={i} delay={i * 60} className={`col-span-1 ${img.span}`}>
@@ -44,12 +40,10 @@ export function GalleryPreview() {
                 onClick={() => setLightboxIndex(i)}
                 onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); setLightboxIndex(i); } }}
               >
-                <Image
+                <img
                   src={img.src}
                   alt={img.alt}
-                  fill
-                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                  sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                  className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                   loading="lazy"
                 />
                 <div className="absolute inset-0 flex items-center justify-center bg-deep/0 transition-colors duration-500 group-hover:bg-deep/30">
@@ -72,7 +66,7 @@ export function GalleryPreview() {
 
         <Reveal className="mt-12 text-center">
           <Link
-            href="/gallery"
+            to="/gallery"
             className="btn-sheen group inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-brand to-aqua px-8 py-4 text-sm font-bold text-white shadow-xl shadow-aqua/25 transition hover:-translate-y-0.5"
           >
             View Full Gallery

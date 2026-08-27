@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { Link } from "react-router-dom";
 import { Clock, Mail, MapPin, Phone } from "lucide-react";
 import { Logo } from "@/components/art/Logo";
 import { WhatsAppIcon } from "@/components/art/icons";
@@ -40,7 +40,7 @@ export function Footer() {
             <ul className="mt-5 space-y-3 text-sm">
               {NAV_LINKS.map((l) => (
                 <li key={l.href}>
-                  <Link href={l.href} className="text-mist/75 transition hover:text-white">
+                  <Link to={l.href} className="text-mist/75 transition hover:text-white">
                     {l.label}
                   </Link>
                 </li>
@@ -53,7 +53,7 @@ export function Footer() {
             <ul className="mt-5 space-y-3 text-sm">
               {productLinks.map((l) => (
                 <li key={l.href}>
-                  <Link href={l.href} className="text-mist/75 transition hover:text-white">
+                  <Link to={l.href} className="text-mist/75 transition hover:text-white">
                     {l.label}
                   </Link>
                 </li>

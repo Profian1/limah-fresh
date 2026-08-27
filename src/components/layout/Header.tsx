@@ -1,8 +1,5 @@
-"use client";
-
 import { useEffect, useState } from "react";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { Link, useLocation } from "react-router-dom";
 import { Mail, Menu, Phone, X } from "lucide-react";
 import { Logo } from "@/components/art/Logo";
 import { WhatsAppIcon, TikTokIcon, InstagramIcon, FacebookIcon } from "@/components/art/icons";
@@ -11,7 +8,7 @@ import { NAV_LINKS, SITE, SOCIALS, waLink, generalInquiryMessage } from "@/lib/s
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
-  const pathname = usePathname();
+  const pathname = useLocation().pathname;
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -78,7 +75,7 @@ export function Header() {
         }`}
       >
         <div className="mx-auto flex h-[72px] max-w-7xl items-center justify-between gap-4 px-4 sm:px-6">
-          <Link href="/" aria-label="Limah Fresh home" className="rounded-2xl bg-deep/95 px-4 py-1.5">
+          <Link to="/" aria-label="Limah Fresh home" className="rounded-2xl bg-deep/95 px-4 py-1.5">
             <Logo />
           </Link>
 
@@ -86,7 +83,7 @@ export function Header() {
             {NAV_LINKS.map((link) => (
               <Link
                 key={link.href}
-                href={link.href}
+                to={link.href}
                 className={`nav-link text-[13.5px] font-semibold tracking-wide transition ${
                   pathname === link.href ? "active text-brand" : "text-ink/80 hover:text-navy"
                 }`}
@@ -152,7 +149,7 @@ export function Header() {
             {NAV_LINKS.map((link, i) => (
               <Link
                 key={link.href}
-                href={link.href}
+                to={link.href}
                 onClick={() => setOpen(false)}
                 style={{ transitionDelay: `${80 + i * 60}ms` }}
                 className={`group flex items-center justify-between rounded-2xl px-4 py-3.5 text-lg font-bold transition-all duration-500 ${

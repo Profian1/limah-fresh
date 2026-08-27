@@ -1,6 +1,3 @@
-"use client";
-
-import Image from "next/image";
 import { CheckCircle2, ClipboardList, Truck } from "lucide-react";
 import { waLink, bowserMessage, SITE } from "@/lib/site";
 import { Reveal } from "@/components/ui/Reveal";
@@ -61,13 +58,10 @@ export function BowserSection() {
           <Reveal direction="right">
             <div className="relative">
               <div className="overflow-hidden rounded-[2rem] shadow-2xl shadow-navy/20 ring-1 ring-mist">
-                <Image
+                <img
                   src="/bowser.webp"
                   alt="Limah Soft Water tanker bowser ready for delivery"
-                  width={1600}
-                  height={1067}
                   className="w-full aspect-[3/2] object-cover transition-transform duration-700 hover:scale-105"
-                  sizes="(max-width: 1024px) 100vw, 50vw"
                   loading="lazy"
                 />
                 <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-deep/90 to-transparent p-7 pt-20">

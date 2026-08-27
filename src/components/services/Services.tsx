@@ -1,6 +1,5 @@
 import { ArrowRight, Droplets } from "lucide-react";
-import Image from "next/image";
-import Link from "next/link";
+import { Link } from "react-router-dom";
 import { Reveal } from "@/components/ui/Reveal";
 
 const CARDS = [
@@ -50,7 +49,6 @@ export function Services() {
   return (
     <section className="bg-white py-12 sm:py-16 md:py-20 lg:py-24 xl:py-28">
       <div className="mx-auto max-w-7xl px-6">
-        {/* Section heading */}
         <Reveal className="mb-16 text-center">
           <p className="text-xs font-bold uppercase tracking-[0.3em] text-[#00AEEF]">
             Our Services
@@ -58,8 +56,6 @@ export function Services() {
           <h2 className="mt-3 text-2xl font-extrabold tracking-tight text-[#102A43] xs:text-3xl sm:text-4xl md:text-5xl">
             What We Do
           </h2>
-
-          {/* Decorative divider */}
           <div className="mx-auto mt-6 flex items-center justify-center gap-3">
             <span
               className="h-[2px] flex-1"
@@ -85,7 +81,6 @@ export function Services() {
           </div>
         </Reveal>
 
-        {/* Grid */}
         <div className="grid grid-cols-2 gap-3 xs:gap-4 md:auto-rows-[320px] lg:grid-cols-3 lg:gap-8 lg:auto-rows-[380px]">
           {CARDS.map((card, i) => (
             <Reveal
@@ -94,24 +89,19 @@ export function Services() {
               className={card.gridClasses}
             >
               <Link
-                href={card.href}
+                to={card.href}
                 className="group/card relative flex min-h-[280px] h-full flex-col justify-end overflow-hidden rounded-[28px] bg-[#EAF4FA] transition-all duration-350 ease-out hover:-translate-y-2 hover:shadow-[0_24px_48px_rgba(0,0,0,0.12)] xs:min-h-[320px]"
               >
-                <Image
+                <img
                   src={card.image}
                   alt={card.alt}
-                  fill
-                  className="object-cover transition-transform duration-500 ease-out group-hover/card:scale-105"
-                  sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw"
+                  className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 ease-out group-hover/card:scale-105"
                   loading="lazy"
                 />
-
-                {/* Text + CTA bar with local overlay */}
                 <div className="relative z-10 p-6 lg:p-8 bg-gradient-to-t from-black/70 via-black/55 to-transparent">
                   <h3 className="text-lg leading-snug font-bold text-white lg:text-xl">
                     {card.title}
                   </h3>
-
                   <span className="mt-3 inline-flex items-center gap-1.5 rounded-[10px] bg-[#00AEEF] px-5 py-2.5 text-xs font-bold text-white shadow-lg shadow-[#00AEEF]/30 transition-all duration-300 ease-out group-hover/card:-translate-y-0.5 group-hover/card:shadow-xl group-hover/card:shadow-[#00AEEF]/40">
                     {card.cta}
                     <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 ease-out group-hover/card:translate-x-1" />

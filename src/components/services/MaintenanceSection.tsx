@@ -1,6 +1,3 @@
-"use client";
-
-import Image from "next/image";
 import { CheckCircle2, Sparkles, Wrench } from "lucide-react";
 import { waLink } from "@/lib/site";
 import { Reveal } from "@/components/ui/Reveal";
@@ -23,13 +20,10 @@ export function MaintenanceSection() {
           <Reveal direction="left" className="order-2 lg:order-1">
             <div className="relative">
               <div className="overflow-hidden rounded-[2rem] shadow-2xl shadow-deep/40 ring-1 ring-white/10">
-                <Image
+                <img
                   src="/dispenser-maintenance.webp"
                   alt="Technician-serviced office water dispenser in use"
-                  width={1600}
-                  height={1067}
                   className="w-full aspect-[3/2] object-cover transition-transform duration-700 hover:scale-105"
-                  sizes="(max-width: 1024px) 100vw, 50vw"
                   loading="lazy"
                 />
               </div>

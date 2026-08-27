@@ -1,7 +1,5 @@
-"use client";
-
 import { useMemo, useState } from "react";
-import { useSearchParams } from "next/navigation";
+import { useSearchParams } from "react-router-dom";
 import { LayoutGrid, Droplets, CupSoda, Package } from "lucide-react";
 import { ProductCard } from "./ProductCard";
 import { type ProductData } from "@/data/products";
@@ -14,7 +12,7 @@ const TABS = [
 ];
 
 export function ProductCatalog({ products }: { products: ProductData[] }) {
-  const params = useSearchParams();
+  const [params] = useSearchParams();
   const initial = params.get("cat");
   const [tab, setTab] = useState(
     TABS.some((t) => t.value === initial) ? (initial ?? "all") : "all",
@@ -28,7 +26,6 @@ export function ProductCatalog({ products }: { products: ProductData[] }) {
 
   return (
     <div>
-      {/* Filter tabs */}
       <div className="sticky top-[84px] z-40 -mx-2 px-2 py-3">
         <div className="mx-auto flex w-fit max-w-full flex-wrap items-center justify-center gap-1.5 rounded-full bg-white/85 p-1.5 shadow-lg shadow-navy/5 ring-1 ring-mist backdrop-blur-xl">
           {TABS.map((t) => {
@@ -58,7 +55,6 @@ export function ProductCatalog({ products }: { products: ProductData[] }) {
         {products.length} products
       </p>
 
-      {/* Grid */}
       <div
         key={tab}
         className="mt-6 grid grid-cols-2 gap-3 sm:gap-6 md:grid-cols-3 lg:grid-cols-4"

@@ -8,7 +8,7 @@
   "theme_color": "#00AEEF",
   "icons": [
     {
-      "src": "/limah-fresh.svg",
+      "src": "/limahfresh.svg",
       "sizes": "any",
       "type": "image/svg+xml"
     }

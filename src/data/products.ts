@@ -203,6 +203,79 @@ export function formatPrice(amount: number): string {
   return `KSh ${amount.toLocaleString("en-KE")}`;
 }
 
+/* ---------- Wholesale / Bulk pricing ---------- */
+
+export interface WholesalePricingRow {
+  packSize: string;
+  minimumOrder: string;
+  pricePerBottle: number;
+  pricePerCarton: number;
+  transport: string;
+}
+
+export const WHOLESALE_PRICING: WholesalePricingRow[] = [
+  {
+    packSize: "500ML – 24 bottles/carton",
+    minimumOrder: "10 cartons",
+    pricePerBottle: 18,
+    pricePerCarton: 432,
+    transport: "Free within Nairobi",
+  },
+  {
+    packSize: "1L – 12 bottles/carton",
+    minimumOrder: "10 cartons",
+    pricePerBottle: 25,
+    pricePerCarton: 280,
+    transport: "Free within Nairobi",
+  },
+  {
+    packSize: "1.5L – 6 bottles/carton",
+    minimumOrder: "10 cartons",
+    pricePerBottle: 35,
+    pricePerCarton: 210,
+    transport: "Free within Nairobi",
+  },
+  {
+    packSize: "5L – 4 bottles/carton",
+    minimumOrder: "10 cartons",
+    pricePerBottle: 75,
+    pricePerCarton: 280,
+    transport: "Free within Nairobi",
+  },
+  {
+    packSize: "10L – per bottle",
+    minimumOrder: "10 bottles",
+    pricePerBottle: 140,
+    pricePerCarton: 140,
+    transport: "Free within Nairobi",
+  },
+  {
+    packSize: "18.9L Refill – per bottle",
+    minimumOrder: "5 bottles",
+    pricePerBottle: 250,
+    pricePerCarton: 250,
+    transport: "Free within Nairobi",
+  },
+  {
+    packSize: "18.9L Soft Bottle",
+    minimumOrder: "5 bottles",
+    pricePerBottle: 350,
+    pricePerCarton: 350,
+    transport: "Free within Nairobi",
+  },
+  {
+    packSize: "18.9L Hard Bottle",
+    minimumOrder: "5 bottles",
+    pricePerBottle: 1400,
+    pricePerCarton: 1400,
+    transport: "Free within Nairobi",
+  },
+];
+
+export function getWholesalePricing(): WholesalePricingRow[] {
+  return WHOLESALE_PRICING;
+}
+
 /** Featured products (top N by sortOrder). */
 export function getFeaturedProducts(limit: number = 4): ProductData[] {
   return PRODUCTS.filter((p) => p.featured)

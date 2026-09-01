@@ -1,12 +1,14 @@
 import { Suspense } from "react";
 import { PHOTOS } from "@/lib/site";
-import { getAllProducts } from "@/data/products";
+import { getAllProducts, getWholesalePricing } from "@/data/products";
 import { Reveal } from "@/components/ui/Reveal";
 import { WaveDivider } from "@/components/art/WaveDivider";
 import { ProductCatalog } from "@/components/product/ProductCatalog";
+import { WholesalePricing } from "@/components/product/WholesalePricing";
 
 export default function ProductsPage() {
   const products = getAllProducts();
+  const wholesalePricing = getWholesalePricing();
 
   return (
     <>
@@ -41,6 +43,8 @@ export default function ProductsPage() {
           </Suspense>
         </div>
       </section>
+
+      <WholesalePricing pricing={wholesalePricing} />
     </>
   );
 }

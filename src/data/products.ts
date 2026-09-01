@@ -98,7 +98,7 @@ export const PRODUCTS: ProductData[] = [
     category: "bottled_water",
     volume: "10 L",
     badge: "Family Size",
-    unitPrice: 250,
+    unitPrice: 140,
     sortOrder: 5,
     featured: true,
   },
